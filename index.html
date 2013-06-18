@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="/css/pygment_trac.css"/>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script type="text/javascript" src="/js/script.js"></script>
+		<script type="text/javascript" src="/js/cpan.js"></script>
 		<title>Guillaume's Dashboard</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 	</head>
@@ -33,6 +34,28 @@
 							</a>
 							CPAN Distributions
 						</h3>
+						<table id="cpan_distributions">
+							<thead>
+								<th>Distribution</th>
+								<th>Current Version</th>
+								<th>Links</th>
+								<th>Build Status</th>
+								<th>Coverage</th>
+							</thead>
+							<tbody>
+								<tr style="display: none;" id="template_row">
+									<td class="distribution"><!-- Name of the distribution --></td>
+									<td class="version"><!-- Current version of the distribution --></td>
+									<td class="links">
+										<span class="github"><!-- GitHub link --></span>
+										<span class="metacpan"><!-- MetaCPAN link --></span>
+										<span class="cpants"><!-- CPANTS link --></span>
+									</td>
+									<td class="travis_status_badge"><!-- Travis CI - badge to indicate build status --></td>
+									<td class="coveralls_badge"><!-- Coveralls.io - badge to indicate test coverage percentage --></td>
+								</tr>
+							</tbody>
+						</table>
 					</article>
 				</div>
 			</div>
