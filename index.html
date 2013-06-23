@@ -10,10 +10,15 @@
 		<script type="text/javascript" src="/js/script.js"></script>
 		<script type="text/javascript" src="/js/cpan-distributions-list.min.js"></script>
 		<script>
-			$('#cpan_distributions').createDistributionsList(
+			$(document).ready(
+				function()
 				{
-					pause_id: "AUBERTG",
-					github_id: "guillaumeaubert",
+					$('#cpan_distributions').createDistributionsList(
+						{
+							pause_id: "AUBERTG",
+							github_id: "guillaumeaubert",
+						}
+					);
 				}
 			);
 		</script>
