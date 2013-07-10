@@ -584,3 +584,19 @@ footer .owner p a {
 #main table th {
 	font-size: 13px;
 }
+
+#main table .version {
+	120px;
+}
+#main table .links {
+	width: 200px;
+}
+#main table .github_open_issues {
+	width: 100px;
+}
+#main table .travis_status_badge {
+	width: 100px;;
+}
+#main table .coveralls_badge {
+	width: 100px;
+}
