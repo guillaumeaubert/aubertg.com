@@ -117,6 +117,10 @@ p.tagline {
 	margin-right: 30px;
 }
 
+.download-bar .inner img {
+	display: block;
+}
+
 .download-bar .watch-fork iframe {
   display: block;
   float: left;
