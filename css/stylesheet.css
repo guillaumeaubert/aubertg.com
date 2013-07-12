@@ -111,6 +111,12 @@ p.tagline {
   overflow: hidden;
 }
 
+.download-bar .inner a {
+  display: block;
+	float: left;
+	margin-right: 30px;
+}
+
 .download-bar .watch-fork iframe {
   display: block;
   float: left;
