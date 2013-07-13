@@ -111,6 +111,10 @@ p.tagline {
   overflow: hidden;
 }
 
+.download-bar .inner iframe {
+	margin-bottom: -7px;
+}
+
 .download-bar .inner a {
   display: block;
 	float: left;
