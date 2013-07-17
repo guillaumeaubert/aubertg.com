@@ -474,4 +474,6 @@ footer .owner p a {
 	border-style: solid;
 	border-color: white;
 	background-color: white;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
 }
