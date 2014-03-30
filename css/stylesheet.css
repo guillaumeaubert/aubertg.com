@@ -120,7 +120,17 @@ p.tagline {
 .download-bar .inner ul li#badge_coderwall {
 	padding-top: 3px;
 }
-
+.download-bar .inner ul li#badge_ohloh {
+	padding-top: 3px;
+}
+.download-bar .inner ul li#badge_ohloh a img {
+	border-width: 2px 3px;
+	border-style: solid;
+	border-color: white;
+	background-color: white;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
 .download-bar .blc {
   border: 10px solid black;
   border-color: transparent transparent black;
