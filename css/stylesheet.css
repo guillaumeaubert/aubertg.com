@@ -117,6 +117,9 @@ p.tagline {
 	float: left;
 	margin-right: 30px;
 }
+.download-bar .inner ul li#badge_coderwall {
+	padding-top: 3px;
+}
 
 .download-bar .blc {
   border: 10px solid black;
