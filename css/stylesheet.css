@@ -110,7 +110,12 @@ p.tagline {
 .download-bar .inner {
   overflow: hidden;
 }
-
+.download-bar .inner ul {
+	list-style-type: none;
+}
+.download-bar .inner ul li {
+	float: left;
+}
 .download-bar .inner iframe {
 	margin-bottom: -7px;
 }
