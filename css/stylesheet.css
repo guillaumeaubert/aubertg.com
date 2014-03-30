@@ -131,6 +131,9 @@ p.tagline {
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 }
+.download-bar .inner ul li#badge_flattr {
+	padding-top: 4px;
+}
 .download-bar .blc {
   border: 10px solid black;
   border-color: transparent transparent black;
