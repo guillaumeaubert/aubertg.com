@@ -134,9 +134,6 @@ p.tagline {
 .download-bar .inner ul li#badge_flattr {
 	padding-top: 4px;
 }
-.download-bar .inner ul li#badge_gittip {
-	padding-top: 5px;
-}
 .download-bar .blc {
   border: 10px solid black;
   border-color: transparent transparent black;
