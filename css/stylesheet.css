@@ -124,7 +124,7 @@ p.tagline {
 	padding-top: 4px;
 }
 .download-bar .inner ul li#badge_ohloh a img {
-	border-width: 2px 4px 3px 4px;
+	border-width: 3px 4px;
 	border-style: solid;
 	border-color: white;
 	background-color: white;
