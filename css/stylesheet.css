@@ -120,10 +120,10 @@ p.tagline {
 .download-bar .inner ul li#badge_coderwall {
 	padding-top: 3px;
 }
-.download-bar .inner ul li#badge_ohloh {
+.download-bar .inner ul li#badge_openhub {
 	padding-top: 4px;
 }
-.download-bar .inner ul li#badge_ohloh a img {
+.download-bar .inner ul li#badge_openhub a img {
 	border-width: 3px 4px;
 	border-style: solid;
 	border-color: white;
