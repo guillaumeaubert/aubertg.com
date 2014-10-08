@@ -1,129 +1,173 @@
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+/*******************************************************************************
+Slate Theme for GitHub Pages
+by Jason Costello, @jsncostello
+*******************************************************************************/
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
+@import url(normalize.css);
+@import url(pygment_trac.css);
 
-/* Style */
+
+/*******************************************************************************
+Theme Styles
+*******************************************************************************/
+
+*, *:before, *:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
 
 body {
-  font-size: 15px;
-  font-family: Arial, Arial, Helvetica, sans-serif;
-  line-height: 1.5;
-  background: #D1D1D1;
+	color:#373737;
+	background: #212121;
+	font-size: 14px;
+	font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+	margin: 10px 0;
+	font-weight: 700;
+	color:#222222;
+	font-family: 'Lucida Grande', 'Calibri', Helvetica, Arial, sans-serif;
+	letter-spacing: -1px;
+}
+
+h1 {
+	font-size: 36px;
+	font-weight: 700;
+}
+
+h2 {
+	padding-bottom: 10px;
+	font-size: 32px;
+	background: url('../images/bg_hr.png') repeat-x bottom;
+}
+
+h3 {
+	font-size: 24px;
 }
 
 a {
-  color: #63a52a;
-  text-decoration: none;
-  -webkit-transition: color ease-in-out 0.3s;
+	text-decoration: none;
+	color: #007edf;
+	text-shadow: none;
 }
 
-a:hover {
-  text-decoration: underline;
-  color: #90D355;
+a:hover, a:focus {text-decoration: underline;}
+
+table {
+	border: 1px solid #373737;
+	margin-bottom: 20px;
+	text-align: left;
 }
 
-h1.title {
-  margin: 30px 20px 10px;
-  font-size: 60px;
-  font-weight: bold;
-  font-style: italic;
-  font-family:Georgia, serif;
-  text-align: center;
+th {
+	font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	padding: 5px;
+	background: #373737;
+	color: #fff;
 }
 
-.wrapper {
-  width: 1000px;
-  margin: 0 auto;
+td {
+	padding: 5px;
+	border: 1px solid #373737;
 }
 
-#container {
-  border: 1px solid #2a2a2a;
-  background: #ddd url(../images/pattern.png);
-  box-shadow: 0 0 5px #b1b1b1;
+
+/*******************************************************************************
+Tables of Projects
+*******************************************************************************/
+
+#main_content_wrap table {
+	width: 100%;
+}
+#main_content_wrap table .version {
+	width: 90px;
+}
+#main_content_wrap table .links {
+	width: 200px;
+}
+#main_content_wrap table .github_open_issues {
+	width: 70px;
+}
+#main_content_wrap table .travis_status_badge {
+	width: 100px;;
+}
+#main_content_wrap table .coveralls_badge {
+	width: 100px;
 }
 
-p.tagline {
-  padding: 20px 20px 0;
-  color: #fff;
-  font-size: 17px;
+
+/*******************************************************************************
+Full-Width Styles
+*******************************************************************************/
+
+.outer {
+	width: 100%;
 }
 
-#main {
-  margin-top: 20px;
-  padding: 0 20px 90px;
-  background-color: #fff;
+.inner {
+	position: relative;
+	max-width: 1000px;
+	padding: 20px 10px;
+	margin: 0 auto;
 }
 
-.download-bar {
-  background: #222;
-  border: 5px solid #444;
-  padding: 10px;
-  margin: 0 -35px 20px;
-  position: relative;
+#forkme_banner {
+	display: block;
+	position: absolute;
+	top:0;
+	right: 10px;
+	z-index: 10;
+	padding: 10px 50px 10px 10px;
+	color: #fff;
+	background: url('../images/blacktocat.png') #0090ff no-repeat 95% 50%;
+	font-weight: 700;
+	box-shadow: 0 0 10px rgba(0,0,0,.5);
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
 }
 
-.download-bar .inner {
-  overflow: hidden;
+#header_wrap {
+	background: #212121;
 }
-.download-bar .inner ul {
+
+#header_wrap .inner {
+	padding: 50px 10px 30px 10px;
+}
+
+#project_title {
+	margin: 0;
+	color: #fff;
+	font-size: 42px;
+	font-weight: 700;
+	text-shadow: #111 0px 0px 10px;
+}
+
+#project_tagline {
+	color: #fff;
+	font-size: 24px;
+	font-weight: 300;
+	background: none;
+	text-shadow: #111 0px 0px 10px;
+}
+
+#footer_wrap .inner ul {
 	list-style-type: none;
 }
-.download-bar .inner ul li {
+#footer_wrap .inner ul li {
 	float: left;
 	margin-right: 30px;
 }
-.download-bar .inner ul li#badge_coderwall {
+#footer_wrap .inner ul li#badge_coderwall {
 	padding-top: 3px;
 }
-.download-bar .inner ul li#badge_openhub {
+#footer_wrap .inner ul li#badge_openhub {
 	padding-top: 4px;
 }
-.download-bar .inner ul li#badge_openhub a img {
+#footer_wrap .inner ul li#badge_openhub a img {
 	border-width: 3px 4px;
 	border-style: solid;
 	border-color: white;
@@ -131,349 +175,65 @@ p.tagline {
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 }
-.download-bar .inner ul li#badge_flattr {
+#footer_wrap .inner ul li#badge_flattr {
 	padding-top: 4px;
 }
-.download-bar .blc {
-  border: 10px solid black;
-  border-color: transparent transparent black;
-  width: 0;
-  height: 0;
-  display: block;
-  position: absolute;
-  bottom: -15px;
-  left: 0;
-  -moz-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+
+#main_content_wrap {
+	background: #f2f2f2;
+	border-top: 1px solid #111;
+	border-bottom: 1px solid #111;
 }
 
-.download-bar .trc {
-  border: 10px solid black;
-  border-color:  black transparent transparent;
-  width: 0;
-  height: 0;
-  display: block;
-  position: absolute;
-  top: -15px;
-  right: 0;
-  -moz-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+#main_content {
+	padding-top: 40px;
 }
 
-.download-bar .avatar {
-  border: 1px solid black;
-  display: block;
-  padding: 4px;
-  float: left;
+#footer_wrap {
+	background: #212121;
 }
 
-.download-bar .avatar img {
-  display: block;
+
+/*******************************************************************************
+Small Device Styles
+*******************************************************************************/
+
+@media screen and (max-width: 750px) {
+	table .version {
+		display: none;
+	}
 }
 
-.download-bar a.code {
-  background: transparent url(../images/code.png) no-repeat 0 2px;
-  padding-left: 35px;
-  margin-top: 8px;
-  display: block;
-  float: left;
-  text-indent: 0;
-  width: auto;
-  height: auto;
-  opacity: 1;
-  -moz-opacity: 1;
-  filter:alpha(opacity=1);
-}
+@media screen and (max-width: 670px) {
+	body {
+		font-size:14px;
+	}
 
-.current-section {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  width: 693px;
-  margin-left: -352px;
-  background: #222;
-  border: 5px solid #444;
-  color: #fff;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: opacity ease-in-out 0.3s;
-}
+	table .github_open_issues,
+	table .version,
+	table .coveralls_badge
+	{
+		display: none;
+	}
 
-.current-section p {
-  padding: 5px 27px;
-  font-size: 24px;
-  font-weight: bold;
-}
+	.inner {
+		min-width: 480px;
+		max-width: 670px;
+	}
 
-.current-section a {
-  float: right;
-  text-indent: -10000px;
-  background: transparent url(../images/top.png) no-repeat 0 0;
-  width: 20px;
-  height: 20px;
-  opacity: 0.8;
-  margin-right: 12px;
-  margin-top: 12px;
-  -moz-opacity: 0.8;
-  filter:alpha(opacity=8);
-  -webkit-transition: opacity ease-in-out 0.3s;
-}
+	#project_title {
+	font-size: 32px;
+	}
 
-.current-section a:hover {
-  opacity: 1;
-  -moz-opacity: 1;
-  filter:alpha(opacity=1);
-}
+	h1 {
+		font-size: 28px;
+	}
 
-a.code {
-  background: transparent url(../images/code.png) no-repeat 0 2px;
-  width: 30px;
-  height: 21px;
-  display: block;
-  opacity: 0.8;
-  display: inline-block;
-  text-indent: -10000px;
-  -moz-opacity: 0.8;
-  filter:alpha(opacity=8);
-  -webkit-transition: opacity ease-in-out 0.3s;
-}
+	h2 {
+		font-size: 24px;
+	}
 
-footer {
-  margin-bottom: 60px;
-  padding-bottom: 60px;
-}
-
-footer .owner {
-  background: #222;
-  border: 5px solid #444;
-  padding: 5px 15px;
-  margin: -67px -10px 35px;
-  color: #d6d6d6;
-}
-
-footer .creds small {
-  float: right;
-  font-size: 10px;
-  text-align: right;
-  margin-left: 15px;
-}
-
-footer .owner .avatar {
-  background-color: #666;
-  display: block;
-  margin: -19px 10px 0 0;
-  width: 60px;
-  float: left;
-}
-
-footer .owner img {
-  display: block;
-  border: 1px solid #2a2a2a;
-  margin: 5px;
-}
-
-footer .owner p {
-  font-family:Georgia, serif;
-}
-
-footer .owner p a {
-  font-size: 16px;
-  font-style: italic;
-}
-
-/* Markdown */
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3,
-.markdown-body h4,
-.markdown-body h5,
-.markdown-body h6,
-.markdown-body p,
-.markdown-body pre,
-.markdown-body ul,
-.markdown-body ol,
-.markdown-body dl,
-.markdown-body table,
-.markdown-body blockquote {
-  margin-bottom: 20px;
-}
-
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3,
-.markdown-body h4,
-.markdown-body h5,
-.markdown-body h6 {
-  font-weight: bold;
-}
-
-.markdown-body h1 {
-  font-size: 28px;
-}
-
-.markdown-body h2 {
-  font-size: 24px;
-  color: #557398;
-}
-
-.markdown-body h3 {
-  font-size: 20px;
-}
-
-.markdown-body h4 {
-  font-size: 18px;
-}
-
-.markdown-body h5 {
-  font-size: 16px;
-}
-
-.markdown-body pre {
-  padding: 10px 70px 10px 0;
-  margin-left: -20px;
-  margin-right: -20px;
-  font-family: 'Monaco', 'Lucida Console', monospace;
-  font-size: 13px;
-  line-height: 20px;
-  box-shadow: inset 0 0 5px #000;
-  word-wrap: break-word;
-  background-color:#3b3b3b;
-  color: #d6d6d6;
-}
-
-.markdown-body pre.lines {
-  font-size: 12px;
-  margin:0 10px 0 -20px;
-  padding: 10px;
-  float:  left;
-  display: block;
-  text-align: right;
-  box-shadow: none;
-  background-color:#2a2a2a;
-  color: #d6d6d6;
-}
-
-.markdown-body ul,
-.markdown-body ol {
-  padding-left: 30px;
-}
-
-.markdown-body ul {
-  list-style-type: disc;
-}
-
-.markdown-body li,
-.markdown-body li p,
-.markdown-body dd,
-.markdown-body dd p {
-  margin-bottom: 10px;
-}
-
-.markdown-body li pre,
-.markdown-body li pre.lines,
-.markdown-body dd pre,
-.markdown-body dd pre.lines {
-  margin-left: -35px;
-}
-
-.markdown-body dt {
-  font-weight: bold;
-  font-style: italic;
-}
-
-.markdown-body dd {
-  margin-left: 15px;
-}
-
-.markdown-body table {
-  width: 998px;
-  margin-left: -20px;
-  margin-right: -20px;
-}
-
-.markdown-body tbody {
-  border-top: 2px solid #557398;
-  border-bottom: 2px solid #557398;
-  background-color: #EBEFF4;
-}
-
-.markdown-body table td * {
-  margin: 0;
-}
-
-.markdown-body td {
-  border-right: 1px solid #557398;
-  border-bottom: 1px solid #557398;
-  padding: 5px;
-}
-
-.markdown-body td:first-child,
-.markdown-body th:first-child {
-  width: 30%;
-  padding-left: 20px;
-}
-
-.markdown-body td:last-child {
-  border-right: 0 none;
-}
-
-.markdown-body th {
-  font-size: 18px;
-  font-weight: bold;
-  text-align: left;
-  padding: 5px;
-}
-
-.markdown-body tt {
-  background-color:#3b3b3b;
-  color: #d6d6d6;
-  padding: 2px 3px;
-}
-
-.markdown-body blockquote {
-  font-style: italic;
-  font-family:Georgia, serif;
-  font-size: 17px;
-  border-top: 3px solid #333;
-  border-bottom: 3px solid #333;
-  padding: 10px 20px;
-  padding-left: 50px;
-}
-
-.markdown-body blockquote:before {
-  font-style: italic;
-  font-family: Georgia, serif;
-  font-size: 90px;
-  height: 90px;
-  margin-left: -60px;
-  margin-top: -25px;
-  content: "‟";
-  display: block;
-  float: left;
-}
-
-.markdown-body img {
-  max-width: 100%;
-  @include box-sizing(border-box);
-}
-
-#main table,
-#main table th {
-	font-size: 13px;
-}
-
-#main table .version {
-	120px;
-}
-#main table .links {
-	width: 200px;
-}
-#main table .github_open_issues {
-	width: 100px;
-}
-#main table .travis_status_badge {
-	width: 100px;;
-}
-#main table .coveralls_badge {
-	width: 100px;
+	h3 {
+		font-size: 21px;
+	}
 }

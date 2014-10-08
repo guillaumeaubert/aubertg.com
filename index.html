@@ -1,11 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<link rel="stylesheet" href="/css/stylesheet.css?v=2014100500" media="screen"/>
+		<meta charset='utf-8' />
+		<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-		<script type="text/javascript" src="/js/script.js"></script>
-		<script type="text/javascript" src="/js/cpan-distributions-list.min.js"></script>
+		<script type="text/javascript" src="http://guillaumeaubert.github.io//js/script.js"></script>
+		<script type="text/javascript" src="http://guillaumeaubert.github.io//js/cpan-distributions-list.min.js"></script>
 		<script>
 			$(document).ready(
 				function()
@@ -19,6 +20,7 @@
 				}
 			);
 		</script>
+
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-2001838-13']);
@@ -30,142 +32,131 @@
 				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
 		</script>
-		<title>Guillaume's Dashboard</title>
-		<meta name="viewport" content="width=device-width,initial-scale=1">
+
+		<meta name="description" content="A dashboard for Guillaume Aubert's open source projects" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/stylesheet.css">
+		<title>A dashboard for Guillaume Aubert's open source projects</title>
 	</head>
-	
+
 	<body>
-		<div class="wrapper">
-			<header>
-				<h1 class="title">Guillaume's Dashboard</h1>
+		<!-- HEADER -->
+		<div id="header_wrap" class="outer">
+			<header class="inner">
+				<a id="forkme_banner" href="https://github.com/guillaumeaubert/guillaumeaubert.github.io">View on GitHub</a>
+
+				<h1 id="project_title">Projects Dashboard</h1>
+				<h2 id="project_tagline">A dashboard for <a href="https://github.com/guillaumeaubert">Guillaume Aubert</a>'s open source projects</h2>
 			</header>
-			<div id="container">
-				<p class="tagline"></p>
-				<div id="main" role="main">
-					<div class="download-bar">
-						<div class="inner">
-							<ul>
-								<li id="badge_linkedin">
-									<!-- http://www.linkedin.com/profile/profile-badges -->
-									<a href="http://www.linkedin.com/in/aubertguillaume">
-										<img src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x25.png" width="160" height="25" alt="View Guillaume Aubert's profile on LinkedIn" />
-									</a>
-								</li>
-								<li id="badge_coderwall">
-									<a href="https://coderwall.com/guillaumeaubert">
-										<img alt="Endorse guillaumeaubert on Coderwall" src="https://api.coderwall.com/guillaumeaubert/endorsecount.png" width='110' height='20' />
-									</a>
-								</li>
-								<li id="badge_openhub">
-									<a href='https://www.openhub.net/accounts/30092?ref=Tiny'>
-										<img alt='Open Hub profile for Guillaume Aubert' border='0' height='15' src='https://www.openhub.net/accounts/30092/widgets/account_tiny.gif' width='80' />
-									</a>
-								</li>
-							</ul>
-						</div>
-						<span class="blc"></span><span class="trc"></span>
-					</div>
-					<article class="markdown-body">
-						<h3>
-							<a id="CPANDistributions" class="anchor" href="#CPANDistributions">
-								<span class="octicon octicon-link"></span>
-							</a>
-							CPAN Distributions
-						</h3>
-						<table id="cpan_distributions">
-							<thead>
-								<tr>
-									<th>Distribution</th>
-									<th>Current Version</th>
-									<th>Links</th>
-									<th>Open Issues</th>
-									<th>Build Status</th>
-									<th>Test Coverage</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr style="display: none;" class="template">
-									<td class="distribution"><!-- Name of the distribution --></td>
-									<td class="version"><!-- Current version of the distribution --></td>
-									<td class="links">
-										<span class="github"><!-- GitHub link --></span>
-										|
-										<span class="metacpan"><!-- MetaCPAN link --></span>
-										|
-										<span class="cpants"><!-- CPANTS link --></span>
-									</td>
-									<td class="github_open_issues"><!-- Count of issues and link to GitHub -->?</td>
-									<td class="travis_status_badge"><!-- Travis CI - badge to indicate build status --></td>
-									<td class="coveralls_badge"><!-- Coveralls.io - badge to indicate test coverage percentage --></td>
-								</tr>
-							</tbody>
-						</table>
-						
-						<h3>
-							<a id="JQueryPlugins" class="anchor" href="#JQueryPlugins">
-								<span class="octicon octicon-link"></span>
-							</a>
-							JQuery Plugins
-						</h3>
-						
-						<table id="jquery_plugins">
-							<thead>
-								<tr>
-									<th>Plugin</th>
-									<th>Current Version</th>
-									<th>Links</th>
-									<th>Open Issues</th>
-									<th>Build Status</th>
-									<th>Test Coverage</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td class="distribution">CPAN Distributions List</td>
-									<td class="version">v0.2.0</td>
-									<td class="links">
-										<span class="github">
-											<a href="https://github.com/guillaumeaubert/jquery-cpan-distributions-list">GitHub</a>
-										</span>
-										|
-										<span class="jquery_plugins">
-											<a href="http://plugins.jquery.com/cpan-distributions-list/">JQuery Plugins</a>
-										</span>
-									</td>
-									<td class="github_open_issues">
-										<a href="https://github.com/guillaumeaubert/jquery-cpan-distributions-list/issues">
-											0
-										</a>
-									</td>
-									<td class="travis_status_badge">
-										<a href="https://travis-ci.org/guillaumeaubert/jquery-cpan-distributions-list">
-											<img src="https://travis-ci.org/guillaumeaubert/jquery-cpan-distributions-list.png?branch=master" alt='Build Status' />
-										</a>
-									</td>
-									<td class="coveralls_badge">
-										<a href='https://coveralls.io/r/guillaumeaubert/jquery-cpan-distributions-list?branch=master'>
-											<img src='https://coveralls.io/repos/guillaumeaubert/jquery-cpan-distributions-list/badge.png?branch=master' alt='Coverage Status' />
-										</a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</article>
-				</div>
-			</div>
-			<footer>
-				<div class="owner">
-					<p>
-						<a href="https://github.com/guillaumeaubert" class="avatar">
-							<img src="/images/avatar.jpg" width="48" height="48" alt="Guillaume Aubert" />
+		</div>
+
+		<!-- MAIN CONTENT -->
+		<div id="main_content_wrap" class="outer">
+			<section id="main_content" class="inner">
+				<h3>
+					<a id="CPANDistributions" class="anchor" href="#CPANDistributions"></a>
+					CPAN Distributions
+				</h3>
+				<table id="cpan_distributions">
+					<thead>
+						<tr>
+							<th class="distribution">Distribution</th>
+							<th class="version">Version</th>
+							<th class="links">Links</th>
+							<th class="github_open_issues">Issues</th>
+							<th class="travis_status_badge">Status</th>
+							<th class="coveralls_badge">Tests</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr style="display: none;" class="template">
+							<td class="distribution"><!-- Name of the distribution --></td>
+							<td class="version"><!-- Current version of the distribution --></td>
+							<td class="links">
+								<span class="github"><!-- GitHub link --></span>
+								|
+								<span class="metacpan"><!-- MetaCPAN link --></span>
+								|
+								<span class="cpants"><!-- CPANTS link --></span>
+							</td>
+							<td class="github_open_issues"><!-- Count of issues and link to GitHub -->?</td>
+							<td class="travis_status_badge"><!-- Travis CI - badge to indicate build status --></td>
+							<td class="coveralls_badge"><!-- Coveralls.io - badge to indicate test coverage percentage --></td>
+						</tr>
+					</tbody>
+				</table>
+
+				<h3>
+					<a id="JQueryPlugins" class="anchor" href="#JQueryPlugins"></a>
+					JQuery Plugins
+				</h3>
+
+				<table id="jquery_plugins">
+					<thead>
+						<tr>
+							<th class="distribution">Plugin</th>
+							<th class="version">Version</th>
+							<th class="links">Links</th>
+							<th class="github_open_issues">Issues</th>
+							<th class="travis_status_badge">Status</th>
+							<th class="coveralls_badge">Tests</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="distribution">CPAN Distributions List</td>
+							<td class="version">v0.2.0</td>
+							<td class="links">
+								<span class="github">
+									<a href="https://github.com/guillaumeaubert/jquery-cpan-distributions-list">GitHub</a>
+								</span>
+								|
+								<span class="jquery_plugins">
+									<a href="http://plugins.jquery.com/cpan-distributions-list/">JQuery Plugins</a>
+								</span>
+							</td>
+							<td class="github_open_issues">
+								<a href="https://github.com/guillaumeaubert/jquery-cpan-distributions-list/issues">
+									0
+								</a>
+							</td>
+							<td class="travis_status_badge">
+								<a href="https://travis-ci.org/guillaumeaubert/jquery-cpan-distributions-list">
+									<img src="https://travis-ci.org/guillaumeaubert/jquery-cpan-distributions-list.png?branch=master" alt='Build Status' />
+								</a>
+							</td>
+							<td class="coveralls_badge">
+								<a href='https://coveralls.io/r/guillaumeaubert/jquery-cpan-distributions-list?branch=master'>
+									<img src='https://coveralls.io/repos/guillaumeaubert/jquery-cpan-distributions-list/badge.png?branch=master' alt='Coverage Status' />
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+		</div>
+
+		<!-- FOOTER	-->
+		<div id="footer_wrap" class="outer">
+			<footer class="inner">
+				<ul>
+					<li id="badge_linkedin">
+						<!-- http://www.linkedin.com/profile/profile-badges -->
+						<a href="http://www.linkedin.com/in/aubertguillaume">
+							<img src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x25.png" width="160" height="25" alt="View Guillaume Aubert's profile on LinkedIn" />
 						</a>
-						View <a href="https://github.com/guillaumeaubert">guillaumeaubert</a> on <a href="https://www.github.com">GitHub</a>
-					</p>
-				</div>
-				<div class="creds">
-					<small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br/>theme by <a href="http://twitter.com/jonrohan/">Jon Rohan</a></small>
-				</div>
+					</li>
+					<li id="badge_coderwall">
+						<a href="https://coderwall.com/guillaumeaubert">
+							<img alt="Endorse guillaumeaubert on Coderwall" src="https://api.coderwall.com/guillaumeaubert/endorsecount.png" width='110' height='20' />
+						</a>
+					</li>
+					<li id="badge_openhub">
+						<a href='https://www.openhub.net/accounts/30092?ref=Tiny'>
+							<img alt='Open Hub profile for Guillaume Aubert' border='0' height='15' src='https://www.openhub.net/accounts/30092/widgets/account_tiny.gif' width='80' />
+						</a>
+					</li>
+				</ul>
 			</footer>
 		</div>
-  </body>
+	</body>
 </html>
