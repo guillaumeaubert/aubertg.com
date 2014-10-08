@@ -177,11 +177,14 @@ Full-Width Styles
 	float: left;
 	margin-right: 30px;
 }
+#footer_wrap .inner ul li img {
+	display: block;
+}
 #footer_wrap .inner ul li#badge_coderwall {
 	padding-top: 3px;
 }
 #footer_wrap .inner ul li#badge_openhub {
-	padding-top: 4px;
+	padding-top: 3px;
 }
 #footer_wrap .inner ul li#badge_openhub a img {
 	border-width: 3px 4px;
