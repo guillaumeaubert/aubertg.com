@@ -170,7 +170,8 @@ Full-Width Styles
 
 #footer_wrap .inner ul {
 	list-style-type: none;
-	margin: 0px;
+	margin: 0px auto;
+	display: table;
 	overflow: auto;
 }
 #footer_wrap .inner ul li {
