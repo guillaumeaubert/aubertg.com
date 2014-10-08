@@ -154,6 +154,20 @@ Full-Width Styles
 	text-shadow: #111 0px 0px 10px;
 }
 
+#main_content_wrap {
+	background: #f2f2f2;
+	border-top: 1px solid #111;
+	border-bottom: 1px solid #111;
+}
+
+#main_content {
+	padding-top: 40px;
+}
+
+#footer_wrap {
+	background: #212121;
+}
+
 #footer_wrap .inner ul {
 	list-style-type: none;
 }
@@ -174,23 +188,6 @@ Full-Width Styles
 	background-color: white;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-}
-#footer_wrap .inner ul li#badge_flattr {
-	padding-top: 4px;
-}
-
-#main_content_wrap {
-	background: #f2f2f2;
-	border-top: 1px solid #111;
-	border-bottom: 1px solid #111;
-}
-
-#main_content {
-	padding-top: 40px;
-}
-
-#footer_wrap {
-	background: #212121;
 }
 
 
