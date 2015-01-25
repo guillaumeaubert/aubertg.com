@@ -212,6 +212,7 @@ Small Device Styles
 		font-size:14px;
 	}
 
+	table .cpan-testers,
 	table .github_open_issues,
 	table .version,
 	table .coveralls_badge
