@@ -164,6 +164,18 @@ Full-Width Styles
 	padding-top: 40px;
 }
 
+.distribution .cpan-testers-pass {
+	color: #009900;
+}
+
+.distribution .cpan-testers-fail {
+	color: #990000;
+}
+
+.distribution .cpan-testers-na {
+	color: #3366cc;
+}
+
 #footer_wrap {
 	background: #212121;
 }
