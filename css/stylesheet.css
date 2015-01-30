@@ -193,9 +193,6 @@ Full-Width Styles
 #footer_wrap .inner ul li img {
 	display: block;
 }
-#footer_wrap .inner ul li#badge_coderwall {
-	padding-top: 3px;
-}
 #footer_wrap .inner ul li#badge_openhub {
 	padding-top: 3px;
 }
