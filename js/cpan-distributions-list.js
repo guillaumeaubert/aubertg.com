@@ -1,4 +1,4 @@
-/*! CPAN Distributions List - v1.0.0 - 2015-01-24
+/*! CPAN Distributions List - v1.0.1 - 2015-04-20
 * https://github.com/guillaumeaubert/jquery-cpan-distributions-list
 * Copyright (c) 2015 Guillaume Aubert; Licensed GPLv3 */
 (
@@ -66,6 +66,9 @@
 							alert('MetaCPAN returned no distributions for this author!');
 							return;
 						}
+
+						// Display the number of distributions found.
+						$('.cpan_distributions_count').html( json.hits.total );
 
 						// Display each distribution.
 						json.hits.hits.forEach(
