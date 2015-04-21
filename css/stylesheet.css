@@ -115,6 +115,11 @@ Full-Width Styles
 	margin: 0 auto;
 }
 
+.count {
+	vertical-align: super;
+	font-size: smaller;
+}
+
 #forkme_banner {
 	display: block;
 	position: absolute;
