@@ -1,6 +1,6 @@
-/*! CPAN Distributions List - v1.0.1 - 2015-04-20
+/*! CPAN Distributions List - v1.0.2 - 2016-02-14
 * https://github.com/guillaumeaubert/jquery-cpan-distributions-list
-* Copyright (c) 2015 Guillaume Aubert; Licensed GPLv3 */
+* Copyright (c) 2016 Guillaume Aubert; Licensed GPLv3 */
 (
 	function($)
 	{
@@ -53,7 +53,7 @@
 					type: 'GET',
 					async: true,
 					dataType: "json",
-					url: "http://api.metacpan.org/v0/release/_search?q=author:"+settings.pause_id+"%20AND%20status:latest&fields=version,distribution,date,tests&size=100&sort=distribution",
+					url: "https://api.metacpan.org/v0/release/_search?q=author:"+settings.pause_id+"%20AND%20status:latest&fields=version,distribution,date,tests&size=100&sort=distribution",
 					success: function(json)
 					{
 						if (json.timed_out === 'false')
