@@ -200,7 +200,7 @@
 						var element = commits[index];
 						commit_labels.push(
 							/^Jan-/.test(element[0])
-								? element[0]
+								? element[0].replace('Jan-','')
 								: ''
 						);
 						commit_numbers.push( element[1] );
