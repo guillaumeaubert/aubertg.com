@@ -198,7 +198,11 @@
 					for ( var index in commits )
 					{
 						var element = commits[index];
-						commit_labels.push( element[0] );
+						commit_labels.push(
+							/^Jan-/.test(element[0])
+								? element[0]
+								: ''
+						);
 						commit_numbers.push( element[1] );
 						commits_total += element[1];
 					}
