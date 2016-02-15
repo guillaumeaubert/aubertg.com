@@ -145,6 +145,13 @@
 						</tr>
 					</tbody>
 				</table>
+
+				<h3>
+					<a id="TotalOpenSourceCommits" class="anchor" href="#AnsiblePlugins"></a>
+					Total Open Source Commits <span class="count" id="commits_total"></span>
+				</h3>
+
+				<canvas id="commits_chart" width="460" height="300"></canvas>
 			</section>
 		</div>
 
@@ -170,16 +177,60 @@
 		<!-- Load JS files -->
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script type="text/javascript" src="/js/cpan-distributions-list.min.js"></script>
+		<script type="text/javascript" src="/js/chart.min.js"></script>
+		<script type="text/javascript" src="/data/commits.js"></script>
 		<script>
 			$(document).ready(
 				function()
 				{
+					// Create table of CPAN distributions.
 					$('#cpan_distributions').createDistributionsList(
 						{
 							pause_id: "AUBERTG",
 							github_id: "guillaumeaubert",
 						}
 					);
+
+					// Create chart of commits.
+					var commit_labels = [];
+					var commit_numbers = [];
+					var commits_total = 0;
+					for ( var index in commits )
+					{
+						var element = commits[index];
+						commit_labels.push( element[0] );
+						commit_numbers.push( element[1] );
+						commits_total += element[1];
+					}
+					var commits_chart =
+						new Chart(
+							document.getElementById("commits_chart").getContext("2d")
+						).Line(
+							{
+								labels: commit_labels,
+								datasets:
+								[
+									{
+										label: "Commits by date",
+										fillColor: "rgba(198,217,241,0.5)",
+										strokeColor: "rgba(23,54,93,1)",
+										pointColor: "rgba(23,54,93,0)",
+										pointStrokeColor: "rgba(23,54,93,0)",
+										pointHighlightFill: "rgba(23,54,93,0)",
+										pointHighlightStroke: "rgba(220,220,220,0)",
+										data: commit_numbers
+									},
+								]
+							},
+							{
+								pointHitDetectionRadius: 2,
+								datasetStroke: false,
+								scaleOverride: true,
+								scaleSteps: 5,
+								scaleStepWidth: 50,
+								scaleStartValue: 0
+							}
+						);
 				}
 			);
 		</script>
