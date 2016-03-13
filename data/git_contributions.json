@@ -1,0 +1,271 @@
+{
+  "monthly_commits": [
+    {
+      "month": "Dec-2011",
+      "commits": "39"
+    },
+    {
+      "month": "Jan-2012",
+      "commits": "126"
+    },
+    {
+      "month": "Feb-2012",
+      "commits": "11"
+    },
+    {
+      "month": "Mar-2012",
+      "commits": "47"
+    },
+    {
+      "month": "Apr-2012",
+      "commits": "6"
+    },
+    {
+      "month": "May-2012",
+      "commits": "47"
+    },
+    {
+      "month": "Jun-2012",
+      "commits": "2"
+    },
+    {
+      "month": "Jul-2012",
+      "commits": "39"
+    },
+    {
+      "month": "Aug-2012",
+      "commits": "104"
+    },
+    {
+      "month": "Sep-2012",
+      "commits": "226"
+    },
+    {
+      "month": "Oct-2012",
+      "commits": "164"
+    },
+    {
+      "month": "Nov-2012",
+      "commits": "239"
+    },
+    {
+      "month": "Dec-2012",
+      "commits": "15"
+    },
+    {
+      "month": "Jan-2013",
+      "commits": "30"
+    },
+    {
+      "month": "Feb-2013",
+      "commits": "18"
+    },
+    {
+      "month": "Mar-2013",
+      "commits": "140"
+    },
+    {
+      "month": "Apr-2013",
+      "commits": "43"
+    },
+    {
+      "month": "May-2013",
+      "commits": "179"
+    },
+    {
+      "month": "Jun-2013",
+      "commits": "183"
+    },
+    {
+      "month": "Jul-2013",
+      "commits": "171"
+    },
+    {
+      "month": "Aug-2013",
+      "commits": "62"
+    },
+    {
+      "month": "Sep-2013",
+      "commits": "15"
+    },
+    {
+      "month": "Oct-2013",
+      "commits": "45"
+    },
+    {
+      "month": "Nov-2013",
+      "commits": "51"
+    },
+    {
+      "month": "Dec-2013",
+      "commits": "28"
+    },
+    {
+      "month": "Jan-2014",
+      "commits": "36"
+    },
+    {
+      "month": "Feb-2014",
+      "commits": "2"
+    },
+    {
+      "month": "Mar-2014",
+      "commits": "64"
+    },
+    {
+      "month": "Apr-2014",
+      "commits": "70"
+    },
+    {
+      "month": "May-2014",
+      "commits": "223"
+    },
+    {
+      "month": "Jun-2014",
+      "commits": "189"
+    },
+    {
+      "month": "Jul-2014",
+      "commits": "3"
+    },
+    {
+      "month": "Aug-2014",
+      "commits": "67"
+    },
+    {
+      "month": "Sep-2014",
+      "commits": "11"
+    },
+    {
+      "month": "Oct-2014",
+      "commits": "35"
+    },
+    {
+      "month": "Nov-2014",
+      "commits": "46"
+    },
+    {
+      "month": "Dec-2014",
+      "commits": "5"
+    },
+    {
+      "month": "Jan-2015",
+      "commits": "174"
+    },
+    {
+      "month": "Feb-2015",
+      "commits": "95"
+    },
+    {
+      "month": "Mar-2015",
+      "commits": "122"
+    },
+    {
+      "month": "Apr-2015",
+      "commits": "295"
+    },
+    {
+      "month": "May-2015",
+      "commits": "75"
+    },
+    {
+      "month": "Jun-2015",
+      "commits": "9"
+    },
+    {
+      "month": "Jul-2015",
+      "commits": "0"
+    },
+    {
+      "month": "Aug-2015",
+      "commits": "8"
+    },
+    {
+      "month": "Sep-2015",
+      "commits": "1"
+    },
+    {
+      "month": "Oct-2015",
+      "commits": "0"
+    },
+    {
+      "month": "Nov-2015",
+      "commits": "0"
+    },
+    {
+      "month": "Dec-2015",
+      "commits": "0"
+    },
+    {
+      "month": "Jan-2016",
+      "commits": "41"
+    },
+    {
+      "month": "Feb-2016",
+      "commits": "17"
+    },
+    {
+      "month": "Mar-2016",
+      "commits": "80"
+    }
+  ],
+  "total_commits": 3698,
+  "lines_by_language": {
+    "Markdown": {
+      "added": 3389,
+      "deleted": 1355
+    },
+    "Perl": {
+      "added": 100571,
+      "deleted": 33381
+    },
+    "Text": {
+      "added": 10831,
+      "deleted": 4462
+    },
+    "JSON": {
+      "added": 4374,
+      "deleted": 2025
+    },
+    "YAML": {
+      "added": 4018,
+      "deleted": 2455
+    },
+    "INI": {
+      "added": 1386,
+      "deleted": 397
+    },
+    "CSS": {
+      "added": 4940,
+      "deleted": 366
+    },
+    "JavaScript": {
+      "added": 56268,
+      "deleted": 1490
+    },
+    "HTML": {
+      "added": 1980,
+      "deleted": 805
+    },
+    "SQL": {
+      "added": 178,
+      "deleted": 64
+    },
+    "Python": {
+      "added": 667,
+      "deleted": 403
+    },
+    "bash": {
+      "added": 7451,
+      "deleted": 813
+    },
+    "Ruby": {
+      "added": 1560,
+      "deleted": 728
+    },
+    "C": {
+      "added": 0,
+      "deleted": 6
+    }
+  }
+}

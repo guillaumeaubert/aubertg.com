@@ -219,7 +219,6 @@
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script type="text/javascript" src="/js/cpan-distributions-list.min.js"></script>
 		<script type="text/javascript" src="/js/chart.min.js"></script>
-		<script type="text/javascript" src="/data/commits.js"></script>
 		<script>
 			$(document).ready(
 				function()
@@ -232,21 +231,48 @@
 						}
 					);
 
-					// Create chart of commits.
+
+					// Retrieve git contribution information.
+					$.getJSON('/data/git_contributions.json')
+						.done(
+							function(json)
+							{
+								// Update commits total.
+								$('#commits_total').html( '(' + json.total_commits + ')' );
+
+								// Display monthly commits.
+								display_monthly_commits(json.monthly_commits);
+							}
+						)
+						.fail(
+							function(jqxhr, textStatus, error)
+							{
+								var err = textStatus + ", " + error;
+								console.log( "Request Failed: " + err );
+							}
+						);
+				}
+			);
+
+			function display_monthly_commits(commits)
+			{
+					// Prepare the data for display.
 					var commit_labels = [];
 					var commit_numbers = [];
-					var commits_total = 0;
-					for ( var index in commits )
-					{
-						var element = commits[index];
-						commit_labels.push(
-							/^Jan-/.test(element[0])
-								? element[0].replace('Jan-','')
+					$.each(
+						commits,
+						function(i, item)
+						{
+							commit_labels.push(
+								/^Jan-/.test(item.month)
+								? item.month.replace('Jan-','')
 								: ''
-						);
-						commit_numbers.push( element[1] );
-						commits_total += element[1];
-					}
+							);
+							commit_numbers.push(item.commits);
+						}
+					);
+
+					// Create chart of commits.
 					var commits_chart =
 						new Chart(
 							document.getElementById("commits_chart").getContext("2d")
@@ -277,9 +303,7 @@
 								scaleStartValue: 0
 							}
 						);
-						$('#commits_total').html( '(' + commits_total + ')' );
-				}
-			);
+			}
 		</script>
 
 		<!-- Google Analytics -->
