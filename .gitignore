@@ -1,2 +1,5 @@
 # JEdit backup files.
 *~
+
+# Local Jekyll cache.
+/_site
