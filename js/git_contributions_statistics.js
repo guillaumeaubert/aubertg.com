@@ -36,9 +36,10 @@ function display_commits_by_day(commits_by_day)
 		.domain([0, Math.log(max_commits_in_a_day+1)])
 		.range(d3.range(4).map(function(d) { return "q" + d + "-11"; }));
 
+	var years = d3.keys(commits_by_day).map(function(d){return parseInt(d.split('-')[0])});
 	var svg = d3.select("#commits_by_day")
 		.selectAll("svg")
-		.data(d3.range(2011, 2017))
+		.data(d3.range(d3.min(years), d3.max(years)+1))
 		.enter()
 		.append("svg")
 		.attr("width", width)
