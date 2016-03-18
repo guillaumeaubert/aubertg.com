@@ -1,322 +1,186 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset='utf-8' />
-		<meta http-equiv="X-UA-Compatible" content="chrome=1" />
-		<meta name="description" content="A dashboard for Guillaume Aubert's open source projects" />
-		<link rel="stylesheet" type="text/css" media="screen" href="css/stylesheet.css">
-		<title>A dashboard for Guillaume Aubert's open source projects</title>
-	</head>
+---
+layout: default
+title: Guillaume Aubert
+tagline: A visual dashboard to check on my open source projects
+js_includes:
+  - /js/cpan-distributions-list.min.js"
+  - /js/chart.min.js
+  - /js/dashboard.js
+---
 
-	<body>
-		<!-- HEADER -->
-		<div id="header_wrap" class="outer">
-			<header class="inner">
-				<a id="forkme_banner" href="https://github.com/guillaumeaubert/guillaumeaubert.github.io">View on GitHub</a>
+<!-- CPAN distributions -->
+<h3>
+	<a id="CPANDistributions" class="anchor" href="#CPANDistributions"></a>
+	CPAN Distributions <span class="count">(<span class="cpan_distributions_count">?</span>)</span>
+</h3>
+<table id="cpan_distributions">
+	<thead>
+		<tr>
+			<th class="distribution">Distribution</th>
+			<th class="version">Version</th>
+			<th class="links">Links</th>
+			<th class="cpan-testers">CPAN Testers</th>
+			<th class="github_open_issues">Issues</th>
+			<th class="travis_status_badge">Status</th>
+			<th class="coveralls_badge">Tests</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr style="display: none;" class="template">
+			<td class="metacpan-distname"><!-- Link with the name of the distribution --></td>
+			<td class="version"><!-- Current version of the distribution --></td>
+			<td class="links">
+				<span class="github"><!-- GitHub link --></span>
+				|
+				<span class="cpants"><!-- CPANTS link --></span>
+			</td>
+			<td class="cpan-testers">
+				<span class="cpan-testers-pass"><!-- CPAN Testers: passed tests --></span>
+				/
+				<span class="cpan-testers-fail"><!-- CPAN Testers: failed tests --></span>
+				/
+				<span class="cpan-testers-na"><!-- CPAN Testers: N/A tests --></span>
+			</td>
+			<td class="github_open_issues"><!-- Count of issues and link to GitHub -->?</td>
+			<td class="travis_status_badge"><!-- Travis CI - badge to indicate build status --></td>
+			<td class="coveralls_badge"><!-- Coveralls.io - badge to indicate test coverage percentage --></td>
+		</tr>
+	</tbody>
+</table>
 
-				<h1 id="project_title">Projects Dashboard</h1>
-				<h2 id="project_tagline">A dashboard for <a href="https://github.com/guillaumeaubert">Guillaume Aubert</a>'s open source projects</h2>
-			</header>
-		</div>
+<!-- JQuery plugins -->
+<h3>
+	<a id="JQueryPlugins" class="anchor" href="#JQueryPlugins"></a>
+	JQuery Plugins <span class="count">(1)</span>
+</h3>
 
-		<!-- MAIN CONTENT -->
-		<div id="main_content_wrap" class="outer">
-			<section id="main_content" class="inner">
-				<h3>
-					<a id="CPANDistributions" class="anchor" href="#CPANDistributions"></a>
-					CPAN Distributions <span class="count">(<span class="cpan_distributions_count">?</span>)</span>
-				</h3>
-				<table id="cpan_distributions">
-					<thead>
-						<tr>
-							<th class="distribution">Distribution</th>
-							<th class="version">Version</th>
-							<th class="links">Links</th>
-							<th class="cpan-testers">CPAN Testers</th>
-							<th class="github_open_issues">Issues</th>
-							<th class="travis_status_badge">Status</th>
-							<th class="coveralls_badge">Tests</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr style="display: none;" class="template">
-							<td class="metacpan-distname"><!-- Link with the name of the distribution --></td>
-							<td class="version"><!-- Current version of the distribution --></td>
-							<td class="links">
-								<span class="github"><!-- GitHub link --></span>
-								|
-								<span class="cpants"><!-- CPANTS link --></span>
-							</td>
-							<td class="cpan-testers">
-								<span class="cpan-testers-pass"><!-- CPAN Testers: passed tests --></span>
-								/
-								<span class="cpan-testers-fail"><!-- CPAN Testers: failed tests --></span>
-								/
-								<span class="cpan-testers-na"><!-- CPAN Testers: N/A tests --></span>
-							</td>
-							<td class="github_open_issues"><!-- Count of issues and link to GitHub -->?</td>
-							<td class="travis_status_badge"><!-- Travis CI - badge to indicate build status --></td>
-							<td class="coveralls_badge"><!-- Coveralls.io - badge to indicate test coverage percentage --></td>
-						</tr>
-					</tbody>
-				</table>
+<table id="jquery_plugins">
+	<thead>
+		<tr>
+			<th class="distribution">Plugin</th>
+			<th class="version">Version</th>
+			<th class="links">Links</th>
+			<th class="github_open_issues">Issues</th>
+			<th class="travis_status_badge">Status</th>
+			<th class="coveralls_badge">Tests</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="distribution">CPAN Distributions List</td>
+			<td class="version">v1.0.2</td>
+			<td class="links">
+				<span class="github">
+					<a href="https://github.com/guillaumeaubert/jquery-cpan-distributions-list">GitHub</a>
+				</span>
+			</td>
+			<td class="github_open_issues">
+				<a href="https://github.com/guillaumeaubert/jquery-cpan-distributions-list/issues">
+					View
+				</a>
+			</td>
+			<td class="travis_status_badge">
+				<a href="https://travis-ci.org/guillaumeaubert/jquery-cpan-distributions-list">
+					<img src="https://travis-ci.org/guillaumeaubert/jquery-cpan-distributions-list.svg?branch=master" alt='Build Status' />
+				</a>
+			</td>
+			<td class="coveralls_badge">
+				<a href='https://coveralls.io/r/guillaumeaubert/jquery-cpan-distributions-list?branch=master'>
+					<img src='https://coveralls.io/repos/guillaumeaubert/jquery-cpan-distributions-list/badge.svg?branch=master' alt='Coverage Status' />
+				</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
 
-				<h3>
-					<a id="JQueryPlugins" class="anchor" href="#JQueryPlugins"></a>
-					JQuery Plugins <span class="count">(1)</span>
-				</h3>
+<!-- Ansible plugins -->
+<h3>
+	<a id="AnsiblePlugins" class="anchor" href="#AnsiblePlugins"></a>
+	Ansible Plugins <span class="count">(1)</span>
+</h3>
 
-				<table id="jquery_plugins">
-					<thead>
-						<tr>
-							<th class="distribution">Plugin</th>
-							<th class="version">Version</th>
-							<th class="links">Links</th>
-							<th class="github_open_issues">Issues</th>
-							<th class="travis_status_badge">Status</th>
-							<th class="coveralls_badge">Tests</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="distribution">CPAN Distributions List</td>
-							<td class="version">v1.0.2</td>
-							<td class="links">
-								<span class="github">
-									<a href="https://github.com/guillaumeaubert/jquery-cpan-distributions-list">GitHub</a>
-								</span>
-							</td>
-							<td class="github_open_issues">
-								<a href="https://github.com/guillaumeaubert/jquery-cpan-distributions-list/issues">
-									View
-								</a>
-							</td>
-							<td class="travis_status_badge">
-								<a href="https://travis-ci.org/guillaumeaubert/jquery-cpan-distributions-list">
-									<img src="https://travis-ci.org/guillaumeaubert/jquery-cpan-distributions-list.svg?branch=master" alt='Build Status' />
-								</a>
-							</td>
-							<td class="coveralls_badge">
-								<a href='https://coveralls.io/r/guillaumeaubert/jquery-cpan-distributions-list?branch=master'>
-									<img src='https://coveralls.io/repos/guillaumeaubert/jquery-cpan-distributions-list/badge.svg?branch=master' alt='Coverage Status' />
-								</a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+<table id="ansible_plugins">
+	<thead>
+		<tr>
+			<th class="distribution">Plugin</th>
+			<th class="version">Version</th>
+			<th class="links">Links</th>
+			<th class="github_open_issues">Issues</th>
+			<th class="travis_status_badge">Status</th>
+			<th class="coveralls_badge">Tests</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="distribution">Ansible Symlink Plugin</td>
+			<td class="version">-</td>
+			<td class="links">
+				<span class="github">
+					<a href="https://github.com/guillaumeaubert/ansible-symlink-plugin">GitHub</a>
+				</span>
+			</td>
+			<td class="github_open_issues">
+				<a href="https://github.com/guillaumeaubert/ansible-symlink-plugin/issues">
+					View
+				</a>
+			</td>
+			<td class="travis_status_badge">
+				<a href="https://travis-ci.org/guillaumeaubert/ansible-symlink-plugin">
+					<img src="https://travis-ci.org/guillaumeaubert/ansible-symlink-plugin.svg?branch=master" alt='Build Status' />
+				</a>
+			</td>
+			<td class="coveralls_badge">-</td>
+			</td>
+		</tr>
+	</tbody>
+</table>
 
-				<h3>
-					<a id="AnsiblePlugins" class="anchor" href="#AnsiblePlugins"></a>
-					Ansible Plugins <span class="count">(1)</span>
-				</h3>
+<!-- Tools -->
+<h3>
+	<a id="Tools" class="anchor" href="#Tools"></a>
+	Tools <span class="count">(1)</span>
+</h3>
 
-				<table id="ansible_plugins">
-					<thead>
-						<tr>
-							<th class="distribution">Plugin</th>
-							<th class="version">Version</th>
-							<th class="links">Links</th>
-							<th class="github_open_issues">Issues</th>
-							<th class="travis_status_badge">Status</th>
-							<th class="coveralls_badge">Tests</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="distribution">Ansible Symlink Plugin</td>
-							<td class="version">-</td>
-							<td class="links">
-								<span class="github">
-									<a href="https://github.com/guillaumeaubert/ansible-symlink-plugin">GitHub</a>
-								</span>
-							</td>
-							<td class="github_open_issues">
-								<a href="https://github.com/guillaumeaubert/ansible-symlink-plugin/issues">
-									View
-								</a>
-							</td>
-							<td class="travis_status_badge">
-								<a href="https://travis-ci.org/guillaumeaubert/ansible-symlink-plugin">
-									<img src="https://travis-ci.org/guillaumeaubert/ansible-symlink-plugin.svg?branch=master" alt='Build Status' />
-								</a>
-							</td>
-							<td class="coveralls_badge">-</td>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+<table id="tools">
+	<thead>
+		<tr>
+			<th class="distribution">Name</th>
+			<th class="version">Version</th>
+			<th class="links">Links</th>
+			<th class="github_open_issues">Issues</th>
+			<th class="travis_status_badge">Status</th>
+			<th class="coveralls_badge">Tests</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="distribution">Dot-files</td>
+			<td class="version">-</td>
+			<td class="links">
+				<span class="github">
+					<a href="https://github.com/guillaumeaubert/dot-files">GitHub</a>
+				</span>
+			</td>
+			<td class="github_open_issues">
+				<a href="https://github.com/guillaumeaubert/dot-files/issues">
+					View
+				</a>
+			</td>
+			<td class="travis_status_badge">
+				<a href="https://travis-ci.org/guillaumeaubert/dot-files">
+					<img src="https://travis-ci.org/guillaumeaubert/dot-files.svg?branch=master" alt='Build Status' />
+				</a>
+			</td>
+			<td class="coveralls_badge">-</td>
+			</td>
+		</tr>
+	</tbody>
+</table>
 
-				<h3>
-					<a id="Tools" class="anchor" href="#Tools"></a>
-					Tools <span class="count">(1)</span>
-				</h3>
+<!-- Statistics -->
+<h3>
+	<a id="TotalOpenSourceCommits" class="anchor" href="#AnsiblePlugins"></a>
+	Total Open Source Commits <span class="count" id="commits_total"></span>
+</h3>
 
-				<table id="tools">
-					<thead>
-						<tr>
-							<th class="distribution">Name</th>
-							<th class="version">Version</th>
-							<th class="links">Links</th>
-							<th class="github_open_issues">Issues</th>
-							<th class="travis_status_badge">Status</th>
-							<th class="coveralls_badge">Tests</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="distribution">Dot-files</td>
-							<td class="version">-</td>
-							<td class="links">
-								<span class="github">
-									<a href="https://github.com/guillaumeaubert/dot-files">GitHub</a>
-								</span>
-							</td>
-							<td class="github_open_issues">
-								<a href="https://github.com/guillaumeaubert/dot-files/issues">
-									View
-								</a>
-							</td>
-							<td class="travis_status_badge">
-								<a href="https://travis-ci.org/guillaumeaubert/dot-files">
-									<img src="https://travis-ci.org/guillaumeaubert/dot-files.svg?branch=master" alt='Build Status' />
-								</a>
-							</td>
-							<td class="coveralls_badge">-</td>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-
-				<h3>
-					<a id="TotalOpenSourceCommits" class="anchor" href="#AnsiblePlugins"></a>
-					Total Open Source Commits <span class="count" id="commits_total"></span>
-				</h3>
-
-				<canvas id="commits_chart" width="460" height="300"></canvas>
-			</section>
-		</div>
-
-		<!-- FOOTER	-->
-		<div id="footer_wrap" class="outer">
-			<footer class="inner">
-				<ul>
-					<li id="badge_linkedin">
-						<!-- https://www.linkedin.com/profile/profile-badges -->
-						<a href="https://www.linkedin.com/in/aubertguillaume">
-							<img src="https://www.linkedin.com/img/webpromo/btn_viewmy_160x25.png" width="160" height="25" alt="View Guillaume Aubert's profile on LinkedIn" />
-						</a>
-					</li>
-					<li id="badge_openhub">
-						<a href='https://www.openhub.net/accounts/30092?ref=Tiny'>
-							<img alt='Open Hub profile for Guillaume Aubert' border='0' height='21' src='https://www.openhub.net/accounts/30092/widgets/account_tiny.gif' width='88' />
-						</a>
-					</li>
-				</ul>
-			</footer>
-		</div>
-
-		<!-- Load JS files -->
-		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script type="text/javascript" src="/js/cpan-distributions-list.min.js"></script>
-		<script type="text/javascript" src="/js/chart.min.js"></script>
-		<script>
-			$(document).ready(
-				function()
-				{
-					// Create table of CPAN distributions.
-					$('#cpan_distributions').createDistributionsList(
-						{
-							pause_id: "AUBERTG",
-							github_id: "guillaumeaubert",
-						}
-					);
-
-
-					// Retrieve git contribution information.
-					$.getJSON('/data/git_contributions.json')
-						.done(
-							function(json)
-							{
-								// Update commits total.
-								$('#commits_total').html( '(' + json.total_commits + ')' );
-
-								// Display monthly commits.
-								display_monthly_commits(json.monthly_commits);
-							}
-						)
-						.fail(
-							function(jqxhr, textStatus, error)
-							{
-								var err = textStatus + ", " + error;
-								console.log( "Request Failed: " + err );
-							}
-						);
-				}
-			);
-
-			function display_monthly_commits(commits)
-			{
-				// Prepare the data for display.
-				var commit_labels = [];
-				var commit_numbers = [];
-				$.each(
-					commits,
-					function(i, item)
-					{
-						commit_labels.push(
-							/^Jan-/.test(item.month)
-							? item.month.replace('Jan-','')
-							: ''
-						);
-						commit_numbers.push(item.commits);
-					}
-				);
-
-				// Create chart of commits.
-				var commits_chart =
-					new Chart(
-						document.getElementById("commits_chart").getContext("2d")
-					).Line(
-						{
-							labels: commit_labels,
-							datasets:
-							[
-								{
-									label: "Commits by date",
-									fillColor: "rgba(198,217,241,0.5)",
-									strokeColor: "rgba(23,54,93,1)",
-									pointColor: "rgba(23,54,93,0)",
-									pointStrokeColor: "rgba(23,54,93,0)",
-									pointHighlightFill: "rgba(23,54,93,0)",
-									pointHighlightStroke: "rgba(220,220,220,0)",
-									data: commit_numbers
-								},
-							]
-						},
-						{
-							pointHitDetectionRadius: 2,
-							datasetStroke: false,
-							showTooltips: false,
-							scaleOverride: true,
-							scaleSteps: 6,
-							scaleStepWidth: 50,
-							scaleStartValue: 0
-						}
-					);
-			}
-		</script>
-
-		<!-- Google Analytics -->
-		<script type="text/javascript">
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-2001838-13']);
-			_gaq.push(['_trackPageview']);
-
-			(function() {
-				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			})();
-		</script>
-	</body>
-</html>
+<canvas id="commits_chart" width="460" height="300"></canvas>

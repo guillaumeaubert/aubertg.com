@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8' />
+		<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+		<meta name="description" content="A dashboard for Guillaume Aubert's open source projects" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/stylesheet.css">
+		{% if page.css_includes %}
+			{% for css_include in page.css_includes %}
+				<link rel="stylesheet" type="text/css" media="screen" href="{{ css_include }}">
+			{% endfor %}
+		{% endif %}
+		<title>A dashboard for Guillaume Aubert's open source projects</title>
+	</head>
+
+	<body>
+		<!-- HEADER -->
+		<div id="header_wrap" class="outer">
+			<header class="inner">
+				<a id="forkme_banner" href="https://github.com/guillaumeaubert/guillaumeaubert.github.io">View on GitHub</a>
+
+				<h1 id="project_title">{{ page.title }}</h1>
+				<h2 id="project_tagline">{{ page.tagline }}</h2>
+			</header>
+		</div>
+
+		<!-- MAIN CONTENT -->
+		<div id="main_content_wrap" class="outer">
+			<section id="main_content" class="inner">
+				{{ content }}
+			</section>
+		</div>
+
+		<!-- FOOTER	-->
+		<div id="footer_wrap" class="outer">
+			<footer class="inner">
+				<ul>
+					<li id="badge_linkedin">
+						<!-- https://www.linkedin.com/profile/profile-badges -->
+						<a href="https://www.linkedin.com/in/aubertguillaume">
+							<img src="https://www.linkedin.com/img/webpromo/btn_viewmy_160x25.png" width="160" height="25" alt="View Guillaume Aubert's profile on LinkedIn" />
+						</a>
+					</li>
+					<li id="badge_openhub">
+						<a href='https://www.openhub.net/accounts/30092?ref=Tiny'>
+							<img alt='Open Hub profile for Guillaume Aubert' border='0' height='21' src='https://www.openhub.net/accounts/30092/widgets/account_tiny.gif' width='88' />
+						</a>
+					</li>
+				</ul>
+			</footer>
+		</div>
+
+		<!-- Load JS files -->
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		{% if page.js_includes %}
+			{% for js_include in page.js_includes %}
+				<script type="text/javascript" src="{{ js_include }}"></script>
+			{% endfor %}
+		{% endif %}
+
+		<!-- Google Analytics -->
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-2001838-13']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+	</body>
+</html>
