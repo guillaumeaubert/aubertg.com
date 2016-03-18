@@ -9,8 +9,8 @@ $(document).ready(
 			.done(
 				function(json)
 				{
-					$('#total_days').html( '(' + Object.keys(json.commits_by_day).length + ' days)' );
-
+					// Commits by day.
+					$('#total_days').html( '(' + Object.keys(json.commits_by_day).length + ' active days)' );
 					display_commits_by_day(json.commits_by_day);
 				}
 			)
