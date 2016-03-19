@@ -101,7 +101,7 @@ function display_commits_by_weekday_hour(commits)
 	var grid_size = Math.floor(width / 24);
 	var legend_element_width = grid_size * 2;
 	var buckets = 9;
-	var colors = ["#d6e685", "#8cc665", "#44a340", "#1e6823"];
+	var colors = ["#d6e685", "#b7d174", "#98bc64", "#7aa754", "#5b9243", "#3c7d33", "#1e6823"];
 	var days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 	var times = [
 		"1a", "2a", "3a", "4a", "5a", "6a", "7a", "8a", "9a", "10a", "11a", "12a",
