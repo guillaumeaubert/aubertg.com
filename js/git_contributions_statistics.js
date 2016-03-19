@@ -77,7 +77,7 @@ function display_commits_by_day(commits_by_day)
 		.datum(format);
 
 	rect.append("title")
-		.text(function(d) { return d; });
+		.text(function(d) { return d + ': 0 commits'; });
 
 	svg.selectAll(".month")
 		.data(function(d) { return d3.time.months(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
@@ -89,7 +89,7 @@ function display_commits_by_day(commits_by_day)
 	rect.filter(function(d) { return d in commits_by_day; })
 		.attr("class", function(d) { return "day " + color(Math.log(commits_by_day[d]+1)); })
 		.select("title")
-		.text(function(d) { return d + ": " + commits_by_day[d]; });
+		.text(function(d) { commits = commits_by_day[d]; return d + ": " + commits + ' commit' + (commits == 1 ? '' : 's'); });
 }
 
 
