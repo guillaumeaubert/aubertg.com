@@ -11,7 +11,23 @@
 	stroke: #000;
 	stroke-width: 2px;
 }
-#commits_by_day .RdYlGn .q0-11{fill: #d6e685}
-#commits_by_day .RdYlGn .q1-11{fill: #8cc665}
-#commits_by_day .RdYlGn .q2-11{fill: #44a340}
-#commits_by_day .RdYlGn .q3-11{fill: #1e6823}
+#commits_by_day .RdYlGn .q0-11{ fill: #d6e685; }
+#commits_by_day .RdYlGn .q1-11{ fill: #8cc665; }
+#commits_by_day .RdYlGn .q2-11{ fill: #44a340; }
+#commits_by_day .RdYlGn .q3-11{ fill: #1e6823; }
+
+#commits_by_weekday_hour rect.bordered {
+	stroke: #E6E6E6;
+	stroke-width:2px;
+}
+#commits_by_weekday_hour text.mono {
+	font-size: 9pt;
+	font-family: Consolas, courier;
+	fill: #aaa;
+}
+#commits_by_weekday_hour text.axis-workweek {
+	fill: #000;
+}
+#commits_by_weekday_hour text.axis-worktime {
+	fill: #000;
+}
