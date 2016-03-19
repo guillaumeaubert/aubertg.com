@@ -26,10 +26,12 @@ $(document).ready(
 
 function display_commits_by_day(commits_by_day)
 {
+	// Configuration.
 	var width = 960;
 	var height = 136;
 	var calendar_cell_size = 17;
 
+	// Function to draw month outlines.
 	var calendar_month_path = function(t0)
 	{
 		var t1 = new Date(t0.getFullYear(), t0.getMonth() + 1, 0),
@@ -44,12 +46,16 @@ function display_commits_by_day(commits_by_day)
 
 	var format = d3.time.format("%Y-%m-%d");
 
+	// Create a color scale based on the data.
 	var max_commits_in_a_day = d3.max(d3.values(commits_by_day));
 	var color = d3.scale.quantize()
 		.domain([0, Math.log(max_commits_in_a_day+1)])
 		.range(d3.range(4).map(function(d) { return "q" + d + "-11"; }));
 
+	// Determine the years to display.
 	var years = d3.keys(commits_by_day).map(function(d){return parseInt(d.split('-')[0])});
+
+	// Set up graph.
 	var svg = d3.select("#commits_by_day")
 		.selectAll("svg")
 		.data(d3.range(d3.min(years), d3.max(years)+1))
@@ -66,6 +72,7 @@ function display_commits_by_day(commits_by_day)
 		.style("text-anchor", "middle")
 		.text(function(d) { return d; });
 
+	// Add tiles for the days.
 	var rect = svg.selectAll(".day")
 		.data(function(d) { return d3.time.days(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
 		.enter().append("rect")
@@ -79,6 +86,7 @@ function display_commits_by_day(commits_by_day)
 	rect.append("title")
 		.text(function(d) { return d + ': 0 commits'; });
 
+	// Add month outlines.
 	svg.selectAll(".month")
 		.data(function(d) { return d3.time.months(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
 		.enter()
@@ -86,6 +94,7 @@ function display_commits_by_day(commits_by_day)
 		.attr("class", "month")
 		.attr("d", calendar_month_path);
 
+	// Colorize tiles baser on data.
 	rect.filter(function(d) { return d in commits_by_day; })
 		.attr("class", function(d) { return "day " + color(Math.log(commits_by_day[d]+1)); })
 		.select("title")
@@ -150,7 +159,7 @@ function display_commits_by_weekday_hour(commits)
 		}
 	}
 
-	// Derive a color scale based on the data.
+	// Create a color scale based on the data.
 	var color_scale = d3.scale.quantile()
 		.domain([1, buckets - 1, d3.max(data, function (d) { return d.value; })])
 		.range(colors);
