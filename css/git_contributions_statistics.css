@@ -1,5 +1,6 @@
 #commits_by_day {
-	font: 10px sans-serif;
+	font-size: 9pt;
+	font-family: Consolas, courier;
 	shape-rendering: crispEdges;
 }
 #commits_by_day .day {
