@@ -164,10 +164,6 @@ function display_commits_by_weekday_hour(commits)
 		.attr("class", "hour bordered")
 		.attr("width", grid_size)
 		.attr("height", grid_size)
-		.style("fill", colors[0]);
-
-	cards.transition()
-		.duration(1000)
 		.style("fill", function(d) { return d.value == 0 ? '#fff' : color_scale(d.value); });
 
 	cards
