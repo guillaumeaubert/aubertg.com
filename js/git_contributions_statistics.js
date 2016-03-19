@@ -95,6 +95,7 @@ function display_commits_by_day(commits_by_day)
 
 function display_commits_by_weekday_hour(commits)
 {
+	// Configuration.
 	var margin = { top: 20, right: 0, bottom: 40, left: 40 };
 	var width = 960 - margin.left - margin.right;
 	var height = 350 - margin.top - margin.bottom;
@@ -108,6 +109,7 @@ function display_commits_by_weekday_hour(commits)
 		"1p", "2p", "3p", "4p", "5p", "6p", "7p", "8p", "9p", "10p", "11p", "12p"
 	];
 
+	// Prepare the graph space and its axes.
 	var svg = d3.select("#commits_by_weekday_hour").append("svg")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
@@ -134,6 +136,7 @@ function display_commits_by_weekday_hour(commits)
 		.attr("transform", "translate(" + grid_size / 2 + ", -6)")
 		.attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
 
+	// Prepare the data for d3.
 	var data = [];
 	for (day=0; day<7; day++) {
 		for (hour=0; hour<24; hour++) {
@@ -147,10 +150,12 @@ function display_commits_by_weekday_hour(commits)
 		}
 	}
 
+	// Derive a color scale based on the data.
 	var color_scale = d3.scale.quantile()
 		.domain([1, buckets - 1, d3.max(data, function (d) { return d.value; })])
 		.range(colors);
 
+	// Add tiles to represent the data.
 	var cards = svg.selectAll(".hour")
 		.data(data);
 
@@ -168,6 +173,7 @@ function display_commits_by_weekday_hour(commits)
 
 	cards.exit().remove();
 
+	// Add the legend below the graph.
 	var legend = svg.selectAll(".legend")
 		.data([1].concat(color_scale.quantiles()), function(d) { return d; });
 
