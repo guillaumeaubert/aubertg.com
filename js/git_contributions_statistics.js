@@ -154,8 +154,6 @@ function display_commits_by_weekday_hour(commits)
 	var cards = svg.selectAll(".hour")
 		.data(data);
 
-	cards.append("title");
-
 	cards.enter().append("rect")
 		.attr("x", function(d) { return (d.hour - 1) * grid_size; })
 		.attr("y", function(d) { return (d.day - 1) * grid_size; })
@@ -164,11 +162,9 @@ function display_commits_by_weekday_hour(commits)
 		.attr("class", "hour bordered")
 		.attr("width", grid_size)
 		.attr("height", grid_size)
-		.style("fill", function(d) { return d.value == 0 ? '#fff' : color_scale(d.value); });
-
-	cards
-		.select("title")
-		.text(function(d) { return d.value; });
+		.style("fill", function(d) { return d.value == 0 ? '#fff' : color_scale(d.value); })
+		.append("title")
+		.text(function(d) { return d.value + (d.value == 1 ? ' commit' : ' commits'); });
 
 	cards.exit().remove();
 
