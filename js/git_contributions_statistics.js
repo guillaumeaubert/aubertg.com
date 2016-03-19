@@ -95,9 +95,9 @@ function display_commits_by_day(commits_by_day)
 
 function display_commits_by_weekday_hour(commits)
 {
-	var margin = { top: 50, right: 0, bottom: 100, left: 40 };
+	var margin = { top: 20, right: 0, bottom: 40, left: 40 };
 	var width = 960 - margin.left - margin.right;
-	var height = 430 - margin.top - margin.bottom;
+	var height = 350 - margin.top - margin.bottom;
 	var grid_size = Math.floor(width / 24);
 	var legend_element_width = grid_size * 2;
 	var buckets = 9;
