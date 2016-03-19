@@ -148,7 +148,7 @@ function display_commits_by_weekday_hour(commits)
 	}
 
 	var color_scale = d3.scale.quantile()
-		.domain([0, buckets - 1, d3.max(data, function (d) { return d.value; })])
+		.domain([1, buckets - 1, d3.max(data, function (d) { return d.value; })])
 		.range(colors);
 
 	var cards = svg.selectAll(".hour")
@@ -168,7 +168,7 @@ function display_commits_by_weekday_hour(commits)
 
 	cards.transition()
 		.duration(1000)
-		.style("fill", function(d) { return color_scale(d.value); });
+		.style("fill", function(d) { return d.value == 0 ? '#fff' : color_scale(d.value); });
 
 	cards
 		.select("title")
@@ -177,7 +177,7 @@ function display_commits_by_weekday_hour(commits)
 	cards.exit().remove();
 
 	var legend = svg.selectAll(".legend")
-		.data([0].concat(color_scale.quantiles()), function(d) { return d; });
+		.data([1].concat(color_scale.quantiles()), function(d) { return d; });
 
 	legend.enter().append("g")
 		.attr("class", "legend");
