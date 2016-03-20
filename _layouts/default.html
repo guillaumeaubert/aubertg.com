@@ -21,9 +21,18 @@
 
 				<h1 id="project_title">Guillaume Aubert</h1>
 				<section id="menu">
-					<a href="/index.html">&#9700; Projects Dashboard</a>
-					<a href="/git_contributions_statistics.html">&#9700; Git Contribution Statistics</a>
-					<a href="/archive.html">&#9700; Archive</a>
+					<a {% if page.url == '/' || page.url == '/index.html' %}class="active"{% endif %} href="/index.html">
+						<span class="bullet">&#9700;</span>
+						Projects Dashboard
+					</a>
+					<a {% if page.url == '/git_contributions_statistics.html' %}class="active"{% endif %} href="/git_contributions_statistics.html">
+						<span class="bullet">&#9700;</span>
+						Git Contribution Statistics
+					</a>
+					<a {% if page.url == '/archive.html' %}class="active"{% endif %} href="/archive.html">
+						<span class="bullet">&#9700;</span>
+						Archive
+					</a>
 				</section>
 			</header>
 		</div>
