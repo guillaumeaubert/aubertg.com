@@ -6,9 +6,6 @@ $(document).ready(
 			.done(
 				function(json)
 				{
-					// Update commits total.
-					$('#commits_total').html( '(' + json.total_commits + ')' );
-
 					// Display monthly commits.
 					display_monthly_commits(json.monthly_commits);
 				}
