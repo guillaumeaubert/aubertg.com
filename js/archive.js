@@ -7,7 +7,7 @@ $(document).ready(
 				function(json)
 				{
 					// Display monthly commits.
-					display_monthly_commits(json.monthly_commits);
+					display_commits_by_month(json.commits_by_month);
 				}
 			)
 			.fail(
@@ -20,7 +20,7 @@ $(document).ready(
 	}
 );
 
-function display_monthly_commits(commits)
+function display_commits_by_month(commits)
 {
 	// Prepare the data for display.
 	var commit_labels = [];

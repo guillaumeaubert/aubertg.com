@@ -7,8 +7,8 @@ $(document).ready(
 				function(json)
 				{
 					// Commits by month.
-					$('#commits_total').html( '(' + json.total_commits + ' commits)' );
-					display_commits_by_month(json.monthly_commits);
+					$('#commits_total').html( '(' + json.commits_total + ' commits)' );
+					display_commits_by_month(json.commits_by_month);
 
 					// Commits by day.
 					$('#total_days').html( '(' + Object.keys(json.commits_by_day).length + ' active days)' );
