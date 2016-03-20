@@ -179,6 +179,10 @@ Full-Width Styles
 	margin: 0px 30px 0px 0px;
 }
 
+#menu a:hover {
+	color: #fff;
+}
+
 #menu a.active span.bullet {
 	color: #fff;
 }
