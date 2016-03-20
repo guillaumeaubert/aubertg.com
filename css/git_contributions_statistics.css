@@ -5,6 +5,29 @@
 }
 
 
+/***** Commits by month *****/
+
+#commits_by_month .bar {
+  fill: #1e6823;
+}
+
+#commits_by_month .bar:hover {
+  fill: #8cc665;
+}
+
+#commits_by_month .axis {
+	font-size: 9pt;
+	font-family: Consolas, courier;
+}
+
+#commits_by_month .axis path,
+#commits_by_month .axis line {
+  fill: none;
+  stroke: #373737;
+  shape-rendering: crispEdges;
+}
+
+
 /***** Commits by day *****/
 
 #commits_by_day {

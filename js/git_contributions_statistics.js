@@ -6,6 +6,10 @@ $(document).ready(
 			.done(
 				function(json)
 				{
+					// Commits by month.
+					$('#commits_total').html( '(' + json.total_commits + ' commits)' );
+					display_commits_by_month(json.monthly_commits);
+
 					// Commits by day.
 					$('#total_days').html( '(' + Object.keys(json.commits_by_day).length + ' active days)' );
 					display_commits_by_day(json.commits_by_day);
@@ -23,6 +27,68 @@ $(document).ready(
 			);
 	}
 );
+
+
+function display_commits_by_month(commits)
+{
+	var margin = {top: 10, right: 20, bottom: 40, left: 40};
+	var width = 960 - margin.left - margin.right;
+	var height = 300 - margin.top - margin.bottom;
+
+	var x = d3.scale.ordinal()
+		.rangeRoundBands([0, width], .1)
+		.domain(commits.map(function(d) { return d.month; }));
+
+	var y = d3.scale.linear()
+		.range([height, 0])
+		.domain([0, Math.round((d3.max(commits, function(d) { return +d.commits; })+1)/50)*50  ]);
+
+	var x_axis = d3.svg.axis()
+		.scale(x)
+		.tickFormat(function(d) {
+			return /^Jan-/.test(d)
+				? d.replace('Jan-','')
+				: '';
+		})
+		.orient("bottom");
+
+	var y_axis = d3.svg.axis()
+		.scale(y)
+		.orient("left");
+
+	var svg = d3.select("#commits_by_month").append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+		.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+	svg.append("g")
+		.attr("class", "x axis")
+		.attr("transform", "translate(0," + height + ")")
+		.call(x_axis)
+		.selectAll("text")
+			.attr("y", 12)
+			.attr("x", 5)
+			.attr("dy", ".35em")
+			.attr("transform", "rotate(45)")
+			.style("text-anchor", "start");
+
+	svg.append("g")
+		.attr("class", "y axis")
+		.call(y_axis);
+
+	svg.selectAll(".bar")
+		.data(commits)
+		.enter().append("rect")
+		.attr("class", "bar")
+		.attr("x", function(d) { return x(d.month); })
+		.attr("width", x.rangeBand())
+		.attr("y", function(d) { return y(d.commits); })
+		.attr("height", function(d) { return height - y(d.commits); })
+		.append("title")
+			.text(function(d) { return d.month.replace('-', ' ') + ': ' + d.commits; });
+}
+
 
 function display_commits_by_day(commits_by_day)
 {
