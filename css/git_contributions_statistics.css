@@ -67,3 +67,6 @@
 #commits_by_weekday_hour text.axis-worktime {
 	fill: #000;
 }
+#commits_by_weekday_hour .legend text.mono {
+	fill: #000;
+}

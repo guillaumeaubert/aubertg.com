@@ -180,8 +180,8 @@ function display_commits_by_weekday_hour(commits)
 	var colors = ["#d6e685", "#b7d174", "#98bc64", "#7aa754", "#5b9243", "#3c7d33", "#1e6823"];
 	var days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 	var times = [
-		"1a", "2a", "3a", "4a", "5a", "6a", "7a", "8a", "9a", "10a", "11a", "12a",
-		"1p", "2p", "3p", "4p", "5p", "6p", "7p", "8p", "9p", "10p", "11p", "12p"
+		'12am', '1am', '2am', '3am', '4am', '5am', '6am', '7am', '8am', '9am', '10am', '11am',
+		'12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', '9pm', '10pm', '11pm'
 	];
 
 	// Prepare the graph space and its axes.
@@ -209,21 +209,30 @@ function display_commits_by_weekday_hour(commits)
 		.attr("y", 0)
 		.style("text-anchor", "middle")
 		.attr("transform", "translate(" + grid_size / 2 + ", -6)")
-		.attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
+		.attr("class", function(d, i) { return ((i >= 8 && i <= 18) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
 
 	// Prepare the data for d3.
 	var data = [];
+	var most_active_weekday_hour;
 	for (day=0; day<7; day++) {
 		for (hour=0; hour<24; hour++) {
-			data.push(
+			var value = +commits[days[day]][hour];
+			var node =
 				{
-					"day": day+1,
-					"hour": hour+1,
-					"value": +commits[days[day]][hour],
-				}
-			);
+					"day": day,
+					"hour": hour,
+					"value": value,
+				};
+			if (!most_active_weekday_hour || value > most_active_weekday_hour.value) {
+				most_active_weekday_hour = node;
+			}
+			data.push(node);
 		}
 	}
+	$('#most_active_weekday_hour').html(
+		'(most active: ' + days[most_active_weekday_hour.day] + ' '
+		+ times[most_active_weekday_hour.hour] + ')'
+	);
 
 	// Create a color scale based on the data.
 	var color_scale = d3.scale.quantile()
@@ -235,8 +244,8 @@ function display_commits_by_weekday_hour(commits)
 		.data(data);
 
 	cards.enter().append("rect")
-		.attr("x", function(d) { return (d.hour - 1) * grid_size; })
-		.attr("y", function(d) { return (d.day - 1) * grid_size; })
+		.attr("x", function(d) { return d.hour * grid_size; })
+		.attr("y", function(d) { return d.day * grid_size; })
 		.attr("rx", 4)
 		.attr("ry", 4)
 		.attr("class", "hour bordered")
