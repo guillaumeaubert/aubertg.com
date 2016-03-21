@@ -5,6 +5,37 @@
 }
 
 
+/***** Commits by language *****/
+
+#commits_by_language {
+	font-size: 9pt;
+	font-family: Consolas, courier;
+	color: #686765;
+}
+#commits_by_language .name {
+	float:right;
+	color:#27aae1;
+}
+#commits_by_language .axis {
+	fill: none;
+	stroke: #373737;
+  shape-rendering: crispEdges;
+}
+#commits_by_language text {
+	stroke: none;
+	fill: #373737;
+}
+#commits_by_language .label {
+	fill: #373737;
+}
+#commits_by_language .dot {
+	opacity: .7;
+}
+#commits_by_language .dot:hover {
+	opacity: 1;
+}
+
+
 /***** Commits by month *****/
 
 #commits_by_month .bar {

@@ -16,6 +16,9 @@ $(document).ready(
 
 					// Commits by weekday and hour.
 					display_commits_by_weekday_hour(json.commit_by_weekday_hour);
+
+					// Commits by language.
+					display_commits_by_language(json.lines_by_language);
 				}
 			)
 			.fail(
@@ -27,6 +30,132 @@ $(document).ready(
 			);
 	}
 );
+
+
+
+function display_commits_by_language(data) {
+	var margins =
+	{
+		"left": 40,
+		"right": 30,
+		"top": 30,
+		"bottom": 35
+	};
+
+	var width = 960;
+	var height = 500;
+
+	// Prepare data.
+	data = d3
+		.entries(data)
+		.map(
+			function(d) {
+				d.lines_added = d.value.added;
+				d.lines_deleted = d.value.deleted;
+				d.commits = d.value.commits;
+				d.language = d.key;
+				delete d.value;
+				delete d.key;
+				return d;
+			}
+		)
+		.filter(
+			function(d) {
+				return !d.language.match(/^Text$/);
+			}
+		);
+	$('#total_languages').html('(' + data.length + ' found)');
+
+	// Ordinal color scale.
+	var colors = d3.scale.category10();
+
+	var svg = d3.select("#commits_by_language").append("svg")
+		.attr("width", width)
+		.attr("height", height)
+		.append("g")
+			.attr("transform", "translate(" + margins.left + "," + margins.top + ")");
+
+	// X-axis scale.
+	var x = d3.scale.log()
+		.domain([1, d3.max(data, function (d) { return d.lines_added; })])
+		.clamp(true)
+		.range([0, width - margins.left - margins.right]);
+
+	// Y-axis scale.
+	var y = d3.scale.log()
+		.domain([1, d3.max(data, function (d) { return d.lines_deleted; })])
+		.clamp(true)
+		.range([height - margins.top - margins.bottom, 0]);
+
+	// Circle radius scale.
+	var r = d3.scale.log()
+		.domain(d3.extent(data, function(d) { return d.commits; }))
+		.range([5,25]);
+
+	// X-axis label.
+	svg.append("text")
+		.attr("text-anchor", "end")
+		.attr("x", width / 2)
+		.attr("y", height - 30)
+		.text("Lines added");
+
+	// Define X and Y axis.
+	var xAxis = d3.svg.axis()
+		.scale(x)
+		.orient("bottom")
+		.tickPadding(2)
+		.tickFormat(
+			function (d) {
+				return x.tickFormat(10,d3.format(",s"))(d)
+			}
+		);
+	var yAxis = d3.svg.axis()
+		.scale(y)
+		.orient("left")
+		.tickPadding(2)
+		.tickFormat(
+			function (d) {
+				return y.tickFormat(10,d3.format(",s"))(d)
+			}
+		);
+
+	// Add axis to the graph.
+	svg.append("g")
+		.attr("class", "y axis")
+		.call(yAxis);
+	svg.append("g")
+		.attr("class", "x axis")
+		.attr("transform", "translate(0," + y.range()[0] + ")")
+		.call(xAxis);
+
+	// Add points.
+	var points = svg.selectAll("g.node")
+		.data(
+			data,
+			function (d) { return d.language; }
+		);
+	var pointsGroup = points.enter()
+		.append("g")
+		.attr("class", "node")
+		.attr('transform', function (d) { return "translate(" + x(d.lines_added) + "," + y(d.lines_deleted) + ")"; });
+	pointsGroup
+		.append("circle")
+		.attr("r", function(d){ return r(d.commits); })
+		.attr("class", "dot")
+		.style("fill", function (d) { return colors(d.commits); });
+	pointsGroup
+		.append("text")
+		.style("text-anchor", "middle")
+		.attr("dy", -10)
+		.text(function (d) { return d.language; });
+	pointsGroup
+		.append("title")
+		.text(
+			function(d) {
+				return d.language + ': +' + d.lines_added + " -" + d.lines_deleted + ' lines and ' + d.commits + ' commit(s)';
+			}
+		);
+}
 
 
 function display_commits_by_month(commits)
