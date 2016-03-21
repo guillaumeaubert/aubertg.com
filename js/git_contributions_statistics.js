@@ -36,7 +36,7 @@ $(document).ready(
 function display_commits_by_language(data) {
 	var margins =
 	{
-		"left": 40,
+		"left": 60,
 		"right": 30,
 		"top": 30,
 		"bottom": 35
@@ -98,6 +98,14 @@ function display_commits_by_language(data) {
 		.attr("x", width / 2)
 		.attr("y", height - 30)
 		.text("Lines added");
+
+	// Y-axis label.
+	svg.append("text")
+		.attr("text-anchor", "middle")
+		.attr("transform", "rotate(-90)")
+		.attr("x", -(height-60)/2)
+		.attr("y", -40)
+		.text("Lines deleted");
 
 	// Define X and Y axis.
 	var xAxis = d3.svg.axis()
