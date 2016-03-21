@@ -223,7 +223,7 @@ function display_commits_by_month(commits)
 		.attr("y", function(d) { return y(d.commits); })
 		.attr("height", function(d) { return height - y(d.commits); })
 		.append("title")
-			.text(function(d) { return d.month.replace('-', ' ') + ': ' + d.commits; });
+			.text(function(d) { return d.month.replace('-', ' ') + ': ' + d.commits + ' commit' + (d.commits==1 ? '' : 's'); });
 }
 
 
