@@ -1,5 +1,5 @@
 {
-  "commits_total": 3839,
+  "commits_total": 3844,
   "commits_by_month": [
     {
       "month": "Dec-2011",
@@ -207,7 +207,7 @@
     },
     {
       "month": "Mar-2016",
-      "commits": 220
+      "commits": 225
     }
   ],
   "commits_by_hour": {
@@ -231,9 +231,9 @@
     "17": 155,
     "18": 442,
     "19": 345,
-    "20": 391,
-    "21": 254,
-    "22": 256,
+    "20": 392,
+    "21": 255,
+    "22": 259,
     "23": 181
   },
   "commits_by_day": {
@@ -631,7 +631,7 @@
     "2016-03-12": 22,
     "2016-03-11": 31,
     "2016-02-21": 5,
-    "2016-03-20": 20,
+    "2016-03-20": 25,
     "2016-03-19": 15,
     "2016-03-17": 6,
     "2016-03-06": 1,
@@ -833,9 +833,9 @@
       "17": 22,
       "18": 52,
       "19": 73,
-      "20": 72,
-      "21": 34,
-      "22": 25,
+      "20": 73,
+      "21": 35,
+      "22": 28,
       "23": 14
     }
   },
@@ -856,9 +856,9 @@
       "commits": 1074
     },
     "JSON": {
-      "added": 6863,
-      "deleted": 3244,
-      "commits": 562
+      "added": 6949,
+      "deleted": 3315,
+      "commits": 563
     },
     "YAML": {
       "added": 4303,
@@ -871,19 +871,19 @@
       "commits": 213
     },
     "CSS": {
-      "added": 5048,
+      "added": 5079,
       "deleted": 671,
-      "commits": 78
+      "commits": 79
     },
     "JavaScript": {
-      "added": 3563,
-      "deleted": 868,
-      "commits": 95
+      "added": 3702,
+      "deleted": 870,
+      "commits": 98
     },
     "HTML": {
-      "added": 2486,
+      "added": 2503,
       "deleted": 1127,
-      "commits": 116
+      "commits": 118
     },
     "SQL": {
       "added": 178,
@@ -910,5 +910,267 @@
       "deleted": 0,
       "commits": 1
     }
-  }
+  },
+  "lines_by_month": [
+    {
+      "month": "Dec-2011",
+      "added": 4606,
+      "deleted": 140
+    },
+    {
+      "month": "Jan-2012",
+      "added": 9431,
+      "deleted": 468
+    },
+    {
+      "month": "Feb-2012",
+      "added": 2658,
+      "deleted": 26
+    },
+    {
+      "month": "Mar-2012",
+      "added": 4003,
+      "deleted": 287
+    },
+    {
+      "month": "Apr-2012",
+      "added": 29,
+      "deleted": 27
+    },
+    {
+      "month": "May-2012",
+      "added": 2146,
+      "deleted": 395
+    },
+    {
+      "month": "Jun-2012",
+      "added": 857,
+      "deleted": 0
+    },
+    {
+      "month": "Jul-2012",
+      "added": 1655,
+      "deleted": 71
+    },
+    {
+      "month": "Aug-2012",
+      "added": 3940,
+      "deleted": 1349
+    },
+    {
+      "month": "Sep-2012",
+      "added": 8154,
+      "deleted": 1813
+    },
+    {
+      "month": "Oct-2012",
+      "added": 4234,
+      "deleted": 1444
+    },
+    {
+      "month": "Nov-2012",
+      "added": 13434,
+      "deleted": 2246
+    },
+    {
+      "month": "Dec-2012",
+      "added": 663,
+      "deleted": 102
+    },
+    {
+      "month": "Jan-2013",
+      "added": 908,
+      "deleted": 91
+    },
+    {
+      "month": "Feb-2013",
+      "added": 325,
+      "deleted": 139
+    },
+    {
+      "month": "Mar-2013",
+      "added": 3896,
+      "deleted": 1078
+    },
+    {
+      "month": "Apr-2013",
+      "added": 1212,
+      "deleted": 187
+    },
+    {
+      "month": "May-2013",
+      "added": 7353,
+      "deleted": 985
+    },
+    {
+      "month": "Jun-2013",
+      "added": 8375,
+      "deleted": 893
+    },
+    {
+      "month": "Jul-2013",
+      "added": 12677,
+      "deleted": 2313
+    },
+    {
+      "month": "Aug-2013",
+      "added": 2027,
+      "deleted": 245
+    },
+    {
+      "month": "Sep-2013",
+      "added": 9693,
+      "deleted": 106
+    },
+    {
+      "month": "Oct-2013",
+      "added": 1309,
+      "deleted": 85
+    },
+    {
+      "month": "Nov-2013",
+      "added": 2710,
+      "deleted": 152
+    },
+    {
+      "month": "Dec-2013",
+      "added": 213,
+      "deleted": 55
+    },
+    {
+      "month": "Jan-2014",
+      "added": 603,
+      "deleted": 578
+    },
+    {
+      "month": "Feb-2014",
+      "added": 8,
+      "deleted": 9
+    },
+    {
+      "month": "Mar-2014",
+      "added": 1392,
+      "deleted": 240
+    },
+    {
+      "month": "Apr-2014",
+      "added": 1151,
+      "deleted": 806
+    },
+    {
+      "month": "May-2014",
+      "added": 20916,
+      "deleted": 806
+    },
+    {
+      "month": "Jun-2014",
+      "added": 2018,
+      "deleted": 1021
+    },
+    {
+      "month": "Jul-2014",
+      "added": 8,
+      "deleted": 1
+    },
+    {
+      "month": "Aug-2014",
+      "added": 1343,
+      "deleted": 704
+    },
+    {
+      "month": "Sep-2014",
+      "added": 138,
+      "deleted": 121
+    },
+    {
+      "month": "Oct-2014",
+      "added": 1125,
+      "deleted": 656
+    },
+    {
+      "month": "Nov-2014",
+      "added": 329,
+      "deleted": 107
+    },
+    {
+      "month": "Dec-2014",
+      "added": 30,
+      "deleted": 0
+    },
+    {
+      "month": "Jan-2015",
+      "added": 2306,
+      "deleted": 622
+    },
+    {
+      "month": "Feb-2015",
+      "added": 1524,
+      "deleted": 283
+    },
+    {
+      "month": "Mar-2015",
+      "added": 4314,
+      "deleted": 1326
+    },
+    {
+      "month": "Apr-2015",
+      "added": 4340,
+      "deleted": 764
+    },
+    {
+      "month": "May-2015",
+      "added": 3197,
+      "deleted": 156
+    },
+    {
+      "month": "Jun-2015",
+      "added": 168,
+      "deleted": 131
+    },
+    {
+      "month": "Jul-2015",
+      "added": 0,
+      "deleted": 0
+    },
+    {
+      "month": "Aug-2015",
+      "added": 43,
+      "deleted": 2
+    },
+    {
+      "month": "Sep-2015",
+      "added": 22,
+      "deleted": 0
+    },
+    {
+      "month": "Oct-2015",
+      "added": 0,
+      "deleted": 0
+    },
+    {
+      "month": "Nov-2015",
+      "added": 0,
+      "deleted": 0
+    },
+    {
+      "month": "Dec-2015",
+      "added": 0,
+      "deleted": 0
+    },
+    {
+      "month": "Jan-2016",
+      "added": 151,
+      "deleted": 129
+    },
+    {
+      "month": "Feb-2016",
+      "added": 581,
+      "deleted": 72
+    },
+    {
+      "month": "Mar-2016",
+      "added": 7679,
+      "deleted": 3327
+    }
+  ]
 }
