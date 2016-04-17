@@ -36,6 +36,33 @@
 }
 
 
+/***** Lines changed by month *****/
+
+#lines_changed_by_month .lines_added {
+  fill: #1e6823;
+}
+
+#lines_changed_by_month rect.lines_added:hover {
+  fill: #8cc665;
+}
+#lines_changed_by_month .lines_deleted {
+	fill: #bd380f;
+}
+#lines_changed_by_month rect.lines_deleted:hover {
+	fill: #f17f49;
+}
+#lines_changed_by_month .axis {
+	font-size: 9pt;
+	font-family: Consolas, courier;
+}
+#lines_changed_by_month .axis path,
+#lines_changed_by_month .axis line {
+  fill: none;
+  stroke: #373737;
+  shape-rendering: crispEdges;
+}
+
+
 /***** Commits by month *****/
 
 #commits_by_month .bar {

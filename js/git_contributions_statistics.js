@@ -19,6 +19,9 @@ $(document).ready(
 
 					// Commits by language.
 					display_commits_by_language(json.lines_by_language);
+
+					// Lines by month.
+					display_lines_by_month(json.lines_by_month);
 				}
 			)
 			.fail(
@@ -31,6 +34,120 @@ $(document).ready(
 	}
 );
 
+
+function display_lines_by_month(data) {
+	var series = ['deleted', 'added'];
+	var margin = {top: 10, right: 20, bottom: 10, left: 60};
+	var width = 960 - margin.left - margin.right;
+	var height = 400 - margin.top - margin.bottom;
+	var center_space = 40;
+
+	var svg = d3.select("#lines_changed_by_month").append("svg")
+		.attr("height", height + margin.top + margin.bottom)
+		.attr("width", width + margin.left + margin.right)
+		.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+	// Set up X scale and axis.
+	var x = d3.scale.ordinal()
+		.rangeRoundBands([0, width], .1)
+		.domain(data.map(function(d) { return d.month; }));
+
+	var x_axis = d3.svg.axis()
+		.scale(x)
+		.tickFormat(function(d) {
+			return /^Jan-/.test(d)
+				? d.replace('Jan-','')
+				: '';
+		})
+		.tickValues(x.domain().filter(function(d, i) { return /^Jan-/.test(d); }));
+
+	svg.append("g")
+		.attr("class", "x axis")
+		.attr("transform", "translate(0," + (height-center_space)/2 + ")")
+		.call(x_axis.orient("bottom"))
+		.selectAll("text")
+			.attr("y", 16)
+			.style("text-anchor", "middle");
+
+	svg.append("g")
+		.attr("class", "x axis")
+		.attr("transform", "translate(0," + (height+center_space)/2 + ")")
+		.call(x_axis.orient("top"))
+		.selectAll("text")
+			.style("display", "none");
+
+	// Set up scale and axis for lines added.
+	var y_added = d3.scale.linear()
+		.range([(height-center_space)/2, 0])
+		.domain([0, d3.max(data, function(d) { return +d.added; })]);
+
+	var y_axis_added = d3.svg.axis()
+		.scale(y_added)
+		.orient("left")
+		.ticks(5)
+		.tickFormat(d3.format("s"));
+
+	svg.append("g")
+		.attr("class", "y axis lines_added")
+		.call(y_axis_added);
+
+	svg.append("text")
+		.attr("text-anchor", "middle")
+		.attr("transform", "rotate(-90)")
+		.attr("x", -(height)/4)
+		.attr("y", -40)
+		.attr("class", "lines_added")
+		.text("Lines added");
+
+	// Set up scale and axis for lines deleted.
+	var y_deleted = d3.scale.linear()
+		.range([(height+center_space)/2, height])
+		.domain([0, d3.max(data, function(d) { return +d.deleted; })]);
+
+	var y_axis_deleted = d3.svg.axis()
+		.scale(y_deleted)
+		.orient("left")
+		.ticks(5)
+		.tickFormat(d3.format("s"));
+
+	svg.append("g")
+		.attr("class", "y axis lines_deleted")
+		.call(y_axis_deleted);
+
+	svg.append("text")
+		.attr("text-anchor", "middle")
+		.attr("transform", "rotate(-90)")
+		.attr("x", -(height)/4*3)
+		.attr("y", -40)
+		.attr("class", "lines_deleted")
+		.text("Lines deleted");
+
+	// Display bars.
+	svg.selectAll(".bar_added")
+		.data(data)
+		.enter().append("rect")
+		.attr("class", "bar_added lines_added")
+		.attr("x", function(d) { return x(d.month); })
+		.attr("width", x.rangeBand())
+		.attr("y", function(d) { return y_added(d.added); })
+		.attr("height", function(d) { return (height-center_space)/2 - y_added(d.added); })
+		.append("title")
+			.text(function(d) { return d.month.replace('-', ' ') + ': ' + d.added + ' line' + (d.added==1 ? '' : 's'); });
+
+	svg.selectAll(".bar_deleted")
+		.data(data)
+		.enter().append("rect")
+		.attr("class", "bar_deleted lines_deleted")
+		.attr("x", function(d) { return x(d.month); })
+		.attr("width", x.rangeBand())
+		//.attr("y", function(d) { return y_deleted(d.deleted); })
+		//.attr("height", function(d) { return (height+center_space)/2 + y_deleted(d.deleted); })
+		.attr("height", function(d) { return y_deleted(d.deleted)-(height+center_space)/2; })
+		.attr("y", function(d) { return (height+center_space)/2+1; })
+		.append("title")
+			.text(function(d) { return d.month.replace('-', ' ') + ': ' + d.deleted + ' line' + (d.deleted==1 ? '' : 's'); });
+}
 
 
 function display_commits_by_language(data) {
