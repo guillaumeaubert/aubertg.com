@@ -90,13 +90,13 @@ Tables of Projects
 #main_content_wrap table .version {
 	width: 90px;
 }
-#main_content_wrap table#ruby_gems .version {
+#main_content_wrap #ruby_gems table .version {
 	width: 120px;
 }
 #main_content_wrap table .links {
 	width: 120px;
 }
-#main_content_wrap table#ruby_gems .links {
+#main_content_wrap #ruby_gems table .links {
 	width: 150px;
 }
 #main_content_wrap table .github_open_issues {

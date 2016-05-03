@@ -3,213 +3,224 @@ layout: default
 title: A visual dashboard for my open source projects
 js_includes:
   - /js/cpan-distributions-list.min.js
-  - /js/dashboard.js
+  - /js/dashboard.js?v=2016050200
 ---
 
 <!-- Ruby Gems -->
-<h3>
-	<a id="RubyGems" class="anchor" href="RubyGems"></a>
-	Ruby Gems <span class="count">(1)</span>
-</h3>
+<section id="ruby_gems">
+	<h3>
+		<a id="RubyGems" class="anchor" href="RubyGems"></a>
+		Ruby Gems <span class="count">(1)</span>
+	</h3>
 
-<table id="ruby_gems">
-	<thead>
-		<tr>
-			<th class="distribution">Name</th>
-			<th class="links">Links</th>
-			<th class="github_open_issues">Issues</th>
-			<th class="travis_status_badge">Status</th>
-			<th class="coveralls_badge">Tests</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td class="distribution">git-commits-analyzer</td>
-			<td class="links">
-				<span class="github">
-					<a href="https://github.com/guillaumeaubert/ruby-git-commits-analyzer">GitHub</a> |
-					<a href="https://rubygems.org/gems/git-commits-analyzer">RubyGems</a>
-				</span>
-			</td>
-			<td class="github_open_issues">
-				<a href="https://github.com/guillaumeaubert/ruby-git-commits-analyzer/issues">
-					View
-				</a>
-			</td>
-			<td class="travis_status_badge">
-				<a href="https://travis-ci.org/guillaumeaubert/ruby-git-commits-analyzer">
-					<img src="https://travis-ci.org/guillaumeaubert/ruby-git-commits-analyzer.svg?branch=master" alt='Build Status' />
-				</a>
-			</td>
-			<td class="coveralls_badge">
-				-
-			</td>
-		</tr>
-	</tbody>
-</table>
+	<table class="list">
+		<thead>
+			<tr>
+				<th class="distribution">Name</th>
+				<th class="links">Links</th>
+				<th class="github_open_issues">Issues</th>
+				<th class="travis_status_badge">Status</th>
+				<th class="coveralls_badge">Tests</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="distribution">git-commits-analyzer</td>
+				<td class="links">
+					<span class="github">
+						<a href="https://github.com/guillaumeaubert/ruby-git-commits-analyzer">GitHub</a> |
+						<a href="https://rubygems.org/gems/git-commits-analyzer">RubyGems</a>
+					</span>
+				</td>
+				<td class="github_open_issues">
+					<a href="https://github.com/guillaumeaubert/ruby-git-commits-analyzer/issues">
+						View
+					</a>
+				</td>
+				<td class="travis_status_badge">
+					<a href="https://travis-ci.org/guillaumeaubert/ruby-git-commits-analyzer">
+						<img src="https://travis-ci.org/guillaumeaubert/ruby-git-commits-analyzer.svg?branch=master" alt='Build Status' />
+					</a>
+				</td>
+				<td class="coveralls_badge">
+					-
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
 
 <!-- JQuery plugins -->
-<h3>
-	<a id="JQueryPlugins" class="anchor" href="#JQueryPlugins"></a>
-	JQuery Plugins <span class="count">(1)</span>
-</h3>
+<section id="jquery_plugins">
+	<h3>
+		<a id="JQueryPlugins" class="anchor" href="#JQueryPlugins"></a>
+		JQuery Plugins <span class="count">(1)</span>
+	</h3>
 
-<table id="jquery_plugins">
-	<thead>
-		<tr>
-			<th class="distribution">Plugin</th>
-			<th class="links">Links</th>
-			<th class="github_open_issues">Issues</th>
-			<th class="travis_status_badge">Status</th>
-			<th class="coveralls_badge">Tests</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td class="distribution">CPAN Distributions List</td>
-			<td class="links">
-				<span class="github">
-					<a href="https://github.com/guillaumeaubert/jquery-cpan-distributions-list">GitHub</a> |
-					<a href="https://www.npmjs.com/package/cpan-distributions-list">npm</a>
-				</span>
-			</td>
-			<td class="github_open_issues">
-				<a href="https://github.com/guillaumeaubert/jquery-cpan-distributions-list/issues">
-					View
-				</a>
-			</td>
-			<td class="travis_status_badge">
-				<a href="https://travis-ci.org/guillaumeaubert/jquery-cpan-distributions-list">
-					<img src="https://travis-ci.org/guillaumeaubert/jquery-cpan-distributions-list.svg?branch=master" alt='Build Status' />
-				</a>
-			</td>
-			<td class="coveralls_badge">
-				<a href='https://coveralls.io/r/guillaumeaubert/jquery-cpan-distributions-list?branch=master'>
-					<img src='https://coveralls.io/repos/guillaumeaubert/jquery-cpan-distributions-list/badge.svg?branch=master' alt='Coverage Status' />
-				</a>
-			</td>
-		</tr>
-	</tbody>
-</table>
+	<table class="list">
+		<thead>
+			<tr>
+				<th class="distribution">Plugin</th>
+				<th class="links">Links</th>
+				<th class="github_open_issues">Issues</th>
+				<th class="travis_status_badge">Status</th>
+				<th class="coveralls_badge">Tests</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="distribution">CPAN Distributions List</td>
+				<td class="links">
+					<span class="github">
+						<a href="https://github.com/guillaumeaubert/jquery-cpan-distributions-list">GitHub</a> |
+						<a href="https://www.npmjs.com/package/cpan-distributions-list">npm</a>
+					</span>
+				</td>
+				<td class="github_open_issues">
+					<a href="https://github.com/guillaumeaubert/jquery-cpan-distributions-list/issues">
+						View
+					</a>
+				</td>
+				<td class="travis_status_badge">
+					<a href="https://travis-ci.org/guillaumeaubert/jquery-cpan-distributions-list">
+						<img src="https://travis-ci.org/guillaumeaubert/jquery-cpan-distributions-list.svg?branch=master" alt='Build Status' />
+					</a>
+				</td>
+				<td class="coveralls_badge">
+					<a href='https://coveralls.io/r/guillaumeaubert/jquery-cpan-distributions-list?branch=master'>
+						<img src='https://coveralls.io/repos/guillaumeaubert/jquery-cpan-distributions-list/badge.svg?branch=master' alt='Coverage Status' />
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
 
 <!-- Ansible plugins -->
-<h3>
-	<a id="AnsiblePlugins" class="anchor" href="#AnsiblePlugins"></a>
-	Ansible Plugins <span class="count">(1)</span>
-</h3>
+<section id="ansible_plugins">
+	<h3 id="ansible">
+		<a id="AnsiblePlugins" class="anchor" href="#AnsiblePlugins"></a>
+		Ansible Plugins <span class="count">(1)</span>
+	</h3>
 
-<table id="ansible_plugins">
-	<thead>
-		<tr>
-			<th class="distribution">Plugin</th>
-			<th class="links">Links</th>
-			<th class="github_open_issues">Issues</th>
-			<th class="travis_status_badge">Status</th>
-			<th class="coveralls_badge">Tests</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td class="distribution">Ansible Symlink Plugin</td>
-			<td class="links">
-				<span class="github">
-					<a href="https://github.com/guillaumeaubert/ansible-symlink-plugin">GitHub</a>
-				</span>
-			</td>
-			<td class="github_open_issues">
-				<a href="https://github.com/guillaumeaubert/ansible-symlink-plugin/issues">
-					View
-				</a>
-			</td>
-			<td class="travis_status_badge">
-				<a href="https://travis-ci.org/guillaumeaubert/ansible-symlink-plugin">
-					<img src="https://travis-ci.org/guillaumeaubert/ansible-symlink-plugin.svg?branch=master" alt='Build Status' />
-				</a>
-			</td>
-			<td class="coveralls_badge">-</td>
-			</td>
-		</tr>
-	</tbody>
-</table>
+	<table class="list">
+		<thead>
+			<tr>
+				<th class="distribution">Plugin</th>
+				<th class="links">Links</th>
+				<th class="github_open_issues">Issues</th>
+				<th class="travis_status_badge">Status</th>
+				<th class="coveralls_badge">Tests</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="distribution">Ansible Symlink Plugin</td>
+				<td class="links">
+					<span class="github">
+						<a href="https://github.com/guillaumeaubert/ansible-symlink-plugin">GitHub</a>
+					</span>
+				</td>
+				<td class="github_open_issues">
+					<a href="https://github.com/guillaumeaubert/ansible-symlink-plugin/issues">
+						View
+					</a>
+				</td>
+				<td class="travis_status_badge">
+					<a href="https://travis-ci.org/guillaumeaubert/ansible-symlink-plugin">
+						<img src="https://travis-ci.org/guillaumeaubert/ansible-symlink-plugin.svg?branch=master" alt='Build Status' />
+					</a>
+				</td>
+				<td class="coveralls_badge">-</td>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
 
 <!-- CPAN distributions -->
-<h3>
-	<a id="CPANDistributions" class="anchor" href="#CPANDistributions"></a>
-	CPAN Distributions <span class="count">(<span class="cpan_distributions_count">?</span>)</span>
-</h3>
-<table id="cpan_distributions">
-	<thead>
-		<tr>
-			<th class="distribution">Distribution</th>
-			<th class="version">Version</th>
-			<th class="links">Links</th>
-			<th class="cpan-testers">CPAN Testers</th>
-			<th class="github_open_issues">Issues</th>
-			<th class="travis_status_badge">Status</th>
-			<th class="coveralls_badge">Tests</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr style="display: none;" class="template">
-			<td class="metacpan-distname"><!-- Link with the name of the distribution --></td>
-			<td class="version"><!-- Current version of the distribution --></td>
-			<td class="links">
-				<span class="github"><!-- GitHub link --></span>
-				|
-				<span class="cpants"><!-- CPANTS link --></span>
-			</td>
-			<td class="cpan-testers">
-				<span class="cpan-testers-pass"><!-- CPAN Testers: passed tests --></span>
-				/
-				<span class="cpan-testers-fail"><!-- CPAN Testers: failed tests --></span>
-				/
-				<span class="cpan-testers-na"><!-- CPAN Testers: N/A tests --></span>
-			</td>
-			<td class="github_open_issues"><!-- Count of issues and link to GitHub -->?</td>
-			<td class="travis_status_badge"><!-- Travis CI - badge to indicate build status --></td>
-			<td class="coveralls_badge"><!-- Coveralls.io - badge to indicate test coverage percentage --></td>
-		</tr>
-	</tbody>
-</table>
+<section id="cpan_distributions">
+	<h3>
+		<a id="CPANDistributions" class="anchor" href="#CPANDistributions"></a>
+		CPAN Distributions <span class="count">(<span class="cpan_distributions_count">?</span>)</span>
+	</h3>
+
+	<table class="list">
+		<thead>
+			<tr>
+				<th class="distribution">Distribution</th>
+				<th class="version">Version</th>
+				<th class="links">Links</th>
+				<th class="cpan-testers">CPAN Testers</th>
+				<th class="github_open_issues">Issues</th>
+				<th class="travis_status_badge">Status</th>
+				<th class="coveralls_badge">Tests</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr style="display: none;" class="template">
+				<td class="metacpan-distname"><!-- Link with the name of the distribution --></td>
+				<td class="version"><!-- Current version of the distribution --></td>
+				<td class="links">
+					<span class="github"><!-- GitHub link --></span>
+					|
+					<span class="cpants"><!-- CPANTS link --></span>
+				</td>
+				<td class="cpan-testers">
+					<span class="cpan-testers-pass"><!-- CPAN Testers: passed tests --></span>
+					/
+					<span class="cpan-testers-fail"><!-- CPAN Testers: failed tests --></span>
+					/
+					<span class="cpan-testers-na"><!-- CPAN Testers: N/A tests --></span>
+				</td>
+				<td class="github_open_issues"><!-- Count of issues and link to GitHub -->?</td>
+				<td class="travis_status_badge"><!-- Travis CI - badge to indicate build status --></td>
+				<td class="coveralls_badge"><!-- Coveralls.io - badge to indicate test coverage percentage --></td>
+			</tr>
+		</tbody>
+	</table>
+</section>
 
 <!-- Tools -->
-<h3>
-	<a id="Tools" class="anchor" href="#Tools"></a>
-	Tools <span class="count">(1)</span>
-</h3>
+<section id="tools">
+	<h3>
+		<a id="Tools" class="anchor" href="#Tools"></a>
+		Tools <span class="count">(1)</span>
+	</h3>
 
-<table id="tools">
-	<thead>
-		<tr>
-			<th class="distribution">Name</th>
-			<th class="version">Version</th>
-			<th class="links">Links</th>
-			<th class="github_open_issues">Issues</th>
-			<th class="travis_status_badge">Status</th>
-			<th class="coveralls_badge">Tests</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td class="distribution">Dot-files</td>
-			<td class="version">-</td>
-			<td class="links">
-				<span class="github">
-					<a href="https://github.com/guillaumeaubert/dot-files">GitHub</a>
-				</span>
-			</td>
-			<td class="github_open_issues">
-				<a href="https://github.com/guillaumeaubert/dot-files/issues">
-					View
-				</a>
-			</td>
-			<td class="travis_status_badge">
-				<a href="https://travis-ci.org/guillaumeaubert/dot-files">
-					<img src="https://travis-ci.org/guillaumeaubert/dot-files.svg?branch=master" alt='Build Status' />
-				</a>
-			</td>
-			<td class="coveralls_badge">-</td>
-			</td>
-		</tr>
-	</tbody>
-</table>
+	<table class="list">
+		<thead>
+			<tr>
+				<th class="distribution">Name</th>
+				<th class="version">Version</th>
+				<th class="links">Links</th>
+				<th class="github_open_issues">Issues</th>
+				<th class="travis_status_badge">Status</th>
+				<th class="coveralls_badge">Tests</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="distribution">Dot-files</td>
+				<td class="version">-</td>
+				<td class="links">
+					<span class="github">
+						<a href="https://github.com/guillaumeaubert/dot-files">GitHub</a>
+					</span>
+				</td>
+				<td class="github_open_issues">
+					<a href="https://github.com/guillaumeaubert/dot-files/issues">
+						View
+					</a>
+				</td>
+				<td class="travis_status_badge">
+					<a href="https://travis-ci.org/guillaumeaubert/dot-files">
+						<img src="https://travis-ci.org/guillaumeaubert/dot-files.svg?branch=master" alt='Build Status' />
+					</a>
+				</td>
+				<td class="coveralls_badge">-</td>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
