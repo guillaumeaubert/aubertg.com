@@ -77,10 +77,17 @@ function display_lines_by_month(data) {
 		.selectAll("text")
 			.style("display", "none");
 
+	// Determine the max lines added/deleted across the month range.
+	// This allows giving each graph (lines added, lines deleted) the same scale.
+	var max_changed_lines = Math.max(
+		d3.max(data, function(d) { return +d.added; }),
+		d3.max(data, function(d) { return +d.deleted; })
+	);
+
 	// Set up scale and axis for lines added.
 	var y_added = d3.scale.linear()
 		.range([(height-center_space)/2, 0])
-		.domain([0, d3.max(data, function(d) { return +d.added; })]);
+		.domain([0, max_changed_lines]);
 
 	var y_axis_added = d3.svg.axis()
 		.scale(y_added)
@@ -103,7 +110,7 @@ function display_lines_by_month(data) {
 	// Set up scale and axis for lines deleted.
 	var y_deleted = d3.scale.linear()
 		.range([(height+center_space)/2, height])
-		.domain([0, d3.max(data, function(d) { return +d.deleted; })]);
+		.domain([0, max_changed_lines]);
 
 	var y_axis_deleted = d3.svg.axis()
 		.scale(y_deleted)
