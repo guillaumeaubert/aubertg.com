@@ -80,37 +80,6 @@ td {
 
 
 /*******************************************************************************
-Tables of Projects
-*******************************************************************************/
-
-#main_content_wrap table {
-	width: 100%;
-	background-color: #f2f2f2;
-}
-#main_content_wrap table .version {
-	width: 90px;
-}
-#main_content_wrap #ruby_gems table .version {
-	width: 120px;
-}
-#main_content_wrap table .links {
-	width: 120px;
-}
-#main_content_wrap #ruby_gems table .links {
-	width: 150px;
-}
-#main_content_wrap table .github_open_issues {
-	width: 70px;
-}
-#main_content_wrap table .travis_status_badge {
-	width: 100px;;
-}
-#main_content_wrap table .coveralls_badge {
-	width: 118px;
-}
-
-
-/*******************************************************************************
 Full-Width Styles
 *******************************************************************************/
 
@@ -197,18 +166,6 @@ Full-Width Styles
 	padding-top: 20px;
 }
 
-.distribution .cpan-testers-pass {
-	color: #009900;
-}
-
-.distribution .cpan-testers-fail {
-	color: #990000;
-}
-
-.distribution .cpan-testers-na {
-	color: #3366cc;
-}
-
 #footer_wrap {
 	background: #212121;
 }
@@ -243,23 +200,9 @@ Full-Width Styles
 Small Device Styles
 *******************************************************************************/
 
-@media screen and (max-width: 750px) {
-	table .version {
-		display: none;
-	}
-}
-
 @media screen and (max-width: 670px) {
 	body {
 		font-size:14px;
-	}
-
-	table .cpan-testers,
-	table .github_open_issues,
-	table .version,
-	table .coveralls_badge
-	{
-		display: none;
 	}
 
 	.inner {

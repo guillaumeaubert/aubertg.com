@@ -1,0 +1,70 @@
+/*******************************************************************************
+Full-Width Styles
+*******************************************************************************/
+
+table.list {
+	width: 100%;
+	background-color: #f2f2f2;
+}
+
+table.list .version {
+	width: 90px;
+}
+
+section#ruby_gems table.list .version {
+	width: 120px;
+}
+
+table.list .links {
+	width: 120px;
+}
+
+section#ruby_gems table.list .links {
+	width: 150px;
+}
+
+table.list .github_open_issues {
+	width: 70px;
+}
+
+table.list .travis_status_badge {
+	width: 100px;;
+}
+
+table.list .coveralls_badge {
+	width: 118px;
+}
+
+table.list .distribution .cpan-testers-pass {
+	color: #009900;
+}
+
+table.list .distribution .cpan-testers-fail {
+	color: #990000;
+}
+
+table.list .distribution .cpan-testers-na {
+	color: #3366cc;
+}
+
+
+/*******************************************************************************
+Small Device Styles
+*******************************************************************************/
+
+@media screen and (max-width: 750px) {
+	table.list .version {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 670px) {
+
+	table.list .cpan-testers,
+	table.list .github_open_issues,
+	table.list .version,
+	table.list .coveralls_badge
+	{
+		display: none;
+	}
+}
