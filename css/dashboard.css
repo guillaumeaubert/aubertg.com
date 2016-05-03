@@ -2,6 +2,33 @@
 Full-Width Styles
 *******************************************************************************/
 
+section h3 {
+	padding-left: 41px;
+	background-repeat: no-repeat;
+	background-position: 0px 5px;
+	background-color: transparent;
+}
+
+section#ruby_gems h3 {
+	background-image: url('/images/ruby.png');
+}
+
+section#jquery_plugins h3 {
+	background-image: url('/images/jquery.png');
+}
+
+section#ansible_plugins h3 {
+	background-image: url('/images/ansible.png');
+}
+
+section#cpan_distributions h3 {
+	background-image: url('/images/perl.png');
+}
+
+section#tools h3 {
+	background-image: url('/images/octicon-tools.png');
+}
+
 table.list {
 	width: 100%;
 	background-color: #f2f2f2;
