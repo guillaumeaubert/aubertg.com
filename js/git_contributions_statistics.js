@@ -149,7 +149,7 @@ function display_lines_by_month(data) {
 		.attr("y", function(d) { return y_added(d.added); })
 		.attr("height", function(d) { return (height-center_space)/2 - y_added(d.added); })
 		.append("title")
-			.text(function(d) { return d.month.replace('-', ' ') + ': ' + d.added + ' line' + (d.added==1 ? '' : 's'); });
+			.text(function(d) { return d.month.replace('-', ' ') + ': ' + format_lines_count(d.added) + ' line' + (d.added==1 ? '' : 's'); });
 
 	svg.selectAll(".bar_deleted")
 		.data(data)
@@ -162,7 +162,7 @@ function display_lines_by_month(data) {
 		.attr("height", function(d) { return y_deleted(d.deleted)-(height+center_space)/2; })
 		.attr("y", function(d) { return (height+center_space)/2+1; })
 		.append("title")
-			.text(function(d) { return d.month.replace('-', ' ') + ': ' + d.deleted + ' line' + (d.deleted==1 ? '' : 's'); });
+			.text(function(d) { return d.month.replace('-', ' ') + ': ' + format_lines_count(d.deleted) + ' line' + (d.deleted==1 ? '' : 's'); });
 }
 
 
