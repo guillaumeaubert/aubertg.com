@@ -48,6 +48,15 @@ function display_lines_by_month(data) {
 		.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+	// Calculate total lines added/deleted for the header.
+	var format_lines_count = d3.format(",d");
+	var total_lines_added = d3.sum(data, function(d) { return +d.added; });
+	var total_lines_deleted = d3.sum(data, function(d) { return +d.deleted; });
+	$('#total_lines_changed').html(
+		'(total: +' + format_lines_count(total_lines_added)
+		+ ' -' + format_lines_count(total_lines_deleted) + ')'
+	);
+
 	// Set up X scale and axis.
 	var x = d3.scale.ordinal()
 		.rangeRoundBands([0, width], .1)
