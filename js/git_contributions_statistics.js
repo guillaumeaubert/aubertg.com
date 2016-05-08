@@ -269,6 +269,9 @@ function display_commits_by_language(data) {
 		.attr("transform", "translate(0," + y.range()[0] + ")")
 		.call(xAxis);
 
+	// Function to format numbers with a separator for thousands.
+	var format_thousands = d3.format(",d");
+
 	// Add points.
 	var points = svg.selectAll("g.node")
 		.data(
@@ -293,7 +296,9 @@ function display_commits_by_language(data) {
 		.append("title")
 		.text(
 			function(d) {
-				return d.language + ': +' + d.lines_added + " -" + d.lines_deleted + ' lines and ' + d.commits + ' commit(s)';
+				return d.language + ': +' + format_thousands(d.lines_added) + " -"
+					+ format_thousands(d.lines_deleted) + ' lines and '
+					+ format_thousands(d.commits) + ' commit(s)';
 			}
 		);
 }
