@@ -67,6 +67,11 @@ table.list .coveralls_badge {
 	width: 118px;
 }
 
+table.list .travis_status_badge img,
+table.list .coveralls_badge img {
+	display: block;
+}
+
 table.list .distribution .cpan-testers-pass {
 	color: #009900;
 }
