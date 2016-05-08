@@ -183,17 +183,6 @@ Full-Width Styles
 #footer_wrap .inner ul li img {
 	display: block;
 }
-#footer_wrap .inner ul li#badge_openhub {
-	padding-top: 3px;
-}
-#footer_wrap .inner ul li#badge_openhub a img {
-	border-width: 3px 4px;
-	border-style: solid;
-	border-color: white;
-	background-color: white;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-}
 
 
 /*******************************************************************************
