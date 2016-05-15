@@ -317,9 +317,9 @@ function display_commits_by_language(data) {
 /**
  *  Display commits by month.
  *
- * @param {json} commits - The data to display.
+ * @param {json} data - The data to display.
  */
-function display_commits_by_month(commits)
+function display_commits_by_month(data)
 {
 	var margin = {top: 10, right: 20, bottom: 40, left: 40};
 	var width = 960 - margin.left - margin.right;
@@ -327,11 +327,11 @@ function display_commits_by_month(commits)
 
 	var x = d3.scale.ordinal()
 		.rangeRoundBands([0, width], .1)
-		.domain(commits.map(function(d) { return d.month; }));
+		.domain(data.map(function(d) { return d.month; }));
 
 	var y = d3.scale.linear()
 		.range([height, 0])
-		.domain([0, Math.round((d3.max(commits, function(d) { return +d.commits; })+1)/50)*50  ]);
+		.domain([0, Math.round((d3.max(data, function(d) { return +d.commits; })+1)/50)*50  ]);
 
 	var x_axis = d3.svg.axis()
 		.scale(x)
@@ -368,7 +368,7 @@ function display_commits_by_month(commits)
 		.call(y_axis);
 
 	svg.selectAll(".bar")
-		.data(commits)
+		.data(data)
 		.enter().append("rect")
 		.attr("class", "bar")
 		.attr("x", function(d) { return x(d.month); })
@@ -383,9 +383,9 @@ function display_commits_by_month(commits)
 /**
  * Display commits by day.
  *
- * @param {json} commits_by_day - The data to display.
+ * @param {json} data - The data to display.
  */
-function display_commits_by_day(commits_by_day)
+function display_commits_by_day(data)
 {
 	// Configuration.
 	var width = 960;
@@ -408,13 +408,13 @@ function display_commits_by_day(commits_by_day)
 	var format = d3.time.format("%Y-%m-%d");
 
 	// Create a color scale based on the data.
-	var max_commits_in_a_day = d3.max(d3.values(commits_by_day));
+	var max_commits_in_a_day = d3.max(d3.values(data));
 	var color = d3.scale.quantize()
 		.domain([0, Math.log(max_commits_in_a_day+1)])
 		.range(d3.range(4).map(function(d) { return "q" + d + "-11"; }));
 
 	// Determine the years to display.
-	var years = d3.keys(commits_by_day).map(function(d){return parseInt(d.split('-')[0])});
+	var years = d3.keys(data).map(function(d){return parseInt(d.split('-')[0])});
 
 	// Set up graph.
 	var svg = d3.select("#commits_by_day")
@@ -456,19 +456,19 @@ function display_commits_by_day(commits_by_day)
 		.attr("d", calendar_month_path);
 
 	// Colorize tiles baser on data.
-	rect.filter(function(d) { return d in commits_by_day; })
-		.attr("class", function(d) { return "day " + color(Math.log(commits_by_day[d]+1)); })
+	rect.filter(function(d) { return d in data; })
+		.attr("class", function(d) { return "day " + color(Math.log(data[d]+1)); })
 		.select("title")
-		.text(function(d) { commits = commits_by_day[d]; return d + ": " + commits + ' commit' + (commits == 1 ? '' : 's'); });
+		.text(function(d) { commits = data[d]; return d + ": " + commits + ' commit' + (commits == 1 ? '' : 's'); });
 }
 
 
 /**
  * Display commits by day of the week and by hour.
  *
- * @param {json} commits - The data to display.
+ * @param {json} data - The data to display.
  */
-function display_commits_by_weekday_hour(commits)
+function display_commits_by_weekday_hour(data)
 {
 	// Configuration.
 	var margin = { top: 20, right: 0, bottom: 40, left: 40 };
@@ -512,11 +512,11 @@ function display_commits_by_weekday_hour(commits)
 		.attr("class", function(d, i) { return ((i >= 8 && i <= 18) ? "timeLabel mono axis axis-worktime" : "timeLabel mono axis"); });
 
 	// Prepare the data for d3.
-	var data = [];
+	var formatted_data = [];
 	var most_active_weekday_hour;
 	for (day=0; day<7; day++) {
 		for (hour=0; hour<24; hour++) {
-			var value = +commits[days[day]][hour];
+			var value = +data[days[day]][hour];
 			var node =
 				{
 					"day": day,
@@ -526,7 +526,7 @@ function display_commits_by_weekday_hour(commits)
 			if (!most_active_weekday_hour || value > most_active_weekday_hour.value) {
 				most_active_weekday_hour = node;
 			}
-			data.push(node);
+			formatted_data.push(node);
 		}
 	}
 	$('#most_active_weekday_hour').html(
@@ -536,12 +536,12 @@ function display_commits_by_weekday_hour(commits)
 
 	// Create a color scale based on the data.
 	var color_scale = d3.scale.quantile()
-		.domain([1, buckets - 1, d3.max(data, function (d) { return d.value; })])
+		.domain([1, buckets - 1, d3.max(formatted_data, function (d) { return d.value; })])
 		.range(colors);
 
 	// Add tiles to represent the data.
 	var cards = svg.selectAll(".hour")
-		.data(data);
+		.data(formatted_data);
 
 	cards.enter().append("rect")
 		.attr("x", function(d) { return d.hour * grid_size; })
