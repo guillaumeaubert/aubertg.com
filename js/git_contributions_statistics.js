@@ -7,7 +7,7 @@ $(document).ready(
 				function(json)
 				{
 					// Commits by month.
-					$('#commits_total').html( '(' + json.commits_total + ' commits)' );
+					$('#commits_total').html( '(' + d3.format(",d")(json.commits_total) + ' commits)' );
 					display_commits_by_month(json.commits_by_month);
 
 					// Commits by day.
