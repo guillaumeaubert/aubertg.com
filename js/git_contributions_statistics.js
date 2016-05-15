@@ -7,11 +7,9 @@ $(document).ready(
 				function(json)
 				{
 					// Commits by month.
-					$('#commits_total').html( '(' + d3.format(",d")(json.commits_total) + ' commits)' );
 					display_commits_by_month(json.commits_by_month);
 
 					// Commits by day.
-					$('#total_days').html( '(' + Object.keys(json.commits_by_day).length + ' active days)' );
 					display_commits_by_day(json.commits_by_day);
 
 					// Commits by weekday and hour.
@@ -321,6 +319,11 @@ function display_commits_by_language(data) {
  */
 function display_commits_by_month(data)
 {
+	// Add data in header.
+	var total_commits = d3.sum(data, function(d) { return +d.commits; });
+	$('#commits_total').html( '(' + d3.format(",d")(total_commits) + ' commits)' );
+
+	// Canvas parameters.
 	var margin = {top: 10, right: 20, bottom: 40, left: 40};
 	var width = 960 - margin.left - margin.right;
 	var height = 300 - margin.top - margin.bottom;
@@ -387,6 +390,9 @@ function display_commits_by_month(data)
  */
 function display_commits_by_day(data)
 {
+	// Add data in header.
+	$('#total_days').html( '(' + Object.keys(data).length + ' active days)' );
+
 	// Configuration.
 	var width = 960;
 	var height = 136;
