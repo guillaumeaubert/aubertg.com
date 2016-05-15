@@ -35,6 +35,11 @@ $(document).ready(
 );
 
 
+/**
+ * Display lines added/deleted by month.
+ *
+ * @param {json} data - The data to display.
+ */
 function display_lines_by_month(data) {
 	var series = ['deleted', 'added'];
 	var margin = {top: 10, right: 20, bottom: 10, left: 60};
@@ -166,6 +171,11 @@ function display_lines_by_month(data) {
 }
 
 
+/**
+ * Display commits by language
+ *
+ * @param {json} data - The data to display.
+ */
 function display_commits_by_language(data) {
 	var margins =
 	{
@@ -304,6 +314,11 @@ function display_commits_by_language(data) {
 }
 
 
+/**
+ *  Display commits by month.
+ *
+ * @param {json} commits - The data to display.
+ */
 function display_commits_by_month(commits)
 {
 	var margin = {top: 10, right: 20, bottom: 40, left: 40};
@@ -365,6 +380,11 @@ function display_commits_by_month(commits)
 }
 
 
+/**
+ * Display commits by day.
+ *
+ * @param {json} commits_by_day - The data to display.
+ */
 function display_commits_by_day(commits_by_day)
 {
 	// Configuration.
@@ -443,6 +463,11 @@ function display_commits_by_day(commits_by_day)
 }
 
 
+/**
+ * Display commits by day of the week and by hour.
+ *
+ * @param {json} commits - The data to display.
+ */
 function display_commits_by_weekday_hour(commits)
 {
 	// Configuration.
