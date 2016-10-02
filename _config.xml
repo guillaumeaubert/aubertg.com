@@ -1,0 +1,3 @@
+repository: guillaumeaubert/guillaumeaubert.github.io
+
+gems: ['jekyll-github-metadata']
