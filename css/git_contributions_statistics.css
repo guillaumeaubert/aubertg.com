@@ -9,8 +9,10 @@
 #main_content #overview ul {
 	margin-top: 0px;
 }
-#main_content #overview .list_head {
+#main_content #overview h4 {
 	font-weight: bold;
+	color: #222222;
+	margin: 15px 0px 0px 0px;
 }
 
 
