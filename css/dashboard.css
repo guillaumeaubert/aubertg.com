@@ -43,16 +43,8 @@ table.list .version {
 	width: 90px;
 }
 
-section#ruby_gems table.list .version {
-	width: 120px;
-}
-
 table.list .links {
-	width: 120px;
-}
-
-section#ruby_gems table.list .links {
-	width: 150px;
+	width: 130px;
 }
 
 table.list .github_open_issues {
