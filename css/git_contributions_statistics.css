@@ -3,6 +3,9 @@
 #main_content h3 {
 	margin: 25px 0px 10px 0px;
 }
+#main_content h3 a {
+	color: #222222;
+}
 #main_content #overview ul {
 	margin-top: 0px;
 }
