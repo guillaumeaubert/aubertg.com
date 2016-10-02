@@ -3,6 +3,12 @@
 #main_content h3 {
 	margin: 25px 0px 10px 0px;
 }
+#main_content #overview ul {
+	margin-top: 0px;
+}
+#main_content #overview .list_head {
+	font-weight: bold;
+}
 
 
 /***** Commits by language *****/
