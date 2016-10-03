@@ -110,12 +110,30 @@ Full-Width Styles
 	border-bottom-left-radius: 2px;
 	border-bottom-right-radius: 2px;
 	background-color: #0090ff;
-}
-
-#banner,
-#banner a {
 	color: #fff;
 	font-weight: 700;
+}
+
+#banner ul {
+	list-style-type: none;
+	margin: 0px auto;
+	display: table;
+	overflow: auto;
+	padding: 0px 15px;
+}
+
+#banner ul li {
+	float: left;
+	margin-left: 16px;
+}
+
+#banner ul li:first-child {
+	padding-top: 5px;
+	margin-left: 0px;
+}
+
+#banner ul li img {
+	display: block;
 }
 
 #header_wrap {
