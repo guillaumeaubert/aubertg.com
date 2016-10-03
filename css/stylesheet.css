@@ -112,6 +112,7 @@ Full-Width Styles
 	background-color: #0090ff;
 	color: #fff;
 	font-weight: 700;
+	border-radius: 0px 0px 25px 25px;
 }
 
 #banner ul {
