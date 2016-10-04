@@ -1,5 +1,5 @@
 {
-  "commits_total": 4019,
+  "commits_total": 4023,
   "commits_by_month": [
     {
       "month": "Dec-2011",
@@ -235,7 +235,7 @@
     },
     {
       "month": "Oct-2016",
-      "commits": 18
+      "commits": 22
     }
   ],
   "commits_by_hour": {
@@ -261,7 +261,7 @@
     "19": 388,
     "20": 425,
     "21": 279,
-    "22": 268,
+    "22": 272,
     "23": 186
   },
   "commits_by_day": {
@@ -667,6 +667,7 @@
     "2013-07-08": 14,
     "2013-07-04": 3,
     "2013-07-02": 2,
+    "2016-10-03": 4,
     "2016-04-17": 3,
     "2016-06-09": 1,
     "2016-06-04": 6,
@@ -729,7 +730,7 @@
       "19": 41,
       "20": 51,
       "21": 70,
-      "22": 29,
+      "22": 33,
       "23": 43
     },
     "Tue": {
@@ -896,9 +897,9 @@
       "commits": 2268
     },
     "Text": {
-      "added": 11670,
+      "added": 11676,
       "deleted": 1340,
-      "commits": 1085
+      "commits": 1086
     },
     "JSON": {
       "added": 7569,
@@ -950,20 +951,20 @@
       "deleted": 393,
       "commits": 150
     },
-    "Go": {
+    "Golang": {
       "added": 952,
       "deleted": 175,
       "commits": 25
     },
-    ".xml": {
+    "XML": {
       "added": 3,
       "deleted": 0,
       "commits": 1
     },
     "Ruby": {
-      "added": 2231,
-      "deleted": 788,
-      "commits": 64
+      "added": 2236,
+      "deleted": 791,
+      "commits": 67
     },
     "C": {
       "added": 6,
@@ -1264,8 +1265,8 @@
     },
     {
       "month": "Oct-2016",
-      "added": 278,
-      "deleted": 140
+      "added": 289,
+      "deleted": 143
     }
   ]
 }
