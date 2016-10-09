@@ -199,6 +199,7 @@ function display_commits_by_language(data) {
 	var height = 500;
 
 	// Prepare data.
+	var language_counter = 0;
 	data = d3
 		.entries(data)
 		.map(
@@ -207,6 +208,7 @@ function display_commits_by_language(data) {
 				d.lines_deleted = d.value.deleted;
 				d.commits = d.value.commits;
 				d.language = d.key;
+				d.counter = language_counter++;
 				delete d.value;
 				delete d.key;
 				return d;
@@ -220,7 +222,7 @@ function display_commits_by_language(data) {
 	$('#total_languages').html('(' + data.length + ' found)');
 
 	// Color scale.
-	var colors = d3.scaleOrdinal(d3.schemeCategory10);
+	var colors = d3.scaleOrdinal(d3.schemeCategory20);
 
 	var svg = d3.select("#commits_by_language").append("svg")
 		.attr("width", width)
@@ -304,7 +306,7 @@ function display_commits_by_language(data) {
 		.append("circle")
 		.attr("r", function(d){ return r(d.commits); })
 		.attr("class", "dot")
-		.style("fill", function (d) { return colors(d.commits); });
+		.style("fill", function (d) { return colors(d.counter); });
 	pointsGroup
 		.append("text")
 		.style("text-anchor", "middle")
