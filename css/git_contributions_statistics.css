@@ -18,7 +18,8 @@
 
 /***** Commits by language *****/
 
-#commits_by_language {
+#commits_by_language,
+#commits_by_language .tick text {
 	font-size: 9pt;
 	font-family: Consolas, courier;
 	color: #686765;
@@ -49,14 +50,16 @@
 
 /***** Lines changed by month *****/
 
-#lines_changed_by_month .lines_added {
+#lines_changed_by_month .lines_added,
+#lines_changed_by_month .lines_added .tick text {
   fill: #1e6823;
 }
 
 #lines_changed_by_month rect.lines_added:hover {
   fill: #8cc665;
 }
-#lines_changed_by_month .lines_deleted {
+#lines_changed_by_month .lines_deleted,
+#lines_changed_by_month .lines_deleted .tick text {
 	fill: #bd380f;
 }
 #lines_changed_by_month rect.lines_deleted:hover {

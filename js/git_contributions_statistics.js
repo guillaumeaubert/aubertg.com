@@ -1,6 +1,12 @@
 $(document).ready(
 	function()
 	{
+		// Add a timeWeekOfYear function for backward compatibility with d3 v3.
+		var formatWeekOfYear = d3.timeFormat("%-U");
+		d3.timeWeekOfYear = function (date) {
+			return +formatWeekOfYear(date);
+		}
+
 		// Retrieve git contribution information.
 		$.getJSON('/data/git_contributions.json')
 			.done(
@@ -60,12 +66,22 @@ function display_lines_by_month(data) {
 		+ ' -' + format_lines_count(total_lines_deleted) + ')'
 	);
 
-	// Set up X scale and axis.
-	var x = d3.scale.ordinal()
-		.rangeRoundBands([0, width], .1)
+	// Set up mirrored X scales and axis.
+	var x = d3.scaleBand()
+		.range([0, width])
+		.padding(0.1)
 		.domain(data.map(function(d) { return d.month; }));
 
-	var x_axis = d3.svg.axis()
+	var x_axis_added = d3.axisBottom()
+		.scale(x)
+		.tickFormat(function(d) {
+			return /^Jan-/.test(d)
+				? d.replace('Jan-','')
+				: '';
+		})
+		.tickValues(x.domain().filter(function(d, i) { return /^Jan-/.test(d); }));
+
+	var x_axis_deleted = d3.axisTop()
 		.scale(x)
 		.tickFormat(function(d) {
 			return /^Jan-/.test(d)
@@ -77,7 +93,7 @@ function display_lines_by_month(data) {
 	svg.append("g")
 		.attr("class", "x axis")
 		.attr("transform", "translate(0," + (height-center_space)/2 + ")")
-		.call(x_axis.orient("bottom"))
+		.call(x_axis_added)
 		.selectAll("text")
 			.attr("y", 16)
 			.style("text-anchor", "middle");
@@ -85,7 +101,7 @@ function display_lines_by_month(data) {
 	svg.append("g")
 		.attr("class", "x axis")
 		.attr("transform", "translate(0," + (height+center_space)/2 + ")")
-		.call(x_axis.orient("top"))
+		.call(x_axis_deleted)
 		.selectAll("text")
 			.style("display", "none");
 
@@ -97,15 +113,14 @@ function display_lines_by_month(data) {
 	);
 
 	// Set up scale and axis for lines added.
-	var y_added = d3.scale.linear()
+	var y_added = d3.scaleLinear()
 		.range([(height-center_space)/2, 0])
 		.domain([0, max_changed_lines]);
 
-	var y_axis_added = d3.svg.axis()
+	var y_axis_added = d3.axisLeft()
 		.scale(y_added)
-		.orient("left")
 		.ticks(5)
-		.tickFormat(d3.format("s"));
+		.tickFormat(d3.format(".1s"));
 
 	svg.append("g")
 		.attr("class", "y axis lines_added")
@@ -120,15 +135,14 @@ function display_lines_by_month(data) {
 		.text("Lines added");
 
 	// Set up scale and axis for lines deleted.
-	var y_deleted = d3.scale.linear()
+	var y_deleted = d3.scaleLinear()
 		.range([(height+center_space)/2, height])
 		.domain([0, max_changed_lines]);
 
-	var y_axis_deleted = d3.svg.axis()
+	var y_axis_deleted = d3.axisLeft()
 		.scale(y_deleted)
-		.orient("left")
 		.ticks(5)
-		.tickFormat(d3.format("s"));
+		.tickFormat(d3.format(".1s"));
 
 	svg.append("g")
 		.attr("class", "y axis lines_deleted")
@@ -148,7 +162,7 @@ function display_lines_by_month(data) {
 		.enter().append("rect")
 		.attr("class", "bar_added lines_added")
 		.attr("x", function(d) { return x(d.month); })
-		.attr("width", x.rangeBand())
+		.attr("width", x.bandwidth())
 		.attr("y", function(d) { return y_added(d.added); })
 		.attr("height", function(d) { return (height-center_space)/2 - y_added(d.added); })
 		.append("title")
@@ -159,9 +173,7 @@ function display_lines_by_month(data) {
 		.enter().append("rect")
 		.attr("class", "bar_deleted lines_deleted")
 		.attr("x", function(d) { return x(d.month); })
-		.attr("width", x.rangeBand())
-		//.attr("y", function(d) { return y_deleted(d.deleted); })
-		//.attr("height", function(d) { return (height+center_space)/2 + y_deleted(d.deleted); })
+		.attr("width", x.bandwidth())
 		.attr("height", function(d) { return y_deleted(d.deleted)-(height+center_space)/2; })
 		.attr("y", function(d) { return (height+center_space)/2+1; })
 		.append("title")
@@ -207,8 +219,8 @@ function display_commits_by_language(data) {
 		);
 	$('#total_languages').html('(' + data.length + ' found)');
 
-	// Ordinal color scale.
-	var colors = d3.scale.category10();
+	// Color scale.
+	var colors = d3.scaleOrdinal(d3.schemeCategory10);
 
 	var svg = d3.select("#commits_by_language").append("svg")
 		.attr("width", width)
@@ -217,19 +229,19 @@ function display_commits_by_language(data) {
 			.attr("transform", "translate(" + margins.left + "," + margins.top + ")");
 
 	// X-axis scale.
-	var x = d3.scale.log()
+	var x = d3.scaleLog()
 		.domain([1, d3.max(data, function (d) { return d.lines_added; })])
 		.clamp(true)
 		.range([0, width - margins.left - margins.right]);
 
 	// Y-axis scale.
-	var y = d3.scale.log()
+	var y = d3.scaleLog()
 		.domain([1, d3.max(data, function (d) { return d.lines_deleted; })])
 		.clamp(true)
 		.range([height - margins.top - margins.bottom, 0]);
 
 	// Circle radius scale.
-	var r = d3.scale.log()
+	var r = d3.scaleLog()
 		.domain(d3.extent(data, function(d) { return d.commits; }))
 		.range([5,25]);
 
@@ -249,22 +261,20 @@ function display_commits_by_language(data) {
 		.text("Lines deleted");
 
 	// Define X and Y axis.
-	var xAxis = d3.svg.axis()
+	var xAxis = d3.axisBottom()
 		.scale(x)
-		.orient("bottom")
 		.tickPadding(2)
 		.tickFormat(
 			function (d) {
-				return x.tickFormat(10,d3.format(",s"))(d)
+				return x.tickFormat(10,d3.format(".1s"))(d)
 			}
 		);
-	var yAxis = d3.svg.axis()
+	var yAxis = d3.axisLeft()
 		.scale(y)
-		.orient("left")
 		.tickPadding(2)
 		.tickFormat(
 			function (d) {
-				return y.tickFormat(10,d3.format(",s"))(d)
+				return y.tickFormat(10,d3.format(".1s"))(d)
 			}
 		);
 
@@ -328,26 +338,26 @@ function display_commits_by_month(data)
 	var width = 960 - margin.left - margin.right;
 	var height = 300 - margin.top - margin.bottom;
 
-	var x = d3.scale.ordinal()
-		.rangeRoundBands([0, width], .1)
+	var x = d3.scaleBand()
+		.rangeRound([0, width])
+		.padding(0.1)
 		.domain(data.map(function(d) { return d.month; }));
 
-	var y = d3.scale.linear()
+	var y = d3.scaleLinear()
 		.range([height, 0])
-		.domain([0, Math.round((d3.max(data, function(d) { return +d.commits; })+1)/50)*50  ]);
+		.domain([0, Math.round((d3.max(data, function(d) { return +d.commits; })+1)/50)*50]);
 
-	var x_axis = d3.svg.axis()
+	var x_axis = d3.axisBottom()
 		.scale(x)
 		.tickFormat(function(d) {
 			return /^Jan-/.test(d)
 				? d.replace('Jan-','')
 				: '';
-		})
-		.orient("bottom");
+		});
 
-	var y_axis = d3.svg.axis()
+	var y_axis = d3.axisLeft()
 		.scale(y)
-		.orient("left");
+		.ticks(5, "s");
 
 	var svg = d3.select("#commits_by_month").append("svg")
 		.attr("width", width + margin.left + margin.right)
@@ -375,7 +385,7 @@ function display_commits_by_month(data)
 		.enter().append("rect")
 		.attr("class", "bar")
 		.attr("x", function(d) { return x(d.month); })
-		.attr("width", x.rangeBand())
+		.attr("width", x.bandwidth())
 		.attr("y", function(d) { return y(d.commits); })
 		.attr("height", function(d) { return height - y(d.commits); })
 		.append("title")
@@ -401,9 +411,11 @@ function display_commits_by_day(data)
 	// Function to draw month outlines.
 	var calendar_month_path = function(t0)
 	{
-		var t1 = new Date(t0.getFullYear(), t0.getMonth() + 1, 0),
-			d0 = t0.getDay(), w0 = d3.time.weekOfYear(t0),
-			d1 = t1.getDay(), w1 = d3.time.weekOfYear(t1);
+		var t1 = new Date(t0.getFullYear(), t0.getMonth() + 1, 0);
+		var d0 = t0.getDay();
+		var w0 = d3.timeWeekOfYear(t0);
+		var d1 = t1.getDay();
+		var w1 = d3.timeWeekOfYear(t1);
 		return "M" + (w0 + 1) * calendar_cell_size + "," + d0 * calendar_cell_size
 			+ "H" + w0 * calendar_cell_size + "V" + 7 * calendar_cell_size
 			+ "H" + w1 * calendar_cell_size + "V" + (d1 + 1) * calendar_cell_size
@@ -411,11 +423,11 @@ function display_commits_by_day(data)
 			+ "H" + (w0 + 1) * calendar_cell_size + "Z";
 	}
 
-	var format = d3.time.format("%Y-%m-%d");
+	var format = d3.timeFormat("%Y-%m-%d");
 
 	// Create a color scale based on the data.
 	var max_commits_in_a_day = d3.max(d3.values(data));
-	var color = d3.scale.quantize()
+	var color = d3.scaleQuantize()
 		.domain([0, Math.log(max_commits_in_a_day+1)])
 		.range(d3.range(4).map(function(d) { return "q" + d + "-11"; }));
 
@@ -441,12 +453,12 @@ function display_commits_by_day(data)
 
 	// Add tiles for the days.
 	var rect = svg.selectAll(".day")
-		.data(function(d) { return d3.time.days(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
+		.data(function(d) { return d3.timeDays(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
 		.enter().append("rect")
 		.attr("class", "day")
 		.attr("width", calendar_cell_size)
 		.attr("height", calendar_cell_size)
-		.attr("x", function(d) { return d3.time.weekOfYear(d) * calendar_cell_size; })
+		.attr("x", function(d) { return d3.timeWeekOfYear(d) * calendar_cell_size; })
 		.attr("y", function(d) { return d.getDay() * calendar_cell_size; })
 		.datum(format);
 
@@ -455,7 +467,7 @@ function display_commits_by_day(data)
 
 	// Add month outlines.
 	svg.selectAll(".month")
-		.data(function(d) { return d3.time.months(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
+		.data(function(d) { return d3.timeMonths(new Date(d, 0, 1), new Date(d + 1, 0, 1)); })
 		.enter()
 		.append("path")
 		.attr("class", "month")
@@ -541,7 +553,7 @@ function display_commits_by_weekday_hour(data)
 	);
 
 	// Create a color scale based on the data.
-	var color_scale = d3.scale.quantile()
+	var color_scale = d3.scaleQuantile()
 		.domain([1, buckets - 1, d3.max(formatted_data, function (d) { return d.value; })])
 		.range(colors);
 
