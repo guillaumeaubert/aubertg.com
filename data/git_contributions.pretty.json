@@ -1,5 +1,5 @@
 {
-  "commits_total": 4155,
+  "commits_total": 4161,
   "commits_by_month": [
     {
       "month": "Dec-2011",
@@ -255,7 +255,7 @@
     },
     {
       "month": "Mar-2017",
-      "commits": 102
+      "commits": 108
     }
   ],
   "commits_by_hour": {
@@ -281,7 +281,7 @@
     "19": 392,
     "20": 431,
     "21": 287,
-    "22": 279,
+    "22": 285,
     "23": 189
   },
   "commits_by_day": {
@@ -369,6 +369,7 @@
     "2015-04-15": 1,
     "2015-03-22": 14,
     "2015-03-21": 9,
+    "2017-03-20": 6,
     "2014-05-01": 2,
     "2014-04-20": 48,
     "2014-01-22": 32,
@@ -760,7 +761,7 @@
       "19": 41,
       "20": 52,
       "21": 70,
-      "22": 34,
+      "22": 40,
       "23": 43
     },
     "Tue": {
@@ -922,24 +923,24 @@
   },
   "lines_by_language": {
     "YAML": {
-      "added": 4544,
-      "deleted": 2399,
-      "commits": 864
+      "added": 4550,
+      "deleted": 2405,
+      "commits": 866
     },
     "Text": {
-      "added": 11778,
+      "added": 11787,
       "deleted": 1341,
-      "commits": 1107
+      "commits": 1109
     },
     "JSON": {
-      "added": 7631,
-      "deleted": 3668,
-      "commits": 653
+      "added": 7637,
+      "deleted": 3674,
+      "commits": 655
     },
     "Perl": {
-      "added": 121730,
-      "deleted": 16495,
-      "commits": 2324
+      "added": 121791,
+      "deleted": 16535,
+      "commits": 2327
     },
     "Markdown": {
       "added": 3839,
@@ -952,14 +953,14 @@
       "commits": 213
     },
     "CSS": {
-      "added": 5270,
-      "deleted": 787,
-      "commits": 99
+      "added": 5272,
+      "deleted": 789,
+      "commits": 100
     },
     "JavaScript": {
-      "added": 3995,
-      "deleted": 981,
-      "commits": 117
+      "added": 3997,
+      "deleted": 983,
+      "commits": 118
     },
     "HTML": {
       "added": 2878,
@@ -1320,8 +1321,8 @@
     },
     {
       "month": "Mar-2017",
-      "added": 636,
-      "deleted": 605
+      "added": 722,
+      "deleted": 661
     }
   ]
 }
