@@ -12,6 +12,9 @@ $(document).ready(
 			.done(
 				function(json)
 				{
+					// Analysis metadata.
+					display_analysis_metadata(json.analysis_metadata);
+
 					// Commits by month.
 					display_commits_by_month(json.commits_by_month);
 
@@ -37,6 +40,21 @@ $(document).ready(
 			);
 	}
 );
+
+
+/**
+ * Display metadata on the process that generated the contribution statistics.
+ *
+ * @param {json} data - The data to display.
+ */
+function display_analysis_metadata(data) {
+	var formatTime = d3.timeFormat('%x %X');
+	var startedAt = new Date(data.started_at * 1000);
+	$('#metadata_started_at').html(formatTime(startedAt));
+	$('#metadata_time_spent').html(Math.ceil(data.ms_spent / 1000));
+	$('#metadata_repositories_count').html(data.repositories_analyzed);
+	$('#metadata').show();
+}
 
 
 /**
