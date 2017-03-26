@@ -1,5 +1,5 @@
 {
-  "commits_total": 4194,
+  "commits_total": 4198,
   "commits_by_month": [
     {
       "month": "Dec-2011",
@@ -255,7 +255,7 @@
     },
     {
       "month": "Mar-2017",
-      "commits": 141
+      "commits": 145
     }
   ],
   "commits_by_hour": {
@@ -271,8 +271,8 @@
     "9": 33,
     "10": 160,
     "11": 156,
-    "12": 231,
-    "13": 163,
+    "12": 234,
+    "13": 164,
     "14": 157,
     "15": 319,
     "16": 221,
@@ -347,6 +347,7 @@
     "2015-04-03": 39,
     "2014-06-04": 22,
     "2014-05-26": 13,
+    "2017-03-25": 4,
     "2014-06-08": 23,
     "2016-07-24": 13,
     "2016-07-23": 2,
@@ -883,8 +884,8 @@
       "9": 6,
       "10": 28,
       "11": 59,
-      "12": 112,
-      "13": 62,
+      "12": 115,
+      "13": 63,
       "14": 42,
       "15": 141,
       "16": 140,
@@ -925,24 +926,24 @@
   },
   "lines_by_language": {
     "YAML": {
-      "added": 4591,
-      "deleted": 2446,
-      "commits": 881
+      "added": 4593,
+      "deleted": 2448,
+      "commits": 882
     },
     "Text": {
-      "added": 11849,
+      "added": 11855,
       "deleted": 1342,
-      "commits": 1125
+      "commits": 1126
     },
     "JSON": {
-      "added": 7678,
-      "deleted": 3715,
-      "commits": 670
+      "added": 7680,
+      "deleted": 3717,
+      "commits": 671
     },
     "Perl": {
-      "added": 122017,
-      "deleted": 16761,
-      "commits": 2342
+      "added": 122030,
+      "deleted": 16774,
+      "commits": 2343
     },
     "Markdown": {
       "added": 3839,
@@ -980,9 +981,9 @@
       "commits": 4
     },
     "bash": {
-      "added": 7580,
+      "added": 7589,
       "deleted": 422,
-      "commits": 161
+      "commits": 163
     },
     "Golang": {
       "added": 952,
@@ -1323,13 +1324,13 @@
     },
     {
       "month": "Mar-2017",
-      "added": 1106,
-      "deleted": 971
+      "added": 1138,
+      "deleted": 988
     }
   ],
   "analysis_metadata": {
-    "started_at": 1490406458,
+    "started_at": 1490492855,
     "repositories_analyzed": 63,
-    "ms_spent": 97889
+    "ms_spent": 97928
   }
 }
