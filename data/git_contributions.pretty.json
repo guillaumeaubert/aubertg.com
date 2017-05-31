@@ -1,5 +1,5 @@
 {
-  "commits_total": 4213,
+  "commits_total": 4214,
   "commits_by_month": [
     {
       "month": "Dec-2011",
@@ -263,7 +263,7 @@
     },
     {
       "month": "May-2017",
-      "commits": 13
+      "commits": 14
     }
   ],
   "commits_by_hour": {
@@ -273,7 +273,7 @@
     "3": 6,
     "4": 6,
     "5": 7,
-    "6": 23,
+    "6": 24,
     "7": 38,
     "8": 159,
     "9": 33,
@@ -715,6 +715,7 @@
     "2016-05-14": 6,
     "2016-05-05": 20,
     "2016-05-04": 3,
+    "2017-05-30": 1,
     "2017-05-29": 4,
     "2017-05-28": 9,
     "2017-03-26": 1,
@@ -786,7 +787,7 @@
       "3": 2,
       "4": 2,
       "5": 2,
-      "6": 1,
+      "6": 2,
       "7": 4,
       "8": 11,
       "9": 2,
@@ -1003,14 +1004,14 @@
       "commits": 25
     },
     "Dockerfile": {
-      "added": 41,
-      "deleted": 1,
-      "commits": 2
+      "added": 42,
+      "deleted": 2,
+      "commits": 3
     },
     "crontab": {
-      "added": 2,
-      "deleted": 0,
-      "commits": 1
+      "added": 5,
+      "deleted": 2,
+      "commits": 2
     },
     "XML": {
       "added": 3,
@@ -1356,13 +1357,13 @@
     },
     {
       "month": "May-2017",
-      "added": 219,
-      "deleted": 9
+      "added": 223,
+      "deleted": 12
     }
   ],
   "analysis_metadata": {
-    "started_at": 1496108855,
+    "started_at": 1496195242,
     "repositories_analyzed": 64,
-    "ms_spent": 98474
+    "ms_spent": 98275
   }
 }
