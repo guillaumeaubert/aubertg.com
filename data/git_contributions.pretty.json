@@ -1,5 +1,5 @@
 {
-  "commits_total": 4216,
+  "commits_total": 4219,
   "commits_by_month": [
     {
       "month": "Dec-2011",
@@ -267,7 +267,7 @@
     },
     {
       "month": "Jun-2017",
-      "commits": 2
+      "commits": 5
     }
   ],
   "commits_by_hour": {
@@ -289,7 +289,7 @@
     "15": 319,
     "16": 221,
     "17": 184,
-    "18": 451,
+    "18": 454,
     "19": 393,
     "20": 432,
     "21": 296,
@@ -713,6 +713,7 @@
     "2013-07-02": 2,
     "2016-10-03": 5,
     "2016-04-17": 3,
+    "2017-06-10": 3,
     "2016-06-09": 1,
     "2016-06-04": 6,
     "2016-05-30": 1,
@@ -909,7 +910,7 @@
       "15": 141,
       "16": 140,
       "17": 57,
-      "18": 88,
+      "18": 91,
       "19": 42,
       "20": 87,
       "21": 22,
@@ -965,9 +966,9 @@
       "commits": 2343
     },
     "Markdown": {
-      "added": 3961,
+      "added": 4095,
       "deleted": 929,
-      "commits": 479
+      "commits": 481
     },
     "INI": {
       "added": 1421,
@@ -1000,19 +1001,19 @@
       "commits": 4
     },
     "bash": {
-      "added": 7652,
+      "added": 7745,
       "deleted": 422,
-      "commits": 168
+      "commits": 169
+    },
+    "Dockerfile": {
+      "added": 87,
+      "deleted": 2,
+      "commits": 4
     },
     "Golang": {
       "added": 952,
       "deleted": 175,
       "commits": 25
-    },
-    "Dockerfile": {
-      "added": 42,
-      "deleted": 2,
-      "commits": 3
     },
     "crontab": {
       "added": 5,
@@ -1368,13 +1369,13 @@
     },
     {
       "month": "Jun-2017",
-      "added": 9,
+      "added": 281,
       "deleted": 6
     }
   ],
   "analysis_metadata": {
-    "started_at": 1497059245,
-    "repositories_analyzed": 64,
-    "ms_spent": 98431
+    "started_at": 1497145643,
+    "repositories_analyzed": 65,
+    "ms_spent": 98081
   }
 }
