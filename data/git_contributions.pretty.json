@@ -1,5 +1,5 @@
 {
-  "commits_total": 4220,
+  "commits_total": 4216,
   "commits_by_month": [
     {
       "month": "Dec-2011",
@@ -67,7 +67,7 @@
     },
     {
       "month": "Apr-2013",
-      "commits": 43
+      "commits": 39
     },
     {
       "month": "May-2013",
@@ -282,13 +282,13 @@
     "8": 159,
     "9": 33,
     "10": 160,
-    "11": 156,
+    "11": 153,
     "12": 235,
     "13": 165,
     "14": 157,
     "15": 319,
     "16": 221,
-    "17": 184,
+    "17": 183,
     "18": 454,
     "19": 394,
     "20": 432,
@@ -755,7 +755,6 @@
     "2013-06-22": 10,
     "2013-06-21": 1,
     "2014-05-15": 2,
-    "2013-04-20": 4,
     "2016-10-04": 6,
     "2016-03-27": 1,
     "2013-01-12": 5
@@ -903,13 +902,13 @@
       "8": 3,
       "9": 6,
       "10": 28,
-      "11": 59,
+      "11": 56,
       "12": 116,
       "13": 63,
       "14": 42,
       "15": 141,
       "16": 140,
-      "17": 57,
+      "17": 56,
       "18": 91,
       "19": 43,
       "20": 87,
@@ -956,19 +955,19 @@
       "commits": 1126
     },
     "JSON": {
-      "added": 7680,
-      "deleted": 3717,
+      "added": 7671,
+      "deleted": 3708,
       "commits": 671
     },
     "Perl": {
-      "added": 122030,
-      "deleted": 16774,
+      "added": 121894,
+      "deleted": 16638,
       "commits": 2343
     },
     "Markdown": {
-      "added": 4099,
-      "deleted": 933,
-      "commits": 482
+      "added": 4084,
+      "deleted": 928,
+      "commits": 478
     },
     "INI": {
       "added": 1421,
@@ -976,8 +975,8 @@
       "commits": 214
     },
     "CSS": {
-      "added": 5278,
-      "deleted": 790,
+      "added": 5273,
+      "deleted": 785,
       "commits": 101
     },
     "JavaScript": {
@@ -986,8 +985,8 @@
       "commits": 119
     },
     "HTML": {
-      "added": 2885,
-      "deleted": 1407,
+      "added": 2883,
+      "deleted": 1405,
       "commits": 145
     },
     "SQL": {
@@ -1001,8 +1000,8 @@
       "commits": 4
     },
     "bash": {
-      "added": 7745,
-      "deleted": 422,
+      "added": 7748,
+      "deleted": 425,
       "commits": 169
     },
     "Dockerfile": {
@@ -1011,8 +1010,8 @@
       "commits": 4
     },
     "Golang": {
-      "added": 952,
-      "deleted": 175,
+      "added": 948,
+      "deleted": 171,
       "commits": 25
     },
     "crontab": {
@@ -1026,8 +1025,8 @@
       "commits": 1
     },
     "Ruby": {
-      "added": 2317,
-      "deleted": 814,
+      "added": 2313,
+      "deleted": 810,
       "commits": 72
     },
     "C": {
@@ -1079,23 +1078,23 @@
     },
     {
       "month": "Aug-2012",
-      "added": 3940,
-      "deleted": 1349
+      "added": 3941,
+      "deleted": 1350
     },
     {
       "month": "Sep-2012",
-      "added": 8154,
-      "deleted": 1813
+      "added": 8146,
+      "deleted": 1805
     },
     {
       "month": "Oct-2012",
-      "added": 4234,
-      "deleted": 1444
+      "added": 4227,
+      "deleted": 1437
     },
     {
       "month": "Nov-2012",
-      "added": 13434,
-      "deleted": 2246
+      "added": 13293,
+      "deleted": 2105
     },
     {
       "month": "Dec-2012",
@@ -1104,8 +1103,8 @@
     },
     {
       "month": "Jan-2013",
-      "added": 908,
-      "deleted": 91
+      "added": 906,
+      "deleted": 89
     },
     {
       "month": "Feb-2013",
@@ -1114,13 +1113,13 @@
     },
     {
       "month": "Mar-2013",
-      "added": 3896,
-      "deleted": 1078
+      "added": 3895,
+      "deleted": 1077
     },
     {
       "month": "Apr-2013",
-      "added": 1212,
-      "deleted": 187
+      "added": 1198,
+      "deleted": 184
     },
     {
       "month": "May-2013",
@@ -1134,8 +1133,8 @@
     },
     {
       "month": "Jul-2013",
-      "added": 12677,
-      "deleted": 2313
+      "added": 12671,
+      "deleted": 2307
     },
     {
       "month": "Aug-2013",
@@ -1209,8 +1208,8 @@
     },
     {
       "month": "Oct-2014",
-      "added": 1125,
-      "deleted": 656
+      "added": 1120,
+      "deleted": 651
     },
     {
       "month": "Nov-2014",
@@ -1234,18 +1233,18 @@
     },
     {
       "month": "Mar-2015",
-      "added": 4314,
-      "deleted": 1326
+      "added": 4319,
+      "deleted": 1331
     },
     {
       "month": "Apr-2015",
-      "added": 4340,
-      "deleted": 764
+      "added": 4355,
+      "deleted": 779
     },
     {
       "month": "May-2015",
-      "added": 3197,
-      "deleted": 156
+      "added": 3196,
+      "deleted": 155
     },
     {
       "month": "Jun-2015",
@@ -1294,18 +1293,18 @@
     },
     {
       "month": "Mar-2016",
-      "added": 6583,
-      "deleted": 2931
+      "added": 6577,
+      "deleted": 2925
     },
     {
       "month": "Apr-2016",
-      "added": 1405,
-      "deleted": 1687
+      "added": 1404,
+      "deleted": 1685
     },
     {
       "month": "May-2016",
-      "added": 1941,
-      "deleted": 815
+      "added": 1937,
+      "deleted": 811
     },
     {
       "month": "Jun-2016",
@@ -1329,8 +1328,8 @@
     },
     {
       "month": "Oct-2016",
-      "added": 11863,
-      "deleted": 246
+      "added": 11866,
+      "deleted": 249
     },
     {
       "month": "Nov-2016",
@@ -1374,8 +1373,8 @@
     }
   ],
   "analysis_metadata": {
-    "started_at": 1497232046,
-    "repositories_analyzed": 65,
-    "ms_spent": 98663
+    "started_at": 1497239838,
+    "repositories_analyzed": 64,
+    "ms_spent": 55359
   }
 }
