@@ -29,7 +29,7 @@ function get_badges(repo) {
 		badges.push(
 			{
 				'link': 'https://travis-ci.org/'+username['github']+'/'+repo.name,
-				'badge': 'https://travis-ci.org/'+username['github']+'/'+repo.name+'.svg?branch=master',
+				'badge': 'https://travis-ci.org/'+username['github']+'/'+repo.name+'.svg?branch='+repo.default_branch,
 				'title': 'Build Status'
 			}
 		);
@@ -39,8 +39,8 @@ function get_badges(repo) {
 	if (coveralls_tags.intersect(repo.topics).length > 0) {
 		badges.push(
 			{
-				'link': 'https://coveralls.io/r/'+username['github']+'/'+repo.name+'?branch=master',
-				'badge': 'https://coveralls.io/repos/'+username['github']+'/'+repo.name+'/badge.svg?branch=master',
+				'link': 'https://coveralls.io/r/'+username['github']+'/'+repo.name+'?branch='+repo.default_branch,
+				'badge': 'https://coveralls.io/repos/'+username['github']+'/'+repo.name+'/badge.svg?branch='+repo.default_branch,
 				'title': 'Coverage Status'
 			}
 		);
