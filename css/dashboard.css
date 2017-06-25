@@ -2,78 +2,20 @@
 Full-Width Styles
 *******************************************************************************/
 
-section h3 {
-	padding-left: 41px;
-	background-repeat: no-repeat;
-	background-position: 0px 5px;
-	background-color: transparent;
-}
-
-section#go_packages h3 {
-	background-image: url('/images/golang.png');
-	background-position: 0px 0px;
-}
-
-section#ruby_gems h3 {
-	background-image: url('/images/ruby.png');
-}
-
-section#jquery_plugins h3 {
-	background-image: url('/images/jquery.png');
-}
-
-section#ansible_plugins h3 {
-	background-image: url('/images/ansible.png');
-}
-
-section#cpan_distributions h3 {
-	background-image: url('/images/perl.png');
-}
-
-section#tools h3 {
-	background-image: url('/images/octicon-tools.png');
-}
-
 table.list {
 	width: 100%;
 	background-color: #f2f2f2;
 }
-
-table.list .version {
-	width: 90px;
+table#github-projects .description {
+	display: none;
 }
-
-table.list .links {
-	width: 130px;
+table#github-projects .links {
+	white-space: nowrap;
 }
-
-table.list .github_open_issues {
-	width: 70px;
-}
-
-table.list .travis_status_badge {
-	width: 100px;
-}
-
-table.list .coveralls_badge {
-	width: 118px;
-}
-
-table.list .travis_status_badge img,
-table.list .coveralls_badge img {
+table#github-projects .badges a img {
 	display: block;
-}
-
-table.list .distribution .cpan-testers-pass {
-	color: #009900;
-}
-
-table.list .distribution .cpan-testers-fail {
-	color: #990000;
-}
-
-table.list .distribution .cpan-testers-na {
-	color: #3366cc;
+	float: left;
+	margin-right: 5px;
 }
 
 
@@ -81,19 +23,15 @@ table.list .distribution .cpan-testers-na {
 Small Device Styles
 *******************************************************************************/
 
-@media screen and (max-width: 750px) {
-	table.list .version {
+@media screen and (max-width: 850px) {
+	table.list .badges {
 		display: none;
 	}
 }
 
 @media screen and (max-width: 670px) {
-
-	table.list .cpan-testers,
-	table.list .github_open_issues,
-	table.list .version,
-	table.list .coveralls_badge
-	{
+	table.list .last-commit,
+	table.list .badges {
 		display: none;
 	}
 }
