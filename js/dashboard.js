@@ -103,6 +103,8 @@ function get_website(url) {
 				return 'JQuery Plugins';
 			case 'rubygems.org':
 				return 'RubyGems';
+			case 'godoc.org':
+				return 'GoDoc';
 			default:
 				return 'Website';
 		}
