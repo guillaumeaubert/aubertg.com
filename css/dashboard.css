@@ -17,6 +17,32 @@ table#github-projects .badges a img {
 	float: left;
 	margin-right: 5px;
 }
+table#github-projects td.name {
+	padding-left: 30px;
+	background: transparent url('/images/icons/code.png') no-repeat 5px 5px;
+	background-size: 20px 20px;
+}
+table#github-projects td.docker-image-icon {
+	background-image: url('/images/icons/docker.png');
+}
+table#github-projects td.cpan-icon {
+	background-image: url('/images/icons/perl.png');
+}
+table#github-projects td.golang-icon {
+	background-image: url('/images/icons/golang.png');
+}
+table#github-projects td.ruby-gem-icon {
+	background-image: url('/images/icons/ruby-gem.png');
+}
+table#github-projects td.ansible-plugin-icon {
+	background-image: url('/images/icons/ansible.png');
+}
+table#github-projects td.jquery-plugin-icon {
+	background-image: url('/images/icons/jquery.png');
+}
+table#github-projects td.bash-icon {
+	background-image: url('/images/icons/terminal.png');
+}
 
 
 /*******************************************************************************

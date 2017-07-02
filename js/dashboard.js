@@ -21,6 +21,22 @@ String.prototype.ucfirst = function() {
 
 /***** Supporting functions *****/
 
+function get_icon(repo) {
+	var topics = new Array(
+		'ansible-plugin',
+		'bash',
+		'cpan',
+		'docker-image',
+		'golang',
+		'jquery-plugin',
+		'ruby-gem'
+	);
+	var relevant_topics = topics.intersect(repo.topics);
+	if (relevant_topics.length > 0) {
+		return relevant_topics[0] + '-icon';
+	}
+}
+
 function get_badges(repo) {
 	badges = new Array();
 
@@ -137,6 +153,7 @@ $(document).ready(function() {
 				tr.append(
 					$('<td>')
 						.addClass('name')
+						.addClass(get_icon(element))
 						.text(element.name)
 						.attr('title', element.description)
 				);
