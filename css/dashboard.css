@@ -56,7 +56,7 @@ Small Device Styles
 }
 
 @media screen and (max-width: 670px) {
-	table.list .last-commit,
+	table.list .status,
 	table.list .badges {
 		display: none;
 	}

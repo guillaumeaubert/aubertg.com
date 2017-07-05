@@ -21,6 +21,19 @@ String.prototype.ucfirst = function() {
 
 /***** Supporting functions *****/
 
+function get_status(repo) {
+	if ($.inArray('deprecated', repo.topics) > -1) {
+		return [-1, 'Deprecated'];
+	} else if ($.inArray('maintenance-mode', repo.topics) > -1) {
+		return [0, 'Maintenance only'];
+	} else {
+		return [
+			Date.parse(repo.pushed_at),
+			'Active (' + jQuery.timeago(repo.pushed_at) + ')'
+		];
+	}
+}
+
 function get_icon(repo) {
 	var topics = new Array(
 		'ansible-plugin',
@@ -143,7 +156,22 @@ $(document).ready(function() {
 			xhr.setRequestHeader('Accept', 'application/vnd.github.mercy-preview+json');
 		},
 		success: function(json) {
-			json.forEach(function(element, index) {
+			// Add sort order in O(n).
+			json.forEach(function(element) {
+				var t = get_status(element);
+				element.sortOrder = t[0];
+				element.projectStatus = t[1];
+			});
+
+			// Sort the array of projects.
+			projects = json.sort(function(a, b) {
+				var x = a.sortOrder;
+				var y = b.sortOrder;
+				return ((x < y) ? 1 : ((x > y) ? -1 : 0));
+			});
+
+			// Display projects in the table.
+			projects.forEach(function(element, index) {
 				if (element.fork) return 1;
 				if (element.name.slice(-9) === '_archives') return 1;
 
@@ -172,13 +200,14 @@ $(document).ready(function() {
 						)
 				);
 
-				// Last commit.
+				// Status.
 				tr.append(
 					$('<td>')
-						.addClass('last-commit')
-						.attr('title', new Date(element.pushed_at))
-						.text(jQuery.timeago(element.pushed_at).ucfirst())
+						.addClass('status')
+						.attr('title', 'Last commit: ' + new Date(element.pushed_at))
+						.text(element.projectStatus)
 				);
+				tr.addClass('sort-' + element.sortOrder);
 
 				// Badges.
 				tr.append(
