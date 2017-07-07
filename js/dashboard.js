@@ -160,6 +160,7 @@ $(document).ready(function() {
 			json.forEach(function(element) {
 				var t = get_status(element);
 				element.sortOrder = t[0];
+				element.isDeprecated = t[0] < 0 ? 1 : 0;
 				element.projectStatus = t[1];
 			});
 
@@ -214,7 +215,9 @@ $(document).ready(function() {
 					$('<td>')
 						.addClass('badges')
 						.append(
-							get_badges(element)
+							element.isDeprecated
+								? $('<span>')
+								: get_badges(element)
 						)
 				);
 
