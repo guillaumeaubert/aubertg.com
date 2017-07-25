@@ -1,5 +1,5 @@
 {
-  "commits_total": 4259,
+  "commits_total": 4263,
   "commits_by_month": [
     {
       "month": "Dec-2011",
@@ -271,7 +271,7 @@
     },
     {
       "month": "Jul-2017",
-      "commits": 16
+      "commits": 20
     }
   ],
   "commits_by_hour": {
@@ -283,7 +283,7 @@
     "5": 7,
     "6": 24,
     "7": 38,
-    "8": 159,
+    "8": 163,
     "9": 33,
     "10": 160,
     "11": 153,
@@ -426,6 +426,7 @@
     "2012-09-06": 12,
     "2012-09-05": 37,
     "2012-08-10": 16,
+    "2017-07-24": 4,
     "2013-06-02": 2,
     "2013-06-01": 2,
     "2013-05-28": 5,
@@ -783,7 +784,7 @@
       "5": 4,
       "6": 5,
       "7": 5,
-      "8": 8,
+      "8": 12,
       "9": 2,
       "10": 5,
       "11": 8,
@@ -964,9 +965,9 @@
       "commits": 883
     },
     "Text": {
-      "added": 11855,
-      "deleted": 1342,
-      "commits": 1126
+      "added": 8958,
+      "deleted": 1343,
+      "commits": 1132
     },
     "JSON": {
       "added": 4820,
@@ -974,24 +975,19 @@
       "commits": 659
     },
     "Perl": {
-      "added": 121894,
+      "added": 101475,
       "deleted": 16638,
-      "commits": 2343
+      "commits": 2341
     },
     "Markdown": {
-      "added": 4331,
+      "added": 4302,
       "deleted": 938,
-      "commits": 490
+      "commits": 489
     },
     "INI": {
       "added": 1422,
       "deleted": 102,
       "commits": 215
-    },
-    ".gitstatsignore": {
-      "added": 18,
-      "deleted": 0,
-      "commits": 4
     },
     "CSS": {
       "added": 2217,
@@ -999,7 +995,7 @@
       "commits": 101
     },
     "JavaScript": {
-      "added": 16991,
+      "added": 3876,
       "deleted": 887,
       "commits": 119
     },
@@ -1014,29 +1010,19 @@
       "commits": 8
     },
     "Python": {
-      "added": 672,
-      "deleted": 112,
-      "commits": 4
-    },
-    "automysqlbackup": {
-      "added": 2280,
-      "deleted": 34,
+      "added": 99,
+      "deleted": 11,
       "commits": 2
     },
     "bash": {
-      "added": 7926,
-      "deleted": 427,
-      "commits": 175
+      "added": 2460,
+      "deleted": 377,
+      "commits": 174
     },
     "Docker": {
       "added": 182,
       "deleted": 11,
       "commits": 8
-    },
-    ".conf": {
-      "added": 261,
-      "deleted": 0,
-      "commits": 1
     },
     "Golang": {
       "added": 948,
@@ -1049,9 +1035,9 @@
       "commits": 1
     },
     "Ruby": {
-      "added": 2494,
-      "deleted": 840,
-      "commits": 77
+      "added": 2495,
+      "deleted": 841,
+      "commits": 78
     },
     "C": {
       "added": 6,
@@ -1147,17 +1133,17 @@
     },
     {
       "month": "May-2013",
-      "added": 19160,
+      "added": 6045,
       "deleted": 985
     },
     {
       "month": "Jun-2013",
-      "added": 7874,
+      "added": 5211,
       "deleted": 892
     },
     {
       "month": "Jul-2013",
-      "added": 12520,
+      "added": 6936,
       "deleted": 2246
     },
     {
@@ -1167,8 +1153,8 @@
     },
     {
       "month": "Sep-2013",
-      "added": 9693,
-      "deleted": 106
+      "added": 52,
+      "deleted": 5
     },
     {
       "month": "Oct-2013",
@@ -1252,8 +1238,8 @@
     },
     {
       "month": "Feb-2015",
-      "added": 1524,
-      "deleted": 283
+      "added": 1394,
+      "deleted": 242
     },
     {
       "month": "Mar-2015",
@@ -1262,8 +1248,8 @@
     },
     {
       "month": "Apr-2015",
-      "added": 4349,
-      "deleted": 776
+      "added": 4339,
+      "deleted": 767
     },
     {
       "month": "May-2015",
@@ -1352,7 +1338,7 @@
     },
     {
       "month": "Oct-2016",
-      "added": 11858,
+      "added": 474,
       "deleted": 249
     },
     {
@@ -1392,18 +1378,18 @@
     },
     {
       "month": "Jun-2017",
-      "added": 3557,
-      "deleted": 404
+      "added": 1016,
+      "deleted": 370
     },
     {
       "month": "Jul-2017",
-      "added": 288,
-      "deleted": 48
+      "added": 299,
+      "deleted": 50
     }
   ],
   "analysis_metadata": {
-    "started_at": 1500890702,
+    "started_at": 1500977101,
     "repositories_analyzed": 66,
-    "ms_spent": 57584
+    "ms_spent": 57877
   }
 }
