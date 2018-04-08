@@ -1,5 +1,5 @@
 {
-  "commits_total": 4265,
+  "commits_total": 4269,
   "commits_by_month": [
     {
       "month": "Dec-2011",
@@ -307,7 +307,7 @@
     },
     {
       "month": "Apr-2018",
-      "commits": 1
+      "commits": 5
     }
   ],
   "commits_by_hour": {
@@ -329,7 +329,7 @@
     "15": 321,
     "16": 221,
     "17": 183,
-    "18": 454,
+    "18": 458,
     "19": 394,
     "20": 433,
     "21": 301,
@@ -617,6 +617,7 @@
     "2011-12-26": 9,
     "2011-12-24": 1,
     "2014-03-20": 2,
+    "2018-04-07": 4,
     "2013-04-13": 19,
     "2013-03-27": 4,
     "2013-03-22": 10,
@@ -962,7 +963,7 @@
       "15": 141,
       "16": 140,
       "17": 56,
-      "18": 91,
+      "18": 95,
       "19": 43,
       "20": 87,
       "21": 22,
@@ -998,29 +999,29 @@
   },
   "lines_by_language": {
     "YAML": {
-      "added": 4595,
-      "deleted": 2451,
-      "commits": 883
+      "added": 4599,
+      "deleted": 2455,
+      "commits": 884
     },
     "Text": {
-      "added": 9135,
+      "added": 9138,
       "deleted": 1420,
-      "commits": 1133
+      "commits": 1134
     },
     "JSON": {
-      "added": 4820,
-      "deleted": 2067,
-      "commits": 659
+      "added": 4824,
+      "deleted": 2073,
+      "commits": 660
     },
     "Perl": {
-      "added": 101475,
-      "deleted": 16638,
-      "commits": 2341
+      "added": 101493,
+      "deleted": 16656,
+      "commits": 2344
     },
     "Markdown": {
-      "added": 4302,
-      "deleted": 938,
-      "commits": 489
+      "added": 4303,
+      "deleted": 939,
+      "commits": 490
     },
     "INI": {
       "added": 1422,
@@ -1466,13 +1467,13 @@
     },
     {
       "month": "Apr-2018",
-      "added": 0,
-      "deleted": 0
+      "added": 30,
+      "deleted": 29
     }
   ],
   "analysis_metadata": {
-    "started_at": 1523095520,
+    "started_at": 1523181909,
     "repositories_analyzed": 68,
-    "ms_spent": 113301
+    "ms_spent": 88591
   }
 }
