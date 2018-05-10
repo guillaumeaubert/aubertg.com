@@ -98,8 +98,8 @@ function get_badges(repo) {
 	if ($.inArray('ruby-gem', repo.topics) > -1) {
 		badges.push(
 			{
-				'link': 'http://inch-ci.org/github/'+username['github']+'/'+repo.name,
-				'badge': 'http://inch-ci.org/github/'+username['github']+'/'+repo.name+'.svg?branch=master&style=shields',
+				'link': 'https://inch-ci.org/github/'+username['github']+'/'+repo.name,
+				'badge': 'https://inch-ci.org/github/'+username['github']+'/'+repo.name+'.svg?branch=master&style=shields',
 				'title': 'Inline Docs'
 			}
 		);
