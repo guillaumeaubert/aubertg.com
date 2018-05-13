@@ -240,7 +240,7 @@ function display_commits_by_language(data) {
 	$('#total_languages').html('(' + data.length + ' found)');
 
 	// Color scale.
-	var colors = d3.scaleOrdinal(d3.schemeCategory20);
+	var colors = d3.scaleOrdinal(d3.schemePaired);
 
 	var svg = d3.select("#commits_by_language").append("svg")
 		.attr("width", width)
