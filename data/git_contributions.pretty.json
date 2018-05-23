@@ -1,5 +1,5 @@
 {
-  "commits_total": 4280,
+  "commits_total": 4281,
   "commits_by_month": [
     {
       "month": "Dec-2011",
@@ -311,11 +311,11 @@
     },
     {
       "month": "May-2018",
-      "commits": 11
+      "commits": 12
     }
   ],
   "commits_by_hour": {
-    "0": 181,
+    "0": 182,
     "1": 44,
     "2": 48,
     "3": 6,
@@ -778,6 +778,7 @@
     "2017-05-30": 1,
     "2017-05-29": 4,
     "2017-05-28": 9,
+    "2018-05-23": 1,
     "2018-05-13": 3,
     "2018-05-10": 1,
     "2018-02-04": 1,
@@ -875,7 +876,7 @@
       "23": 31
     },
     "Wed": {
-      "0": 26,
+      "0": 27,
       "1": 6,
       "2": 0,
       "3": 0,
@@ -1037,19 +1038,19 @@
       "commits": 215
     },
     "CSS": {
-      "added": 2217,
+      "added": 2243,
       "deleted": 859,
-      "commits": 101
+      "commits": 102
     },
     "JavaScript": {
-      "added": 3879,
+      "added": 3967,
       "deleted": 890,
-      "commits": 121
+      "commits": 122
     },
     "HTML": {
-      "added": 2911,
+      "added": 2940,
       "deleted": 1671,
-      "commits": 153
+      "commits": 154
     },
     "SQL": {
       "added": 178,
@@ -1480,13 +1481,13 @@
     },
     {
       "month": "May-2018",
-      "added": 30,
+      "added": 173,
       "deleted": 30
     }
   ],
   "analysis_metadata": {
-    "started_at": 1526983504,
+    "started_at": 1527069905,
     "repositories_analyzed": 68,
-    "ms_spent": 74441
+    "ms_spent": 69963
   }
 }
