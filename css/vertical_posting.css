@@ -1,0 +1,26 @@
+#config {
+	float: left;
+	width: 200px;
+	padding-right: 20px;
+	border-right: 1px dashed gray;
+}
+#canvas {
+	font-family: Courier New, monospace;
+	float: left;
+	max-width: 800px;
+	padding-left: 20px;
+}
+#config div {
+	margin: 20px 0px;
+}
+#config h4 {
+	margin: 0px 0px 5px 0px;
+}
+#config input[type="text"] {
+	width: 100%;
+}
+#config ul {
+	list-style: none;
+	margin: 0px;
+	padding-left: 0px;
+}

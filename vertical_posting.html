@@ -1,0 +1,29 @@
+---
+layout: default
+title: Vertical text generator
+js_includes:
+  - /js/vertical_posting.js?v=2018052000
+css_includes:
+  - /css/vertical_posting.css?v=2018052000
+---
+
+<div>
+	<div id="config">
+		<div>
+			<h4>Text:</h4>
+			<input type="text" id="text" value="text">
+		</div>
+		<div>
+			<h4>Transformations:</h4>
+			<ul>
+				<li><input type="radio" name="style" value="vtop"> V, top</li>
+				<li><input type="radio" name="style" value="vbottom"> V, bottom</li>
+				<li><input type="radio" name="style" value="plus"> Plus</li>
+				<li><input type="radio" name="style" value="stairs"> Stairs</li>
+				<li><input type="radio" name="style" value="slinky"> Slinky</li>
+				<li><input type="radio" name="style" value="nestedv"> Nested Vs</li>
+			</ul>
+		</div>
+	</div>
+	<div id="canvas"></div>
+</div>
