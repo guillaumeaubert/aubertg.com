@@ -10,6 +10,9 @@ function redraw() {
 	if (text.length > 0) {
 		var style = $('input[name=style]:checked').val();
 		switch (style) {
+			case 'vertical':
+				output = chars.join("\n");
+				break;
 			case 'vtop':
 				output = text + "\n" + chars.slice(1).join("\n");
 				break;
