@@ -73,6 +73,13 @@ function redraw() {
 						break;
 				}
 				break;
+			case 'tree':
+				for (var i = chars.length; i > 0; i--) {
+					output += ' '.repeat(chars.length - i)
+						+ Array(i).fill(chars[i - 1]).join(' ')
+						+ "\n";
+				}
+				break;
 		}
 	}
 	output = output
