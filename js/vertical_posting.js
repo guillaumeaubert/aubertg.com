@@ -55,6 +55,26 @@ function redraw() {
 			case 'nestedv':
 				output = nest(text, 5).join("\n");
 				break;
+			case 'square':
+				switch (text.length) {
+					case 1:
+						output = text;
+						break;
+					case 2:
+						output = text + "\n" + text.split('').reverse().join('');
+						break;
+					default:
+						var padding = ' '.repeat(text.length - 2)
+						output = text + "\n";
+						output += text
+							.split('')
+							.slice(1, -1)
+							.map(x => x + padding + x)
+							.join("\n");
+						output += "\n" + text;
+						break;
+				}
+				break;
 		}
 	}
 	output = output
