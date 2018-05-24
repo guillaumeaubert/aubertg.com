@@ -5,29 +5,26 @@ $(document).ready(function(){
 
 function redraw() {
 	var text = $('#text').val();
+	var chars = [...text];
 	var output = '';
 	if (text.length > 0) {
 		var style = $('input[name=style]:checked').val();
 		switch (style) {
 			case 'vtop':
-				output = text + "\n" +
-					text.split('').slice(1).join("\n");
+				output = text + "\n" + chars.slice(1).join("\n");
 				break;
 			case 'vbottom':
-				var padding = ' '.repeat(text.length - 1)
-				output = text
-					.split('')
+				var padding = ' '.repeat(chars.length - 1)
+				output = chars
 					.slice(0, -1)
 					.map(x => padding + x)
 					.join("\n");
 				output += "\n" + text;
 				break;
 			case 'plus':
-				var intersect = Math.floor((text.length + 1) / 2);
+				var intersect = Math.floor((chars.length + 1) / 2);
 				var padding = ' '.repeat(intersect - 1);
-				var rows = text
-					.split('')
-					.map(x => padding + x);
+				var rows = chars.map(x => padding + x);
 				rows[intersect - 1] = text;
 				output = rows.join("\n");
 				break;
@@ -39,10 +36,9 @@ function redraw() {
 				break;
 			case 'slinky':
 				for (var i = 0; i < 5; i++) {
-					var reversed = text.split('').reverse().join('');
-					var padding = ' '.repeat(i * (text.length - 1))
-					var vtext = text
-						.split('')
+					var reversed = chars.reverse().join('');
+					var padding = ' '.repeat(i * (chars.length - 1))
+					var vtext = chars
 						.slice(i == 0 ? 0 : 1, -1)
 						.map(x => padding + x)
 						.join("\n");
@@ -61,13 +57,12 @@ function redraw() {
 						output = text;
 						break;
 					case 2:
-						output = text + "\n" + text.split('').reverse().join('');
+						output = text + "\n" + chars.reverse().join('');
 						break;
 					default:
-						var padding = ' '.repeat(text.length - 2)
+						var padding = ' '.repeat(chars.length - 2)
 						output = text + "\n";
-						output += text
-							.split('')
+						output += chars
 							.slice(1, -1)
 							.map(x => x + padding + x)
 							.join("\n");
@@ -89,7 +84,7 @@ function nest(text, i) {
 	}
 
 	var nested = nest(text, i - 1);
-	var rows = [text].concat(text.split('').slice(1));
+	var rows = [text].concat([...text].slice(1));
 	if (rows.length < 2) {
 		rows[1] = ' ';
 	}
