@@ -55,22 +55,15 @@ function redraw() {
 				output = nest(text, 5).join("\n");
 				break;
 			case 'square':
-				switch (text.length) {
-					case 1:
-						output = text;
-						break;
-					case 2:
-						output = text + "\n" + chars.reverse().join('');
-						break;
-					default:
-						var padding = ' '.repeat(chars.length - 2)
-						output = text + "\n";
-						output += chars
-							.slice(1, -1)
-							.map(x => x + padding + x)
-							.join("\n");
-						output += "\n" + text;
-						break;
+				if (text.length == 1) {
+					output = text;
+				} else {
+					var padding = ' '.repeat(chars.length - 2)
+					output = text + "\n";
+					for (var i = 1; i < chars.length - 1; i++) {
+						output += chars[i] + padding + chars.slice(-1 * i - 1, -1 * i) + "\n";
+					}
+					output += chars.reverse().join('');
 				}
 				break;
 			case 'tree':
