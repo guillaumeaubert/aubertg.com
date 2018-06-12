@@ -60,25 +60,6 @@ class GitStats extends React.Component {
             in {Math.ceil(analysis_metadata.ms_spent / 1000)} seconds)
           </div>
           <div id="overview">
-            <h4>Jump to:</h4>
-            <ul>
-              <li>
-                <a href="#CommitsByMonth">Commits by month</a>
-              </li>
-              <li>
-                <a href="#CommitsByDay">Commits by day</a>
-              </li>
-              <li>
-                <a href="#CommitsByWeekdayHour">Commits by weekday hour</a>
-              </li>
-              <li>
-                <a href="#CommitsByLanguage">Commits by language / type</a>
-              </li>
-              <li>
-                <a href="#LinesChangedByMonth">Lines changed by month</a>
-              </li>
-            </ul>
-
             <h4>Notes:</h4>
             <ul>
               <li>Hover above interesting data points for more information.</li>
