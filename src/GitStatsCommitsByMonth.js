@@ -1,5 +1,5 @@
-import React from "react";
-import * as d3 from "d3";
+import React from 'react';
+import * as d3 from 'd3';
 
 const margin = {
   top: 10,
@@ -22,8 +22,8 @@ class GitStatsCommitsByMonth extends React.Component {
     let width = this.props.width - margin.left - margin.right;
     let height = this.props.height - margin.top - margin.bottom;
 
-    let svg = d3.select(this.svg).append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    let svg = d3.select(this.svg).append('g')
+      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
     let x = d3.scaleBand()
       .rangeRound([0, width])
@@ -38,16 +38,16 @@ class GitStatsCommitsByMonth extends React.Component {
           : '';
       });
 
-    svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
+    svg.append('g')
+      .attr('class', 'x axis')
+      .attr('transform', 'translate(0,' + height + ')')
       .call(x_axis)
-      .selectAll("text")
-        .attr("y", 12)
-        .attr("x", 5)
-        .attr("dy", ".35em")
-        .attr("transform", "rotate(45)")
-        .style("text-anchor", "start");
+      .selectAll('text')
+      .attr('y', 12)
+      .attr('x', 5)
+      .attr('dy', '.35em')
+      .attr('transform', 'rotate(45)')
+      .style('text-anchor', 'start');
 
     let y = d3.scaleLinear()
       .range([height, 0])
@@ -55,22 +55,22 @@ class GitStatsCommitsByMonth extends React.Component {
 
     let y_axis = d3.axisLeft()
       .scale(y)
-      .ticks(5, "s");
+      .ticks(5, 's');
 
-    svg.append("g")
-      .attr("class", "y axis")
+    svg.append('g')
+      .attr('class', 'y axis')
       .call(y_axis);
 
-    svg.selectAll(".bar")
+    svg.selectAll('.bar')
       .data(data)
-      .enter().append("rect")
-      .attr("class", "bar")
-      .attr("x", function(d) { return x(d.month); })
-      .attr("width", x.bandwidth())
-      .attr("y", function(d) { return y(d.commits); })
-      .attr("height", function(d) { return height - y(d.commits); })
-      .append("title")
-        .text(function(d) { return d.month.replace('-', ' ') + ': ' + d.commits + ' commit' + (d.commits === 1 ? '' : 's'); });
+      .enter().append('rect')
+      .attr('class', 'bar')
+      .attr('x', function(d) { return x(d.month); })
+      .attr('width', x.bandwidth())
+      .attr('y', function(d) { return y(d.commits); })
+      .attr('height', function(d) { return height - y(d.commits); })
+      .append('title')
+      .text(function(d) { return d.month.replace('-', ' ') + ': ' + d.commits + ' commit' + (d.commits === 1 ? '' : 's'); });
   }
 
   render() {
@@ -84,7 +84,7 @@ class GitStatsCommitsByMonth extends React.Component {
             Commits by Month
           </a>
           <span className="count" id="commits_total">
-            ({d3.format(",d")(total_commits)} commits)
+            ({d3.format(',d')(total_commits)} commits)
           </span>
         </h3>
         <div id="commits_by_month">

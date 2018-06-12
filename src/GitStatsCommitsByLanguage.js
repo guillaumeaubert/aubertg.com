@@ -1,5 +1,5 @@
-import React from "react";
-import * as d3 from "d3";
+import React from 'react';
+import * as d3 from 'd3';
 
 const margin =
 {
@@ -34,7 +34,7 @@ class GitStatsCommitsByLanguage extends React.Component {
         }
       );
 
-      this.language_counter = this.data.length;
+    this.language_counter = this.data.length;
   }
 
   componentDidMount() {
@@ -49,8 +49,8 @@ class GitStatsCommitsByLanguage extends React.Component {
     let data = this.data;
     let width = this.props.width;
     let height = this.props.height;
-    let svg = d3.select(this.svg).append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    let svg = d3.select(this.svg).append('g')
+      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
     // Color scale.
     let colors = d3.scaleOrdinal(d3.schemePaired);
@@ -73,19 +73,19 @@ class GitStatsCommitsByLanguage extends React.Component {
       .range([5,25]);
 
     // X-axis label.
-    svg.append("text")
-      .attr("text-anchor", "end")
-      .attr("x", width / 2)
-      .attr("y", height - 30)
-      .text("Lines added");
+    svg.append('text')
+      .attr('text-anchor', 'end')
+      .attr('x', width / 2)
+      .attr('y', height - 30)
+      .text('Lines added');
 
     // Y-axis label.
-    svg.append("text")
-      .attr("text-anchor", "middle")
-      .attr("transform", "rotate(-90)")
-      .attr("x", -(height-60)/2)
-      .attr("y", -40)
-      .text("Lines deleted");
+    svg.append('text')
+      .attr('text-anchor', 'middle')
+      .attr('transform', 'rotate(-90)')
+      .attr('x', -(height-60)/2)
+      .attr('y', -40)
+      .text('Lines deleted');
 
     // Define X and Y axis.
     let xAxis = d3.axisBottom()
@@ -93,7 +93,7 @@ class GitStatsCommitsByLanguage extends React.Component {
       .tickPadding(2)
       .tickFormat(
         function (d) {
-          return x.tickFormat(10,d3.format(".1s"))(d)
+          return x.tickFormat(10,d3.format('.1s'))(d);
         }
       );
     let yAxis = d3.axisLeft()
@@ -101,47 +101,47 @@ class GitStatsCommitsByLanguage extends React.Component {
       .tickPadding(2)
       .tickFormat(
         function (d) {
-          return y.tickFormat(10,d3.format(".1s"))(d)
+          return y.tickFormat(10,d3.format('.1s'))(d);
         }
       );
 
     // Add axis to the graph.
-    svg.append("g")
-      .attr("class", "y axis")
+    svg.append('g')
+      .attr('class', 'y axis')
       .call(yAxis);
-    svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + y.range()[0] + ")")
+    svg.append('g')
+      .attr('class', 'x axis')
+      .attr('transform', 'translate(0,' + y.range()[0] + ')')
       .call(xAxis);
 
     // Function to format numbers with a separator for thousands.
-    let format_thousands = d3.format(",d");
+    let format_thousands = d3.format(',d');
 
     // Add points.
-    let points = svg.selectAll("g.node")
+    let points = svg.selectAll('g.node')
       .data(
         data,
         function (d) { return d.language; }
       );
     let pointsGroup = points.enter()
-      .append("g")
-      .attr("class", "node")
-      .attr('transform', function (d) { return "translate(" + x(d.lines_added) + "," + y(d.lines_deleted) + ")"; });
+      .append('g')
+      .attr('class', 'node')
+      .attr('transform', function (d) { return 'translate(' + x(d.lines_added) + ',' + y(d.lines_deleted) + ')'; });
     pointsGroup
-      .append("circle")
-      .attr("r", function(d){ return r(d.commits); })
-      .attr("class", "dot")
-      .style("fill", function (d) { return colors(d.counter); });
+      .append('circle')
+      .attr('r', function(d){ return r(d.commits); })
+      .attr('class', 'dot')
+      .style('fill', function (d) { return colors(d.counter); });
     pointsGroup
-      .append("text")
-      .style("text-anchor", "middle")
-      .attr("dy", -10)
+      .append('text')
+      .style('text-anchor', 'middle')
+      .attr('dy', -10)
       .text(function (d) { return d.language; });
     pointsGroup
-      .append("title")
+      .append('title')
       .text(
         function(d) {
-          return d.language + ': +' + format_thousands(d.lines_added) + " -"
+          return d.language + ': +' + format_thousands(d.lines_added) + ' -'
             + format_thousands(d.lines_deleted) + ' lines and '
             + format_thousands(d.commits) + ' commit(s)';
         }

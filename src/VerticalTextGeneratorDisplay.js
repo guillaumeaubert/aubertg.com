@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function nest(text, i) {
   if (i === 0) {
@@ -33,20 +33,20 @@ class VerticalTextGeneratorDisplay extends React.Component {
     if (text.length > 0) {
       switch (transformation) {
         case 'vertical': {
-          output = chars.join("\n");
+          output = chars.join('\n');
           break;
         }
         case 'vtop': {
-          output = text + "\n" + chars.slice(1).join("\n");
+          output = text + '\n' + chars.slice(1).join('\n');
           break;
         }
         case 'vbottom': {
-          let padding = ' '.repeat(chars.length - 1)
+          let padding = ' '.repeat(chars.length - 1);
           output = chars
             .slice(0, -1)
             .map(x => padding + x)
-            .join("\n");
-          output += "\n" + text;
+            .join('\n');
+          output += '\n' + text;
           break;
         }
         case 'plus': {
@@ -54,43 +54,43 @@ class VerticalTextGeneratorDisplay extends React.Component {
           let padding = ' '.repeat(intersect - 1);
           let rows = chars.map(x => padding + x);
           rows[intersect - 1] = text;
-          output = rows.join("\n");
+          output = rows.join('\n');
           break;
         }
         case 'stairs': {
           for (let i = 0; i < 5; i++) {
-            let padding = ' '.repeat(i * 3)
-            output += padding + text + "\n\n";
+            let padding = ' '.repeat(i * 3);
+            output += padding + text + '\n\n';
           }
           break;
         }
         case 'slinky': {
           let reversed = chars.slice().reverse().join('');
           for (let i = 0; i < 5; i++) {
-            let padding = ' '.repeat(i * (chars.length - 1))
+            let padding = ' '.repeat(i * (chars.length - 1));
             let vtext = chars
               .slice(i === 0 ? 0 : 1, -1)
               .map(x => padding + x)
-              .join("\n");
+              .join('\n');
             if (vtext.length > 0) {
-              output += vtext + "\n";
+              output += vtext + '\n';
             }
-            output += padding + reversed + "\n";
+            output += padding + reversed + '\n';
           }
           break;
         }
         case 'nestedv': {
-          output = nest(text, 5).join("\n");
+          output = nest(text, 5).join('\n');
           break;
         }
         case 'square': {
           if (text.length === 1) {
             output = text;
           } else {
-            let padding = ' '.repeat(chars.length - 2)
-            output = text + "\n";
+            let padding = ' '.repeat(chars.length - 2);
+            output = text + '\n';
             for (let i = 1; i < chars.length - 1; i++) {
-              output += chars[i] + padding + chars.slice(-1 * i - 1, -1 * i) + "\n";
+              output += chars[i] + padding + chars.slice(-1 * i - 1, -1 * i) + '\n';
             }
             output += chars.reverse().join('');
           }
@@ -100,11 +100,13 @@ class VerticalTextGeneratorDisplay extends React.Component {
           for (let i = chars.length; i > 0; i--) {
             output += ' '.repeat(chars.length - i)
               + Array(i).fill(chars[i - 1]).join(' ')
-              + "\n";
+              + '\n';
           }
           break;
         }
-        default: {}
+        default: {
+          output = '';
+        }
       }
     }
     output = output.replace(/ /g, '\u00a0');

@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 import {
   Route,
   NavLink,
   HashRouter
-} from "react-router-dom";
-import Projects from "./Projects";
-import GitStats from "./GitStats";
-import ContactInfo from "./ContactInfo";
-import VerticalTextGenerator from "./VerticalTextGenerator";
+} from 'react-router-dom';
+import Projects from './Projects';
+import GitStats from './GitStats';
+import ContactInfo from './ContactInfo';
+import VerticalTextGenerator from './VerticalTextGenerator';
 
 class Main extends React.Component {
   render() {

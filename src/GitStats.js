@@ -1,14 +1,13 @@
-import React, { Component } from "react";
-//import ReactDOM from 'react-dom'
-import "./css/gitstats.css";
-import GitStatsCommitsByMonth from "./GitStatsCommitsByMonth";
-import GitStatsCommitsByDay from "./GitStatsCommitsByDay";
-import GitStatsCommitsByWeekdayHour from "./GitStatsCommitsByWeekdayHour";
-import GitStatsCommitsByLanguage from "./GitStatsCommitsByLanguage";
-import GitStatsLinesChangedByMonth from "./GitStatsLinesChangedByMonth";
-import * as d3 from "d3";
+import React from 'react';
+import './css/gitstats.css';
+import GitStatsCommitsByMonth from './GitStatsCommitsByMonth';
+import GitStatsCommitsByDay from './GitStatsCommitsByDay';
+import GitStatsCommitsByWeekdayHour from './GitStatsCommitsByWeekdayHour';
+import GitStatsCommitsByLanguage from './GitStatsCommitsByLanguage';
+import GitStatsLinesChangedByMonth from './GitStatsLinesChangedByMonth';
+import * as d3 from 'd3';
 
-class GitStats extends Component {
+class GitStats extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,14 +16,14 @@ class GitStats extends Component {
   }
 
   componentDidMount() {
-    document.title = "Git Contribution Statistics";
+    document.title = 'Git Contribution Statistics';
 
     // Retrieve git contribution information.
     fetch(
       '/data/git_contributions.json',
       {
         method: 'GET',
-        credentials: "same-origin",
+        credentials: 'same-origin',
         headers:
         {
           'Content-Type': 'application/json',

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class VerticalTextGeneratorControls extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class VerticalTextGeneratorControls extends React.Component {
   }
 
   handleTransformationChange(e) {
-      this.props.onTransformationChange(e.target.value);
+    this.props.onTransformationChange(e.target.value);
   }
 
   render() {

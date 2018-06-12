@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from 'react';
 
-class ContactInfo extends Component {
+class ContactInfo extends React.Component {
   render() {
     return (
       <div id="banner">

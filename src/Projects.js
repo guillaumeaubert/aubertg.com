@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 import TimeAgo from 'react-timeago';
 import inArray from 'in-array';
 import intersect from 'array-intersection';
-import "./css/projects.css";
+import './css/projects.css';
 
 const GITHUB_API = 'https://api.github.com/users/';
 
@@ -133,7 +133,7 @@ function getProjectWebsite(url) {
       default:
         return 'Website';
     }
-  }
+  };
 
   return (
     <a href={url}>{title()}</a>
@@ -149,14 +149,14 @@ class Projects extends React.Component {
   }
 
   componentDidMount() {
-    document.title = "My Projects";
+    document.title = 'My Projects';
 
     // Retrieve the list of projects from GitHub.
     fetch(
       GITHUB_API + this.props.githubUser + '/repos?page=1&per_page=1000&sort=pushed',
       {
         method: 'GET',
-        credentials: "same-origin",
+        credentials: 'same-origin',
         headers:
         {
           'Content-Type': 'application/json',
