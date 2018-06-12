@@ -2,7 +2,7 @@ import React from "react";
 import {
   Route,
   NavLink,
-  BrowserRouter
+  HashRouter
 } from "react-router-dom";
 import Projects from "./Projects";
 import GitStats from "./GitStats";
@@ -12,7 +12,7 @@ import VerticalTextGenerator from "./VerticalTextGenerator";
 class Main extends React.Component {
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div>
           <div id="header_wrap" className="outer">
             <header className="inner">
@@ -54,7 +54,7 @@ class Main extends React.Component {
             </section>
           </div>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
