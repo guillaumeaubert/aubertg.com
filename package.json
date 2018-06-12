@@ -1,0 +1,27 @@
+{
+  "name": "aubertg.com",
+  "homepage": "https://aubertg.com",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "array-intersection": "^0.1.2",
+    "d3": "^5.4.0",
+    "in-array": "^0.1.2",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.4",
+    "react-timeago": "^4.1.9"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.2.0"
+  }
+}

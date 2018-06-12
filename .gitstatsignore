@@ -1,10 +1,3 @@
-/css/normalize.css
-/css/pygment_trac.css
-/data/git_contributions.json
-/data/git_contributions.pretty.json
-/js/chart.min.js
-/js/cpan-distributions-list*
-/js/d3.*.js
-/js/jquery.timeago.js
-/js/lib/
-/stylesheets/pygment_trac.css
+/src/css/normalize.css
+/public/data/git_contributions.json
+/public/data/git_contributions.pretty.json
