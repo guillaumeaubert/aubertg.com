@@ -191,7 +191,7 @@ class Projects extends React.Component {
       content = (
         <tr>
           <td colSpan="4" className="loading">
-            'Loading ...'
+            Loading ...
           </td>
         </tr>
       );
