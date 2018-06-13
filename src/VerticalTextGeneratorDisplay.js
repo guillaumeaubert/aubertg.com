@@ -5,13 +5,13 @@ function nest(text, i) {
     return [];
   }
 
-  var nested = nest(text, i - 1);
-  var rows = [text].concat([...text].slice(1));
+  let nested = nest(text, i - 1);
+  let rows = [text].concat([...text].slice(1));
   if (rows.length < 2) {
     rows[1] = ' ';
   }
 
-  for (var j = 2; j < Math.max(nested.length + 2, rows.length); j++) {
+  for (let j = 2; j < Math.max(nested.length + 2, rows.length); j++) {
     if (j >= rows.length) {
       rows[j] = ' ';
     }

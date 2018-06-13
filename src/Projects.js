@@ -40,9 +40,9 @@ function getProjectStatus(project) {
 }
 
 function getProjectBadges(project, ghUser, dhUser) {
-  var badges = [];
+  let badges = [];
 
-  var travis_tags = ['travis-ci', 'cpan', 'golang', 'jquery-plugin', 'ansible-plugin', 'ruby-gem'];
+  let travis_tags = ['travis-ci', 'cpan', 'golang', 'jquery-plugin', 'ansible-plugin', 'ruby-gem'];
   if (intersect(travis_tags, project.topics).length > 0) {
     badges.push(
       {
@@ -53,7 +53,7 @@ function getProjectBadges(project, ghUser, dhUser) {
     );
   }
 
-  var coveralls_tags = ['coveralls', 'cpan', 'jquery-plugin'];
+  let coveralls_tags = ['coveralls', 'cpan', 'jquery-plugin'];
   if (intersect(coveralls_tags, project.topics).length > 0) {
     badges.push(
       {
@@ -98,7 +98,7 @@ function getProjectBadges(project, ghUser, dhUser) {
 }
 
 function getIconClass(project) {
-  var topics = [
+  let topics = [
     'ansible-plugin',
     'bash',
     'cpan',
@@ -107,7 +107,7 @@ function getIconClass(project) {
     'jquery-plugin',
     'ruby-gem'
   ];
-  var relevant_topics = intersect(topics, project.topics);
+  let relevant_topics = intersect(topics, project.topics);
   if (relevant_topics.length > 0) {
     return relevant_topics[0] + '-icon';
   }
@@ -116,10 +116,10 @@ function getIconClass(project) {
 function getProjectWebsite(url) {
   if (!url) return null;
 
-  var matches = url.match(/^https?:\/\/([^/?#]+)/i);
+  let matches = url.match(/^https?:\/\/([^/?#]+)/i);
   if (!matches) return null;
 
-  var title = function () {
+  let title = function () {
     switch (matches[1]) {
       case 'metacpan.org':
         return 'MetaCPAN';

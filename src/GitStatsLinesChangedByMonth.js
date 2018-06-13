@@ -28,15 +28,15 @@ class GitStatsLinesChangedByMonth extends React.Component {
     let svg = d3.select(this.svg).append('g')
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-    var format_lines_count = d3.format(',d');
+    let format_lines_count = d3.format(',d');
 
     // Set up mirrored X scales and axis.
-    var x = d3.scaleBand()
+    let x = d3.scaleBand()
       .range([0, width])
       .padding(0.1)
       .domain(data.map(function(d) { return d.month; }));
 
-    var x_axis_added = d3.axisBottom()
+    let x_axis_added = d3.axisBottom()
       .scale(x)
       .tickFormat(function(d) {
         return /^Jan-/.test(d)
@@ -45,7 +45,7 @@ class GitStatsLinesChangedByMonth extends React.Component {
       })
       .tickValues(x.domain().filter(function(d) { return /^Jan-/.test(d); }));
 
-    var x_axis_deleted = d3.axisTop()
+    let x_axis_deleted = d3.axisTop()
       .scale(x)
       .tickFormat(function(d) {
         return /^Jan-/.test(d)
@@ -71,17 +71,17 @@ class GitStatsLinesChangedByMonth extends React.Component {
 
     // Determine the max lines added/deleted across the month range.
     // This allows giving each graph (lines added, lines deleted) the same scale.
-    var max_changed_lines = Math.max(
+    let max_changed_lines = Math.max(
       d3.max(data, function(d) { return +d.added; }),
       d3.max(data, function(d) { return +d.deleted; })
     );
 
     // Set up scale and axis for lines added.
-    var y_added = d3.scaleLinear()
+    let y_added = d3.scaleLinear()
       .range([(height-center_space)/2, 0])
       .domain([0, max_changed_lines]);
 
-    var y_axis_added = d3.axisLeft()
+    let y_axis_added = d3.axisLeft()
       .scale(y_added)
       .ticks(5)
       .tickFormat(d3.format('.1s'));
@@ -99,11 +99,11 @@ class GitStatsLinesChangedByMonth extends React.Component {
       .text('Lines added');
 
     // Set up scale and axis for lines deleted.
-    var y_deleted = d3.scaleLinear()
+    let y_deleted = d3.scaleLinear()
       .range([(height+center_space)/2, height])
       .domain([0, max_changed_lines]);
 
-    var y_axis_deleted = d3.axisLeft()
+    let y_axis_deleted = d3.axisLeft()
       .scale(y_deleted)
       .ticks(5)
       .tickFormat(d3.format('.1s'));
