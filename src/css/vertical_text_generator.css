@@ -7,7 +7,8 @@
 #canvas {
   font-family: Courier New, monospace;
   float: left;
-  max-width: 800px;
+  max-width: 780px;
+  overflow-x: hidden;
   padding-left: 20px;
 }
 #controls div {
