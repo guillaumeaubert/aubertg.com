@@ -1,17 +1,19 @@
 import React from 'react';
-import './css/gitstats.css';
 import GitStatsCommitsByMonth from './GitStatsCommitsByMonth';
 import GitStatsCommitsByDay from './GitStatsCommitsByDay';
 import GitStatsCommitsByWeekdayHour from './GitStatsCommitsByWeekdayHour';
 import GitStatsCommitsByLanguage from './GitStatsCommitsByLanguage';
 import GitStatsLinesChangedByMonth from './GitStatsLinesChangedByMonth';
 import * as d3 from 'd3';
+import './css/gitstats.css';
+import loader from './images/loading-bar.gif';
 
 class GitStats extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       data: null,
+      loading: true,
     };
   }
 
@@ -32,14 +34,23 @@ class GitStats extends React.Component {
       }
     ).then((response) => response.json()
     ).then((data) => {
-      this.setState({data: data});
+      this.setState({
+        data: data,
+        loading: false,
+      });
     });
   }
 
   render() {
     let content = '';
-    if (this.state.data == null) {
-      content = 'Loading...';
+    if (this.state.loading) {
+      content = (
+        <img
+          src={loader}
+          alt='Loading...'
+          style={{display: 'block', margin: '10px auto'}}
+        />
+      );
     } else {
       let {
         analysis_metadata,

@@ -3,6 +3,7 @@ import TimeAgo from 'react-timeago';
 import inArray from 'in-array';
 import intersect from 'array-intersection';
 import './css/projects.css';
+import loader from './images/loading-bar.gif';
 
 const GITHUB_API = 'https://api.github.com/users/';
 
@@ -145,6 +146,7 @@ class Projects extends React.Component {
     super(props);
     this.state = {
       projects: null,
+      loading: true,
     };
   }
 
@@ -181,17 +183,24 @@ class Projects extends React.Component {
         return ((x < y) ? 1 : ((x > y) ? -1 : 0));
       });
 
-      this.setState({ projects: projects });
+      this.setState({
+        projects: projects,
+        loading: false,
+      });
     });
   }
 
   render() {
     let content = '';
-    if (this.state.projects === null) {
+    if (this.state.loading) {
       content = (
         <tr>
           <td colSpan="4" className="loading">
-            Loading ...
+            <img
+              src={loader}
+              alt='Loading...'
+              style={{display: 'block', margin: '10px auto'}}
+            />
           </td>
         </tr>
       );
