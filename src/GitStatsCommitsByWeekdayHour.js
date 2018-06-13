@@ -107,9 +107,10 @@ class GitStatsCommitsByWeekdayHour extends React.Component {
 
     // Add the legend below the graph.
     let legend = svg.selectAll('.legend')
-      .data([1].concat(color_scale.quantiles()), function(d) { return d; });
+      .data([1].concat(color_scale.quantiles()), function(d) { return d; })
+      .enter();
 
-    legend.enter().append('g')
+    legend.append('g')
       .attr('class', 'legend');
 
     legend.append('rect')
