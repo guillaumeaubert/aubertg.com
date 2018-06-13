@@ -167,21 +167,27 @@ class Projects extends React.Component {
       }
     ).then((response) => response.json()
     ).then((projects) => {
-      // Add sort order in O(n).
-      projects = projects.map((project) => {
-        var t = getProjectStatus(project);
-        project.sortOrder = t.sortOrder;
-        project.isDeprecated = t.isDeprecated;
-        project.projectStatus = t.display;
-        return project;
-      });
-
-      // Sort the array of projects.
-      projects = projects.sort(function(a, b) {
-        var x = a.sortOrder;
-        var y = b.sortOrder;
-        return ((x < y) ? 1 : ((x > y) ? -1 : 0));
-      });
+      projects = projects
+        .filter((project) => {
+          if (project === null) return false;
+          if (project.fork) return false;
+          if (project.name.slice(-9) === '_archives') return false;
+          return true;
+        })
+        // Add sort order in O(n).
+        projects = projects.map((project) => {
+          var t = getProjectStatus(project);
+          project.sortOrder = t.sortOrder;
+          project.isDeprecated = t.isDeprecated;
+          project.projectStatus = t.display;
+          return project;
+        });
+        // Sort the array of projects.
+        projects = projects.sort(function(a, b) {
+          var x = a.sortOrder;
+          var y = b.sortOrder;
+          return ((x < y) ? 1 : ((x > y) ? -1 : 0));
+        });
 
       this.setState({
         projects: projects,
@@ -207,12 +213,6 @@ class Projects extends React.Component {
     } else {
       // Display projects in the table.
       content = this.state.projects
-        .filter((project) => {
-          if (project === null) return false;
-          if (project.fork) return false;
-          if (project.name.slice(-9) === '_archives') return false;
-          return true;
-        })
         .map((project) => {
           let website = getProjectWebsite(project.homepage);
           let badges = project.isDeprecated
