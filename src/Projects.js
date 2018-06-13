@@ -6,6 +6,8 @@ import './css/projects.css';
 import loader from './images/loading-bar.gif';
 
 const GITHUB_API = 'https://api.github.com/users/';
+const TRAVIS_TAGS = ['travis-ci', 'cpan', 'golang', 'jquery-plugin', 'ansible-plugin', 'ruby-gem'];
+const COVERALLS_TAGS = ['coveralls', 'cpan', 'jquery-plugin'];
 
 function getProjectStatus(project) {
   if (inArray(project.topics, 'deprecated')) {
@@ -42,8 +44,7 @@ function getProjectStatus(project) {
 function getProjectBadges(project, ghUser, dhUser) {
   let badges = [];
 
-  let travis_tags = ['travis-ci', 'cpan', 'golang', 'jquery-plugin', 'ansible-plugin', 'ruby-gem'];
-  if (intersect(travis_tags, project.topics).length > 0) {
+  if (intersect(TRAVIS_TAGS, project.topics).length > 0) {
     badges.push(
       {
         'link': 'https://travis-ci.org/'+ghUser+'/'+project.name,
@@ -53,8 +54,7 @@ function getProjectBadges(project, ghUser, dhUser) {
     );
   }
 
-  let coveralls_tags = ['coveralls', 'cpan', 'jquery-plugin'];
-  if (intersect(coveralls_tags, project.topics).length > 0) {
+  if (intersect(COVERALLS_TAGS, project.topics).length > 0) {
     badges.push(
       {
         'link': 'https://coveralls.io/r/'+ghUser+'/'+project.name+'?branch='+project.default_branch,
