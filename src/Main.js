@@ -21,15 +21,15 @@ class Main extends React.Component {
               <h1 id="project_title">Guillaume Aubert</h1>
               <section id="menu">
                 <NavLink exact to="/">
-                  <span className="bullet">&#9700;</span>
+                  <span className="bullet">&#9700;&nbsp;</span>
                   My Projects
                 </NavLink>
                 <NavLink to="/git-contributions-statistics">
-                  <span className="bullet">&#9700;</span>
+                  <span className="bullet">&#9700;&nbsp;</span>
                   Git Contribution Statistics
                 </NavLink>
                 <NavLink to="/vertical-text-generator">
-                  <span className="bullet">&#9700;</span>
+                  <span className="bullet">&#9700;&nbsp;</span>
                   Vertical Text Generator
                 </NavLink>
               </section>
