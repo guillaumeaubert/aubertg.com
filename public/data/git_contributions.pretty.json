@@ -1,5 +1,5 @@
 {
-  "commits_total": 4299,
+  "commits_total": 4312,
   "commits_by_month": [
     {
       "month": "Dec-2011",
@@ -315,7 +315,7 @@
     },
     {
       "month": "Jun-2018",
-      "commits": 12
+      "commits": 25
     }
   ],
   "commits_by_hour": {
@@ -328,7 +328,7 @@
     "6": 24,
     "7": 38,
     "8": 163,
-    "9": 33,
+    "9": 35,
     "10": 160,
     "11": 154,
     "12": 245,
@@ -340,9 +340,9 @@
     "18": 458,
     "19": 394,
     "20": 435,
-    "21": 305,
-    "22": 302,
-    "23": 231
+    "21": 307,
+    "22": 308,
+    "23": 234
   },
   "commits_by_day": {
     "2017-03-19": 100,
@@ -698,7 +698,7 @@
     "2012-07-29": 21,
     "2016-04-16": 21,
     "2015-02-12": 19,
-    "2018-06-12": 5,
+    "2018-06-12": 18,
     "2018-06-11": 7,
     "2018-05-24": 1,
     "2018-05-23": 6,
@@ -866,7 +866,7 @@
       "6": 2,
       "7": 4,
       "8": 11,
-      "9": 2,
+      "9": 4,
       "10": 2,
       "11": 7,
       "12": 16,
@@ -878,9 +878,9 @@
       "18": 29,
       "19": 28,
       "20": 58,
-      "21": 51,
-      "22": 41,
-      "23": 31
+      "21": 53,
+      "22": 47,
+      "23": 34
     },
     "Wed": {
       "0": 27,
@@ -1020,14 +1020,14 @@
       "commits": 885
     },
     "Text": {
-      "added": 9160,
+      "added": 9164,
       "deleted": 1435,
-      "commits": 1136
+      "commits": 1138
     },
     "JSON": {
-      "added": 19877,
-      "deleted": 3779,
-      "commits": 675
+      "added": 7714,
+      "deleted": 3714,
+      "commits": 674
     },
     "Perl": {
       "added": 101493,
@@ -1035,9 +1035,9 @@
       "commits": 2344
     },
     "Markdown": {
-      "added": 6744,
-      "deleted": 945,
-      "commits": 491
+      "added": 4294,
+      "deleted": 939,
+      "commits": 489
     },
     "INI": {
       "added": 1429,
@@ -1045,19 +1045,19 @@
       "commits": 216
     },
     "CSS": {
-      "added": 3317,
-      "deleted": 859,
-      "commits": 103
+      "added": 3321,
+      "deleted": 860,
+      "commits": 106
     },
     "JavaScript": {
-      "added": 6728,
-      "deleted": 1326,
-      "commits": 140
+      "added": 6805,
+      "deleted": 1382,
+      "commits": 146
     },
     "HTML": {
-      "added": 2999,
+      "added": 3019,
       "deleted": 1678,
-      "commits": 161
+      "commits": 163
     },
     "SQL": {
       "added": 178,
@@ -1068,11 +1068,6 @@
       "added": 99,
       "deleted": 11,
       "commits": 2
-    },
-    "public/CNAME": {
-      "added": 1,
-      "deleted": 0,
-      "commits": 1
     },
     "XML": {
       "added": 3,
@@ -1278,7 +1273,7 @@
     },
     {
       "month": "Oct-2014",
-      "added": 1120,
+      "added": 1111,
       "deleted": 651
     },
     {
@@ -1498,13 +1493,13 @@
     },
     {
       "month": "Jun-2018",
-      "added": 16991,
-      "deleted": 375
+      "added": 2491,
+      "deleted": 361
     }
   ],
   "analysis_metadata": {
-    "started_at": 1528797904,
+    "started_at": 1528970704,
     "repositories_analyzed": 69,
-    "ms_spent": 71989
+    "ms_spent": 73471
   }
 }
