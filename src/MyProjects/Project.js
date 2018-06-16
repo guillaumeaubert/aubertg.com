@@ -1,4 +1,5 @@
 import React from 'react';
+import Badge from './Badge';
 import inArray from 'in-array';
 import intersect from 'array-intersection';
 import './Project.css';
@@ -30,7 +31,8 @@ function getProjectBadges(project, ghUser, dhUser) {
       {
         'link': 'https://travis-ci.org/'+ghUser+'/'+project.name,
         'image': 'https://travis-ci.org/'+ghUser+'/'+project.name+'.svg?branch='+project.default_branch,
-        'title': 'Build Status'
+        'text': 'Build Status',
+        'defaultWidth': 90,
       }
     );
   }
@@ -40,7 +42,8 @@ function getProjectBadges(project, ghUser, dhUser) {
       {
         'link': 'https://coveralls.io/r/'+ghUser+'/'+project.name+'?branch='+project.default_branch,
         'image': 'https://coveralls.io/repos/'+ghUser+'/'+project.name+'/badge.svg?branch='+project.default_branch,
-        'title': 'Coverage Status'
+        'text': 'Coverage Status',
+        'defaultWidth': 106,
       }
     );
   }
@@ -50,7 +53,8 @@ function getProjectBadges(project, ghUser, dhUser) {
       {
         'link': 'https://hub.docker.com/r/'+dhUser+'/'+project.name+'/builds/',
         'image': 'https://img.shields.io/docker/build/'+dhUser+'/'+project.name+'.svg',
-        'title': 'Docker Build Status'
+        'text': 'Docker Build Status',
+        'defaultWidth': 128,
       }
     );
   }
@@ -60,7 +64,8 @@ function getProjectBadges(project, ghUser, dhUser) {
       {
         'link': 'https://goreportcard.com/projectrt/github.com/'+ghUser+'/'+project.name,
         'image': 'https://goreportcard.com/badge/github.com/'+ghUser+'/'+project.name,
-        'title': 'Go Report Card'
+        'text': 'Go Report Card',
+        'defaultWidth': 80,
       }
     );
   }
@@ -70,7 +75,7 @@ function getProjectBadges(project, ghUser, dhUser) {
       {
         'link': 'https://inch-ci.org/github/'+ghUser+'/'+project.name,
         'image': 'https://inch-ci.org/github/'+ghUser+'/'+project.name+'.svg?branch=master&style=shields',
-        'title': 'Inline Docs'
+        'text': 'Inline Docs'
       }
     );
   }
@@ -128,13 +133,15 @@ class Project extends React.Component {
         </td>
         {/* Badges */}
         <td className="badges">
-          {badges.map((badge) => {
-            return (
-              <a href={badge.link} key={badge.link}>
-                <img src={badge.image} title={badge.title} alt={badge.title}/>
-              </a>
-            );
-          })}
+          {badges.map((badge) =>
+            <Badge
+              key={`badge_${badge.link}`}
+              link={badge.link}
+              image={badge.image}
+              text={badge.text}
+              defaultWidth={badge.defaultWidth}
+            />
+          )}
         </td>
       </tr>
     );

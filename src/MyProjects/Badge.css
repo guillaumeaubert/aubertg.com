@@ -1,0 +1,10 @@
+.badge {
+  margin-right: 5px;
+  float: left;
+}
+.badge img {
+  display: block;
+}
+.badge .loading img {
+  margin: 2px auto;
+}
