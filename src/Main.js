@@ -4,7 +4,7 @@ import {
   NavLink,
   HashRouter
 } from 'react-router-dom';
-import Projects from './Projects';
+import MyProjects from './MyProjects';
 import GitStats from './GitStats';
 import ContactInfo from './ContactInfo';
 import VerticalTextGenerator from './VerticalTextGenerator';
@@ -40,7 +40,7 @@ class Main extends React.Component {
               <div className="content">
                 <Route
                   exact path="/"
-                  render={(props) => <Projects {...props} githubUser='guillaumeaubert' dockerhubUser='aubertg'/>}
+                  render={(props) => <MyProjects {...props} githubUser='guillaumeaubert' dockerhubUser='aubertg'/>}
                 />
                 <Route
                   path="/git-contributions-statistics"
