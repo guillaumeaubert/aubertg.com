@@ -1,4 +1,7 @@
 import React from 'react';
+import githubIcon from './images/font-awesome_4-6-3_github_32_0_ffffff_none.png';
+import linkedinIcon from './images/brandico_2014-04-07_linkedin-rect_32_0_ffffff_none.png';
+import envelopeIcon from './images/font-awesome_4-6-3_envelope-square_32_0_ffffff_none.png';
 import './ContactInfo.css';
 
 class ContactInfo extends React.Component {
@@ -11,17 +14,17 @@ class ContactInfo extends React.Component {
           </li>
           <li>
             <a href="https://github.com/guillaumeaubert/">
-              <img src="/images/font-awesome_4-6-3_github_32_0_ffffff_none.png" alt="Github"/>
+              <img src={githubIcon} alt="Github"/>
             </a>
           </li>
           <li>
             <a href="https://www.linkedin.com/in/aubertguillaume">
-              <img src="/images/brandico_2014-04-07_linkedin-rect_32_0_ffffff_none.png" alt="LinkedIn"/>
+              <img src={linkedinIcon} alt="LinkedIn"/>
             </a>
           </li>
           <li>
             <a href="mailto:me@aubertg.com">
-              <img src="/images/font-awesome_4-6-3_envelope-square_32_0_ffffff_none.png" alt="Email"/>
+              <img src={envelopeIcon} alt="Email"/>
             </a>
           </li>
         </ul>
