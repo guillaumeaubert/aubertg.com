@@ -1,4 +1,5 @@
 import React from 'react';
+import './VerticalTextGeneratorControls.css';
 
 class VerticalTextGeneratorControls extends React.Component {
   constructor(props) {

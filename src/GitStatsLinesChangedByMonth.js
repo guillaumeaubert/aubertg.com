@@ -1,5 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
+import './GitStatsLinesChangedByMonth.css';
 
 const margin = {
   top: 10,
@@ -153,15 +154,13 @@ class GitStatsLinesChangedByMonth extends React.Component {
     return (
       <div>
         <h3>
-          <a id="LinesChangedByMonth" className="anchor" href="#LinesChangedByMonth">
-            Lines Changed by Month
-          </a>
-          <span className="count" id="total_lines_changed">
+          Lines Changed by Month
+          <span className="count">
             (total: +{format_lines_count(total_lines_added)}{' '}
             -{format_lines_count(total_lines_deleted)})
           </span>
         </h3>
-        <div id="lines_changed_by_month">
+        <div id="lines-changes-by-month">
           <svg
             width={this.props.width}
             height={this.props.height}

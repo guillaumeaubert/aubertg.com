@@ -1,0 +1,37 @@
+#contact-info {
+  display: block;
+  position: absolute;
+  top:0;
+  right: 10px;
+  z-index: 10;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,.5);
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  background-color: #0090ff;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 0px 0px 25px 25px;
+}
+
+#contact-info ul {
+  list-style-type: none;
+  margin: 0px auto;
+  display: table;
+  overflow: auto;
+  padding: 0px 15px;
+}
+
+#contact-info ul li {
+  float: left;
+  margin-left: 16px;
+}
+
+#contact-info ul li:first-child {
+  padding-top: 5px;
+  margin-left: 0px;
+}
+
+#contact-info ul li img {
+  display: block;
+}

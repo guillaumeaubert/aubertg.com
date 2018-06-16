@@ -1,0 +1,50 @@
+#github-projects .description {
+  display: none;
+}
+#github-projects .links {
+  white-space: nowrap;
+}
+#github-projects .badges a img {
+  display: block;
+  float: left;
+  margin-right: 5px;
+}
+#github-projects td.name {
+  padding-left: 30px;
+  background: transparent url('/images/icons/code.png') no-repeat 5px 5px;
+  background-size: 20px 20px;
+}
+#github-projects td.docker-image-icon {
+  background-image: url('/images/icons/docker.png');
+}
+#github-projects td.cpan-icon {
+  background-image: url('/images/icons/perl.png');
+}
+#github-projects td.golang-icon {
+  background-image: url('/images/icons/golang.png');
+}
+#github-projects td.ruby-gem-icon {
+  background-image: url('/images/icons/ruby-gem.png');
+}
+#github-projects td.ansible-plugin-icon {
+  background-image: url('/images/icons/ansible.png');
+}
+#github-projects td.jquery-plugin-icon {
+  background-image: url('/images/icons/jquery.png');
+}
+#github-projects td.bash-icon {
+  background-image: url('/images/icons/terminal.png');
+}
+
+/* Hide columns on smaller screens */
+@media screen and (max-width: 850px) {
+  table.list .badges {
+    display: none;
+  }
+}
+@media screen and (max-width: 670px) {
+  table.list .status,
+  table.list .badges {
+    display: none;
+  }
+}

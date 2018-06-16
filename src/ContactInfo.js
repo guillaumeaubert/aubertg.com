@@ -1,9 +1,10 @@
 import React from 'react';
+import './ContactInfo.css';
 
 class ContactInfo extends React.Component {
   render() {
     return (
-      <div id="banner">
+      <div id="contact-info">
         <ul>
           <li>
             Find me on:

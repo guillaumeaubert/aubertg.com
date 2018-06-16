@@ -8,6 +8,7 @@ import MyProjects from './MyProjects';
 import GitStats from './GitStats';
 import ContactInfo from './ContactInfo';
 import VerticalTextGenerator from './VerticalTextGenerator';
+import './Main.css';
 
 class Main extends React.Component {
   render() {
@@ -18,7 +19,7 @@ class Main extends React.Component {
             <header className="inner">
               <ContactInfo />
 
-              <h1 id="project_title">Guillaume Aubert</h1>
+              <h1>Guillaume Aubert</h1>
               <section id="menu">
                 <NavLink exact to="/">
                   <span className="bullet">&#9700;&nbsp;</span>

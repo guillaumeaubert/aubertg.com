@@ -1,7 +1,7 @@
 import React from 'react';
 import inArray from 'in-array';
 import intersect from 'array-intersection';
-import './css/projects.css';
+import './Project.css';
 
 const TRAVIS_TAGS = ['travis-ci', 'cpan', 'golang', 'jquery-plugin', 'ansible-plugin', 'ruby-gem'];
 const COVERALLS_TAGS = ['coveralls', 'cpan', 'jquery-plugin'];

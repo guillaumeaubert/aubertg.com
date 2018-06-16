@@ -1,0 +1,18 @@
+#commits-by-day {
+  font-size: 9pt;
+  font-family: Consolas, courier;
+  shape-rendering: crispEdges;
+}
+#commits-by-day .day {
+  fill: #fff;
+  stroke: #ccc;
+}
+#commits-by-day .month {
+  fill: none;
+  stroke: #000;
+  stroke-width: 2px;
+}
+#commits-by-day .RdYlGn .q0-11{ fill: #d6e685; }
+#commits-by-day .RdYlGn .q1-11{ fill: #8cc665; }
+#commits-by-day .RdYlGn .q2-11{ fill: #44a340; }
+#commits-by-day .RdYlGn .q3-11{ fill: #1e6823; }

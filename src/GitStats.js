@@ -5,7 +5,7 @@ import GitStatsCommitsByWeekdayHour from './GitStatsCommitsByWeekdayHour';
 import GitStatsCommitsByLanguage from './GitStatsCommitsByLanguage';
 import GitStatsLinesChangedByMonth from './GitStatsLinesChangedByMonth';
 import * as d3 from 'd3';
-import './css/gitstats.css';
+import './GitStats.css';
 import loader from './images/loading-bar.gif';
 
 class GitStats extends React.Component {
@@ -64,7 +64,7 @@ class GitStats extends React.Component {
       let startedAt = new Date(analysis_metadata.started_at * 1000);
 
       content = (
-        <div>
+        <div id="git-stats">
           <div id="metadata">
             (generated at {formatTime(startedAt)} by
             analyzing {analysis_metadata.repositories_analyzed} repositories

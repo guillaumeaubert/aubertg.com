@@ -1,0 +1,7 @@
+#canvas {
+  font-family: Courier New, monospace;
+  float: left;
+  max-width: 780px;
+  overflow-x: hidden;
+  padding-left: 20px;
+}

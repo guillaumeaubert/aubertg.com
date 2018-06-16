@@ -1,0 +1,18 @@
+#commits-by-weekday-hour rect.bordered {
+  stroke: #E6E6E6;
+  stroke-width:2px;
+}
+#commits-by-weekday-hour text.mono {
+  font-size: 9pt;
+  font-family: Consolas, courier;
+  fill: #aaa;
+}
+#commits-by-weekday-hour text.axis-workweek {
+  fill: #000;
+}
+#commits-by-weekday-hour text.axis-worktime {
+  fill: #000;
+}
+#commits-by-weekday-hour .legend text.mono {
+  fill: #000;
+}

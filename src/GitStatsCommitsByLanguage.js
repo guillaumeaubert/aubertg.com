@@ -1,5 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
+import './GitStatsCommitsByLanguage.css';
 
 const margin =
 {
@@ -152,10 +153,8 @@ class GitStatsCommitsByLanguage extends React.Component {
     return (
       <div>
         <h3>
-          <a id="CommitsByLanguage" className="anchor" href="#CommitsByLanguage">
-            Commits by Language / Type
-          </a>
-          <span className="count" id="total_languages">
+          Commits by Language / Type
+          <span className="count">
             ({this.language_counter} found)
           </span>
         </h3>
@@ -164,7 +163,7 @@ class GitStatsCommitsByLanguage extends React.Component {
           <li>Y-axis: lines deleted.</li>
           <li>Circle radius: logarithmic scale based on the number of commits in that language.</li>
         </ul>
-        <div id="commits_by_language">
+        <div id="commits-by-language">
           <svg
             width={this.props.width}
             height={this.props.height}

@@ -1,7 +1,6 @@
 import React from 'react';
 import VerticalTextGeneratorControls from './VerticalTextGeneratorControls';
 import VerticalTextGeneratorDisplay from './VerticalTextGeneratorDisplay';
-import './css/vertical_text_generator.css';
 
 class VerticalTextGenerator extends React.Component {
   constructor(props) {

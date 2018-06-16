@@ -1,0 +1,29 @@
+#commits-by-language,
+#commits-by-language .tick text {
+  font-size: 9pt;
+  font-family: Consolas, courier;
+  color: #686765;
+}
+#commits-by-language .name {
+  float:right;
+  color:#27aae1;
+}
+#commits-by-language .axis {
+  fill: none;
+  stroke: #373737;
+  shape-rendering: crispEdges;
+}
+#commits-by-language text {
+  stroke: none;
+  fill: #373737;
+}
+#commits-by-language .label {
+  fill: #373737;
+}
+#commits-by-language .dot {
+  opacity: .7;
+}
+#commits-by-language .dot:hover {
+  opacity: 1;
+}
+

@@ -1,5 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
+import './GitStatsCommitsByDay.css';
 
 // Add a timeWeekOfYear function for backward compatibility with d3 v3.
 function timeWeekOfYear(date) {
@@ -50,7 +51,7 @@ class GitStatsCommitsByDay extends React.Component {
     });
 
     // Set up graph.
-    let svg = d3.select('#commits_by_day')
+    let svg = d3.select(this.container)
       .selectAll('svg')
       .data(d3.range(d3.min(years), d3.max(years)+1))
       .enter()
@@ -100,12 +101,10 @@ class GitStatsCommitsByDay extends React.Component {
     let total_days = Object.keys(data).length;
 
     return (
-      <div id="commits_by_day">
+      <div id="commits-by-day" ref={(elem) => { this.container= elem; }}>
         <h3>
-          <a id="CommitsByDay" className="anchor" href="#CommitsByDay">
-            Commits by Day
-          </a>
-          <span className="count" id="total_days">
+          Commits by Day
+          <span className="count">
             ({total_days} active days)
           </span>
         </h3>

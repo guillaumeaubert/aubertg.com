@@ -1,5 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
+import './GitStatsCommitsByWeekdayHour.css';
 
 const margin = {
   top: 20,
@@ -131,12 +132,10 @@ class GitStatsCommitsByWeekdayHour extends React.Component {
 
   render() {
     return (
-      <div id="commits_by_weekday_hour">
+      <div id="commits-by-weekday-hour">
         <h3>
-          <a id="CommitsByWeekdayHour" className="anchor" href="#CommitsByWeekdayHour">
-            Commits by Weekday Hour
-          </a>
-          <span className="count" id="most_active_weekday_hour">
+          Commits by Weekday Hour
+          <span className="count">
             (most active: {days[this.most_active_weekday_hour.day]} {times[this.most_active_weekday_hour.hour]})
           </span>
         </h3>

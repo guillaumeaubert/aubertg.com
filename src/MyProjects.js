@@ -2,7 +2,7 @@ import React from 'react';
 import Project from './Project';
 import TimeAgo from 'react-timeago';
 import inArray from 'in-array';
-import './css/projects.css';
+import './MyProjects.css';
 import loader from './images/loading-bar.gif';
 
 const GITHUB_API = 'https://api.github.com/users/';

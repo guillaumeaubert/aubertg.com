@@ -1,4 +1,5 @@
 import React from 'react';
+import './VerticalTextGeneratorDisplay.css';
 
 function nest(text, i) {
   if (i === 0) {

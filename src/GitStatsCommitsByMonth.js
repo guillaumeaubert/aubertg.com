@@ -1,5 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
+import './GitStatsCommitsByMonth.css';
 
 const margin = {
   top: 10,
@@ -80,14 +81,12 @@ class GitStatsCommitsByMonth extends React.Component {
     return (
       <div>
         <h3>
-          <a id="CommitsByMonth" className="anchor" href="#CommitsByMonth">
-            Commits by Month
-          </a>
-          <span className="count" id="commits_total">
+          Commits by Month
+          <span className="count">
             ({d3.format(',d')(total_commits)} commits)
           </span>
         </h3>
-        <div id="commits_by_month">
+        <div id="commits-by-month">
           <svg
             width={this.props.width}
             height={this.props.height}

@@ -1,0 +1,25 @@
+#lines-changes-by-month .lines_added,
+#lines-changes-by-month .lines_added .tick text {
+  fill: #1e6823;
+}
+
+#lines-changes-by-month rect.lines_added:hover {
+  fill: #8cc665;
+}
+#lines-changes-by-month .lines_deleted,
+#lines-changes-by-month .lines_deleted .tick text {
+  fill: #bd380f;
+}
+#lines-changes-by-month rect.lines_deleted:hover {
+  fill: #f17f49;
+}
+#lines-changes-by-month .axis {
+  font-size: 9pt;
+  font-family: Consolas, courier;
+}
+#lines-changes-by-month .axis path,
+#lines-changes-by-month .axis line {
+  fill: none;
+  stroke: #373737;
+  shape-rendering: crispEdges;
+}

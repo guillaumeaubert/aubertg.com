@@ -1,0 +1,19 @@
+#commits-by-month .bar {
+  fill: #1e6823;
+}
+
+#commits-by-month .bar:hover {
+  fill: #8cc665;
+}
+
+#commits-by-month .axis {
+  font-size: 9pt;
+  font-family: Consolas, courier;
+}
+
+#commits-by-month .axis path,
+#commits-by-month .axis line {
+  fill: none;
+  stroke: #373737;
+  shape-rendering: crispEdges;
+}
