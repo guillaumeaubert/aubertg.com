@@ -1,9 +1,9 @@
 import React from 'react';
-import GitStatsCommitsByMonth from './GitStatsCommitsByMonth';
-import GitStatsCommitsByDay from './GitStatsCommitsByDay';
-import GitStatsCommitsByWeekdayHour from './GitStatsCommitsByWeekdayHour';
-import GitStatsCommitsByLanguage from './GitStatsCommitsByLanguage';
-import GitStatsLinesChangedByMonth from './GitStatsLinesChangedByMonth';
+import CommitsByMonth from './GitStats/CommitsByMonth';
+import CommitsByDay from './GitStats/CommitsByDay';
+import CommitsByWeekdayHour from './GitStats/CommitsByWeekdayHour';
+import CommitsByLanguage from './GitStats/CommitsByLanguage';
+import LinesChangedByMonth from './GitStats/LinesChangedByMonth';
 import * as d3 from 'd3';
 import './GitStats.css';
 import loader from './images/loading-bar.gif';
@@ -87,11 +87,11 @@ class GitStats extends React.Component {
             </ul>
           </div>
 
-          <GitStatsCommitsByMonth data={commits_by_month} width="960" height="300"/>
-          <GitStatsCommitsByDay data={commits_by_day} width="960" yearHeight="136" cellSize="17"/>
-          <GitStatsCommitsByWeekdayHour data={commit_by_weekday_hour} width="960" height="350"/>
-          <GitStatsCommitsByLanguage data={lines_by_language} width="960" height="500"/>
-          <GitStatsLinesChangedByMonth data={lines_by_month} width="960" height="400"/>
+          <CommitsByMonth data={commits_by_month} width="960" height="300"/>
+          <CommitsByDay data={commits_by_day} width="960" yearHeight="136" cellSize="17"/>
+          <CommitsByWeekdayHour data={commit_by_weekday_hour} width="960" height="350"/>
+          <CommitsByLanguage data={lines_by_language} width="960" height="500"/>
+          <LinesChangedByMonth data={lines_by_month} width="960" height="400"/>
         </div>
       );
     }

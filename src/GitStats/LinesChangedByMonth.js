@@ -1,6 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
-import './GitStatsLinesChangedByMonth.css';
+import './LinesChangedByMonth.css';
 
 const margin = {
   top: 10,
@@ -10,7 +10,7 @@ const margin = {
 };
 const center_space = 40;
 
-class GitStatsLinesChangedByMonth extends React.Component {
+class LinesChangedByMonth extends React.Component {
   componentDidMount() {
     this.drawChart();
   }
@@ -172,5 +172,5 @@ class GitStatsLinesChangedByMonth extends React.Component {
   }
 }
 
-export default GitStatsLinesChangedByMonth;
+export default LinesChangedByMonth;
 

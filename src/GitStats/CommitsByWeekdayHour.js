@@ -1,6 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
-import './GitStatsCommitsByWeekdayHour.css';
+import './CommitsByWeekdayHour.css';
 
 const margin = {
   top: 20,
@@ -16,7 +16,7 @@ const times = [
   '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', '9pm', '10pm', '11pm'
 ];
 
-class GitStatsCommitsByWeekdayHour extends React.Component {
+class CommitsByWeekdayHour extends React.Component {
   constructor(props) {
     super(props);
 
@@ -149,4 +149,4 @@ class GitStatsCommitsByWeekdayHour extends React.Component {
   }
 }
 
-export default GitStatsCommitsByWeekdayHour;
+export default CommitsByWeekdayHour;

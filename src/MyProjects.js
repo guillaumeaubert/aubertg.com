@@ -1,5 +1,5 @@
 import React from 'react';
-import Project from './Project';
+import Project from './MyProjects/Project';
 import TimeAgo from 'react-timeago';
 import inArray from 'in-array';
 import './MyProjects.css';

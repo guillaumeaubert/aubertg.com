@@ -1,7 +1,7 @@
 import React from 'react';
-import './VerticalTextGeneratorControls.css';
+import './Controls.css';
 
-class VerticalTextGeneratorControls extends React.Component {
+class Controls extends React.Component {
   constructor(props) {
     super(props);
     this.handleTextChange = this.handleTextChange.bind(this);
@@ -146,4 +146,4 @@ class VerticalTextGeneratorControls extends React.Component {
   }
 }
 
-export default VerticalTextGeneratorControls;
+export default Controls;

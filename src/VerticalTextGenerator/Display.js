@@ -1,5 +1,5 @@
 import React from 'react';
-import './VerticalTextGeneratorDisplay.css';
+import './Display.css';
 
 function nest(text, i) {
   if (i === 0) {
@@ -25,7 +25,7 @@ function nest(text, i) {
   return rows;
 }
 
-class VerticalTextGeneratorDisplay extends React.Component {
+class Display extends React.Component {
   render() {
     let {text, transformation} = this.props;
 
@@ -125,4 +125,4 @@ class VerticalTextGeneratorDisplay extends React.Component {
   }
 }
 
-export default VerticalTextGeneratorDisplay;
+export default Display;

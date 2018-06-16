@@ -1,6 +1,6 @@
 import React from 'react';
-import VerticalTextGeneratorControls from './VerticalTextGeneratorControls';
-import VerticalTextGeneratorDisplay from './VerticalTextGeneratorDisplay';
+import Controls from './VerticalTextGenerator/Controls';
+import Display from './VerticalTextGenerator/Display';
 
 class VerticalTextGenerator extends React.Component {
   constructor(props) {
@@ -35,13 +35,13 @@ class VerticalTextGenerator extends React.Component {
     return (
       <section>
         <h1>A vertical text generator...</h1>
-        <VerticalTextGeneratorControls
+        <Controls
           text={this.state.text}
           transformation={this.state.transformation}
           onTextChange={this.handleTextChange}
           onTransformationChange={this.handleTransformationChange}
         />
-        <VerticalTextGeneratorDisplay
+        <Display
           text={this.state.text}
           transformation={this.state.transformation}
         />

@@ -1,6 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
-import './GitStatsCommitsByLanguage.css';
+import './CommitsByLanguage.css';
 
 const margin =
 {
@@ -10,7 +10,7 @@ const margin =
   bottom: 35,
 };
 
-class GitStatsCommitsByLanguage extends React.Component {
+class CommitsByLanguage extends React.Component {
   constructor(props) {
     super(props);
 
@@ -177,4 +177,4 @@ class GitStatsCommitsByLanguage extends React.Component {
   }
 }
 
-export default GitStatsCommitsByLanguage;
+export default CommitsByLanguage;

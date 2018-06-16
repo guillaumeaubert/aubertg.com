@@ -1,13 +1,13 @@
 import React from 'react';
 import * as d3 from 'd3';
-import './GitStatsCommitsByDay.css';
+import './CommitsByDay.css';
 
 // Add a timeWeekOfYear function for backward compatibility with d3 v3.
 function timeWeekOfYear(date) {
   return +d3.timeFormat('%-U')(date);
 }
 
-class GitStatsCommitsByDay extends React.Component {
+class CommitsByDay extends React.Component {
   componentDidMount() {
     this.drawChart();
   }
@@ -113,4 +113,4 @@ class GitStatsCommitsByDay extends React.Component {
   }
 }
 
-export default GitStatsCommitsByDay;
+export default CommitsByDay;
