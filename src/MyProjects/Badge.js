@@ -33,7 +33,7 @@ class Badge extends React.Component<Props, State> {
   }
 
   render() {
-    let {link, image, text} = this.props;
+    let {link, image, text, defaultWidth} = this.props;
 
     let content = null;
     if (this.state.isImageLoaded) {
@@ -44,7 +44,7 @@ class Badge extends React.Component<Props, State> {
       );
     } else {
       content = (
-        <div className="loading" style={{width: this.props.defaultWidth}}>
+        <div className="loading" style={{width: defaultWidth}}>
           <img
             src={loader}
             alt='Loading...'
