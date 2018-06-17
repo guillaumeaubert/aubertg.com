@@ -14,11 +14,7 @@ exports[`The component renders correctly 1`] = `
       >
         <img
           alt="Github"
-          src={
-            Object {
-              "process": [Function],
-            }
-          }
+          src="font-awesome_4-6-3_github_32_0_ffffff_none.png"
         />
       </a>
     </li>
@@ -28,11 +24,7 @@ exports[`The component renders correctly 1`] = `
       >
         <img
           alt="LinkedIn"
-          src={
-            Object {
-              "process": [Function],
-            }
-          }
+          src="brandico_2014-04-07_linkedin-rect_32_0_ffffff_none.png"
         />
       </a>
     </li>
@@ -42,11 +34,7 @@ exports[`The component renders correctly 1`] = `
       >
         <img
           alt="Email"
-          src={
-            Object {
-              "process": [Function],
-            }
-          }
+          src="font-awesome_4-6-3_envelope-square_32_0_ffffff_none.png"
         />
       </a>
     </li>
