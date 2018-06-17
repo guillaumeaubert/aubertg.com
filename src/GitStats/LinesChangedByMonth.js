@@ -1,3 +1,5 @@
+// @flow strict
+
 import React from 'react';
 import * as d3 from 'd3';
 import './LinesChangedByMonth.css';
@@ -10,7 +12,15 @@ const margin = {
 };
 const center_space = 40;
 
-class LinesChangedByMonth extends React.Component {
+type Props = {
+  data: any,
+  width: number,
+  height: number,
+};
+
+class LinesChangedByMonth extends React.Component<Props> {
+  svg: ?Object;
+
   componentDidMount() {
     this.drawChart();
   }

@@ -1,11 +1,24 @@
+// @flow strict
+
 import React from 'react';
 import Badge from './Badge';
 import inArray from 'in-array';
 import intersect from 'array-intersection';
 import './Project.css';
 
-const TRAVIS_TAGS = ['travis-ci', 'cpan', 'golang', 'jquery-plugin', 'ansible-plugin', 'ruby-gem'];
-const COVERALLS_TAGS = ['coveralls', 'cpan', 'jquery-plugin'];
+const TRAVIS_TAGS = [
+  'travis-ci',
+  'cpan',
+  'golang',
+  'jquery-plugin',
+  'ansible-plugin',
+  'ruby-gem',
+];
+const COVERALLS_TAGS = [
+  'coveralls',
+  'cpan',
+  'jquery-plugin',
+];
 const ICON_TAGS = [
   'ansible-plugin',
   'bash',
@@ -23,7 +36,7 @@ const WEBSITE_NAMES = {
   'godoc.org': 'GoDoc',
 };
 
-function getProjectBadges(project, ghUser, dhUser) {
+function getProjectBadges(project: Object, ghUser: string, dhUser: string) {
   let badges = [];
 
   if (intersect(TRAVIS_TAGS, project.topics).length > 0) {
@@ -65,7 +78,7 @@ function getProjectBadges(project, ghUser, dhUser) {
         'link': 'https://goreportcard.com/projectrt/github.com/'+ghUser+'/'+project.name,
         'image': 'https://goreportcard.com/badge/github.com/'+ghUser+'/'+project.name,
         'text': 'Go Report Card',
-        'defaultWidth': 80,
+        'defaultWidth': 88,
       }
     );
   }
@@ -75,7 +88,8 @@ function getProjectBadges(project, ghUser, dhUser) {
       {
         'link': 'https://inch-ci.org/github/'+ghUser+'/'+project.name,
         'image': 'https://inch-ci.org/github/'+ghUser+'/'+project.name+'.svg?branch=master&style=shields',
-        'text': 'Inline Docs'
+        'text': 'Inline Docs',
+        'defaultWidth': 80,
       }
     );
   }
@@ -83,14 +97,14 @@ function getProjectBadges(project, ghUser, dhUser) {
   return badges;
 }
 
-function getIconClass(project) {
+function getIconClass(project: Object) {
   let relevant_topics = intersect(ICON_TAGS, project.topics);
-  if (relevant_topics.length > 0) {
-    return relevant_topics[0] + '-icon';
-  }
+  return relevant_topics.length > 0
+    ? relevant_topics[0] + '-icon'
+    : '';
 }
 
-function getProjectWebsite(url) {
+function getProjectWebsite(url: string) {
   if (!url) return null;
 
   let matches = url.match(/^https?:\/\/([^/?#]+)/i);
@@ -102,7 +116,13 @@ function getProjectWebsite(url) {
   );
 }
 
-class Project extends React.Component {
+type Props = {
+  data: Object,
+  githubUser: string,
+  dockerhubUser: string,
+};
+
+class Project extends React.Component<Props> {
   render() {
     let project = this.props.data;
     let website = getProjectWebsite(project.homepage);
@@ -128,7 +148,7 @@ class Project extends React.Component {
           {website}
         </td>
         {/* Status */}
-        <td className="status" title={`Last commit: ${new Date(project.pushed_at)}`}>
+        <td className="status" title={`Last commit: ${(new Date(project.pushed_at)).toString()}`}>
           {project.projectStatus}
         </td>
         {/* Badges */}

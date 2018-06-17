@@ -1,3 +1,5 @@
+// @flow strict
+
 import React from 'react';
 import Project from './MyProjects/Project';
 import TimeAgo from 'react-timeago';
@@ -39,8 +41,18 @@ function getProjectStatus(project) {
   }
 }
 
-class MyProjects extends React.Component {
-  constructor(props) {
+type Props = {
+  githubUser: string,
+  dockerhubUser: string,
+};
+
+type State = {
+  projects: ?Array<Object>,
+  loading: boolean,
+};
+
+class MyProjects extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       projects: null,
@@ -65,7 +77,7 @@ class MyProjects extends React.Component {
       }
     ).then((response) => response.json()
     ).then((projects) => {
-      projects = projects
+      let sortedProjects = projects
         .filter((project) => {
           if (project === null) return false;
           if (project.fork) return false;
@@ -88,7 +100,7 @@ class MyProjects extends React.Component {
         });
 
       this.setState({
-        projects: projects,
+        projects: sortedProjects,
         loading: false,
       });
     });
@@ -105,7 +117,7 @@ class MyProjects extends React.Component {
         />
       );
     } else {
-      let projects = this.state.projects
+      let projects = (this.state.projects || [])
         .map((project) =>
           <Project
             key={`project_${project.id}`}

@@ -1,3 +1,5 @@
+// @flow strict
+
 import React from 'react';
 import {
   Route,
@@ -10,7 +12,9 @@ import ContactInfo from './ContactInfo';
 import VerticalTextGenerator from './VerticalTextGenerator';
 import './Main.css';
 
-class Main extends React.Component {
+type Props = {};
+
+class Main extends React.Component<Props> {
   render() {
     return (
       <HashRouter>

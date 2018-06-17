@@ -1,3 +1,5 @@
+// @flow strict
+
 import React from 'react';
 import './Display.css';
 
@@ -25,7 +27,12 @@ function nest(text, i) {
   return rows;
 }
 
-class Display extends React.Component {
+type Props = {
+  text: string,
+  transformation: string,
+};
+
+class Display extends React.Component<Props> {
   render() {
     let {text, transformation} = this.props;
 
@@ -91,7 +98,8 @@ class Display extends React.Component {
             let padding = ' '.repeat(chars.length - 2);
             output = text + '\n';
             for (let i = 1; i < chars.length - 1; i++) {
-              output += chars[i] + padding + chars.slice(-1 * i - 1, -1 * i) + '\n';
+              output += chars[i] + padding
+              output += chars.slice(-1 * i - 1, -1 * i).join('') + '\n';
             }
             output += chars.reverse().join('');
           }

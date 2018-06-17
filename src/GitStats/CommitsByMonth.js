@@ -1,3 +1,5 @@
+// @flow strict
+
 import React from 'react';
 import * as d3 from 'd3';
 import './CommitsByMonth.css';
@@ -9,7 +11,16 @@ const margin = {
   left: 40,
 };
 
-class CommitsByMonth extends React.Component {
+type Props = {
+  data: any,
+  width: number,
+  height: number,
+};
+
+class CommitsByMonth extends React.Component<Props> {
+  svg: any;
+  data: ?any;
+
   componentDidMount() {
     this.drawChart();
   }

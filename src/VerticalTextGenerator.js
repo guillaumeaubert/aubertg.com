@@ -1,9 +1,21 @@
+// @flow strict
+
 import React from 'react';
 import Controls from './VerticalTextGenerator/Controls';
 import Display from './VerticalTextGenerator/Display';
 
-class VerticalTextGenerator extends React.Component {
-  constructor(props) {
+type Props = {
+  text: string,
+  transformation: string,
+};
+
+type State = {
+  text: string,
+  transformation: string,
+};
+
+class VerticalTextGenerator extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
 
     this.state = {
@@ -11,21 +23,21 @@ class VerticalTextGenerator extends React.Component {
       transformation: this.props.transformation,
     };
 
-    this.handleTextChange = this.handleTextChange.bind(this);
-    this.handleTransformationChange = this.handleTransformationChange.bind(this);
+    (this: any).handleTextChange = this.handleTextChange.bind(this);
+    (this: any).handleTransformationChange = this.handleTransformationChange.bind(this);
   }
 
   componentDidMount() {
     document.title = 'Vertical Text Generator';
   }
 
-  handleTextChange(text) {
+  handleTextChange(text: string) {
     this.setState({
       text: text,
     });
   }
 
-  handleTransformationChange(transformation) {
+  handleTransformationChange(transformation: string) {
     this.setState({
       transformation: transformation,
     });

@@ -1,18 +1,30 @@
+// @flow strict
+
 import React from 'react';
 import './Controls.css';
 
-class Controls extends React.Component {
-  constructor(props) {
+type Props = {
+  text: string,
+  transformation: string,
+  onTextChange: any,
+  onTransformationChange: any,
+};
+
+class Controls extends React.Component<Props> {
+  handleTextChange: any;
+  handleTransformationChange: any;
+
+  constructor(props: Props) {
     super(props);
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleTransformationChange = this.handleTransformationChange.bind(this);
   }
 
-  handleTextChange(e) {
+  handleTextChange(e: SyntheticInputEvent<EventTarget>) {
     this.props.onTextChange(e.target.value);
   }
 
-  handleTransformationChange(e) {
+  handleTransformationChange(e: SyntheticInputEvent<EventTarget>) {
     this.props.onTransformationChange(e.target.value);
   }
 

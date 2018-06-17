@@ -1,3 +1,5 @@
+// @flow strict
+
 import React from 'react';
 import * as d3 from 'd3';
 import './CommitsByDay.css';
@@ -7,7 +9,16 @@ function timeWeekOfYear(date) {
   return +d3.timeFormat('%-U')(date);
 }
 
-class CommitsByDay extends React.Component {
+type Props = {
+  data: any,
+  width: number,
+  yearHeight: number,
+  cellSize: number,
+};
+
+class CommitsByDay extends React.Component<Props> {
+  container: ?HTMLDivElement;
+
   componentDidMount() {
     this.drawChart();
   }
@@ -101,7 +112,7 @@ class CommitsByDay extends React.Component {
     let total_days = Object.keys(data).length;
 
     return (
-      <div id="commits-by-day" ref={(elem) => { this.container= elem; }}>
+      <div id="commits-by-day" ref={(elem) => { this.container = elem; }}>
         <h3>
           Commits by Day
           <span className="count">

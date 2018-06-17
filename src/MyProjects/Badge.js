@@ -1,3 +1,5 @@
+// @flow strict
+
 import React from 'react';
 import './Badge.css';
 import loader from '../images/loading-spin.gif';

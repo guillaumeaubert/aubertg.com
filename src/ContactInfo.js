@@ -1,10 +1,14 @@
+// @flow strict
+
 import React from 'react';
 import githubIcon from './images/font-awesome_4-6-3_github_32_0_ffffff_none.png';
 import linkedinIcon from './images/brandico_2014-04-07_linkedin-rect_32_0_ffffff_none.png';
 import envelopeIcon from './images/font-awesome_4-6-3_envelope-square_32_0_ffffff_none.png';
 import './ContactInfo.css';
 
-class ContactInfo extends React.Component {
+type Props = {};
+
+class ContactInfo extends React.Component<Props> {
   render() {
     return (
       <div id="contact-info">

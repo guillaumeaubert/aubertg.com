@@ -1,3 +1,5 @@
+// @flow strict
+
 import React from 'react';
 import * as d3 from 'd3';
 import './CommitsByWeekdayHour.css';
@@ -9,20 +11,72 @@ const margin = {
   left: 40,
 };
 const buckets = 9;
-const colors = ['#d6e685', '#b7d174', '#98bc64', '#7aa754', '#5b9243', '#3c7d33', '#1e6823'];
-const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+const colors = [
+  '#d6e685',
+  '#b7d174',
+  '#98bc64',
+  '#7aa754',
+  '#5b9243',
+  '#3c7d33',
+  '#1e6823',
+];
+const days = [
+  'Mon',
+  'Tue',
+  'Wed',
+  'Thu',
+  'Fri',
+  'Sat',
+  'Sun',
+];
 const times = [
-  '12am', '1am', '2am', '3am', '4am', '5am', '6am', '7am', '8am', '9am', '10am', '11am',
-  '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', '9pm', '10pm', '11pm'
+  '12am',
+  '1am',
+  '2am',
+  '3am',
+  '4am',
+  '5am',
+  '6am',
+  '7am',
+  '8am',
+  '9am',
+  '10am',
+  '11am',
+  '12pm',
+  '1pm',
+  '2pm',
+  '3pm',
+  '4pm',
+  '5pm',
+  '6pm',
+  '7pm',
+  '8pm',
+  '9pm',
+  '10pm',
+  '11pm',
 ];
 
-class CommitsByWeekdayHour extends React.Component {
-  constructor(props) {
+type Props = {
+  data: any,
+  width: number,
+  height: number,
+};
+
+class CommitsByWeekdayHour extends React.Component<Props> {
+  svg: any;
+  formattedData: Array<Object>;
+  mostActiveWeekdayHour: Object;
+
+  constructor(props: Props) {
     super(props);
 
     let data = this.props.data;
     let formatted_data = [];
-    let most_active_weekday_hour;
+    this.mostActiveWeekdayHour = {
+      'day': '?',
+      'hour': '?',
+      'value': 0,
+    }
     for (let day = 0; day < 7; day++) {
       for (let hour = 0; hour < 24; hour++) {
         let value = +data[days[day]][hour];
@@ -32,14 +86,13 @@ class CommitsByWeekdayHour extends React.Component {
             'hour': hour,
             'value': value,
           };
-        if (!most_active_weekday_hour || value > most_active_weekday_hour.value) {
-          most_active_weekday_hour = node;
+        if (value > this.mostActiveWeekdayHour.value) {
+          this.mostActiveWeekdayHour = node;
         }
         formatted_data.push(node);
       }
     }
-    this.formatted_data = formatted_data;
-    this.most_active_weekday_hour = most_active_weekday_hour;
+    this.formattedData = formatted_data;
   }
 
   componentDidMount() {
@@ -53,7 +106,7 @@ class CommitsByWeekdayHour extends React.Component {
   drawChart() {
     let width = this.props.width - margin.left - margin.right;
     let height = this.props.height - margin.top - margin.bottom;
-    let formatted_data = this.formatted_data;
+    let formatted_data = this.formattedData;
     let grid_size = Math.floor(width / 24);
     let legend_element_width = grid_size * 2;
 
@@ -136,7 +189,7 @@ class CommitsByWeekdayHour extends React.Component {
         <h3>
           Commits by Weekday Hour
           <span className="count">
-            (most active: {days[this.most_active_weekday_hour.day]} {times[this.most_active_weekday_hour.hour]})
+            (most active: {days[this.mostActiveWeekdayHour.day]} {times[this.mostActiveWeekdayHour.hour]})
           </span>
         </h3>
         <svg

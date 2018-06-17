@@ -1,3 +1,5 @@
+// @flow strict
+
 import React from 'react';
 import CommitsByMonth from './GitStats/CommitsByMonth';
 import CommitsByDay from './GitStats/CommitsByDay';
@@ -8,8 +10,28 @@ import * as d3 from 'd3';
 import './GitStats.css';
 import loader from './images/loading-bar.gif';
 
-class GitStats extends React.Component {
-  constructor(props) {
+type Props = {};
+
+type JSONStats = {
+  analysis_metadata: {
+    ms_spent: number,
+    repositories_analyzed: number,
+    started_at: number,
+  },
+  commits_by_month: Array<Object>,
+  commits_by_day: any,
+  commit_by_weekday_hour: any,
+  lines_by_language: any,
+  lines_by_month: any,
+};
+
+type State = {
+  data: ?JSONStats,
+  loading: boolean,
+};
+
+class GitStats extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       data: null,
@@ -59,7 +81,7 @@ class GitStats extends React.Component {
         commit_by_weekday_hour,
         lines_by_language,
         lines_by_month,
-      } = this.state.data;
+      } = this.state.data || {};
       let formatTime = d3.timeFormat('%x %X');
       let startedAt = new Date(analysis_metadata.started_at * 1000);
 
@@ -87,11 +109,11 @@ class GitStats extends React.Component {
             </ul>
           </div>
 
-          <CommitsByMonth data={commits_by_month} width="960" height="300"/>
-          <CommitsByDay data={commits_by_day} width="960" yearHeight="136" cellSize="17"/>
-          <CommitsByWeekdayHour data={commit_by_weekday_hour} width="960" height="350"/>
-          <CommitsByLanguage data={lines_by_language} width="960" height="500"/>
-          <LinesChangedByMonth data={lines_by_month} width="960" height="400"/>
+          <CommitsByMonth data={commits_by_month} width={960} height={300}/>
+          <CommitsByDay data={commits_by_day} width={960} yearHeight={136} cellSize={17}/>
+          <CommitsByWeekdayHour data={commit_by_weekday_hour} width={960} height={350}/>
+          <CommitsByLanguage data={lines_by_language} width={960} height={500}/>
+          <LinesChangedByMonth data={lines_by_month} width={960} height={400}/>
         </div>
       );
     }

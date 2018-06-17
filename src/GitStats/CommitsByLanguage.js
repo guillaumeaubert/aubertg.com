@@ -1,3 +1,5 @@
+// @flow strict
+
 import React from 'react';
 import * as d3 from 'd3';
 import './CommitsByLanguage.css';
@@ -10,32 +12,41 @@ const margin =
   bottom: 35,
 };
 
-class CommitsByLanguage extends React.Component {
-  constructor(props) {
+type Props = {
+  data: any,
+  width: number,
+  height: number,
+};
+
+class CommitsByLanguage extends React.Component<Props> {
+  svg: any;
+  data: ?any;
+  languageCounter: number;
+
+  constructor(props: Props) {
     super(props);
 
-    let language_counter = 0;
     this.data = d3
       .entries(this.props.data)
-      .map(
+      .filter(
         function(d) {
+          return !d.key.match(/^Text$/);
+        }
+      )
+      .map(
+        function(d, i) {
           d.lines_added = d.value.added;
           d.lines_deleted = d.value.deleted;
           d.commits = d.value.commits;
           d.language = d.key;
-          d.counter = language_counter++;
+          d.counter = i;
           delete d.value;
           delete d.key;
           return d;
         }
-      )
-      .filter(
-        function(d) {
-          return !d.language.match(/^Text$/);
-        }
       );
 
-    this.language_counter = this.data.length;
+    this.languageCounter = this.data.length;
   }
 
   componentDidMount() {
@@ -155,7 +166,7 @@ class CommitsByLanguage extends React.Component {
         <h3>
           Commits by Language / Type
           <span className="count">
-            ({this.language_counter} found)
+            ({this.languageCounter} found)
           </span>
         </h3>
         <ul>
@@ -172,8 +183,6 @@ class CommitsByLanguage extends React.Component {
         </div>
       </div>
     );
-
-
   }
 }
 
