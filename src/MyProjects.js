@@ -98,19 +98,14 @@ class MyProjects extends React.Component {
     let content = '';
     if (this.state.loading) {
       content = (
-        <tr>
-          <td colSpan="4" className="loading">
-            <img
-              src={loader}
-              alt='Loading...'
-              style={{display: 'block', margin: '10px auto'}}
-            />
-          </td>
-        </tr>
+        <img
+          src={loader}
+          alt='Loading...'
+          style={{display: 'block', margin: '10px auto'}}
+        />
       );
     } else {
-      // Display projects in the table.
-      content = this.state.projects
+      let projects = this.state.projects
         .map((project) =>
           <Project
             key={`project_${project.id}`}
@@ -119,11 +114,7 @@ class MyProjects extends React.Component {
             dockerhubUser={this.props.dockerhubUser}
           />
         );
-    }
-
-    return (
-      <section>
-        <h1>A visual dashboard for my open source projects</h1>
+      content = (
         <table className="list" id="github-projects">
           <thead>
             <tr>
@@ -134,9 +125,16 @@ class MyProjects extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {content}
+            {projects}
           </tbody>
         </table>
+      );
+    }
+
+    return (
+      <section>
+        <h1>A visual dashboard for my open source projects</h1>
+        {content}
       </section>
     );
   }
