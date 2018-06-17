@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The component renders correctly 1`] = `
+<div
+  id="canvas"
+>
+  <div>
+    DEVASTATING
+  </div>
+  <div>
+    E         N
+  </div>
+  <div>
+    V         I
+  </div>
+  <div>
+    A         T
+  </div>
+  <div>
+    S         A
+  </div>
+  <div>
+    T         T
+  </div>
+  <div>
+    A         S
+  </div>
+  <div>
+    T         A
+  </div>
+  <div>
+    I         V
+  </div>
+  <div>
+    N         E
+  </div>
+  <div>
+    GNITATSAVED
+  </div>
+</div>
+`;
