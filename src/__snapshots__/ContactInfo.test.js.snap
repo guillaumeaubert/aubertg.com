@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The component renders correctly 1`] = `
+<div
+  id="contact-info"
+>
+  <ul>
+    <li>
+      Find me on:
+    </li>
+    <li>
+      <a
+        href="https://github.com/guillaumeaubert/"
+      >
+        <img
+          alt="Github"
+          src={
+            Object {
+              "process": [Function],
+            }
+          }
+        />
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://www.linkedin.com/in/aubertguillaume"
+      >
+        <img
+          alt="LinkedIn"
+          src={
+            Object {
+              "process": [Function],
+            }
+          }
+        />
+      </a>
+    </li>
+    <li>
+      <a
+        href="mailto:me@aubertg.com"
+      >
+        <img
+          alt="Email"
+          src={
+            Object {
+              "process": [Function],
+            }
+          }
+        />
+      </a>
+    </li>
+  </ul>
+</div>
+`;
