@@ -2,8 +2,21 @@ import React from 'react';
 import './Badge.css';
 import loader from '../images/loading-spin.gif';
 
-class Badge extends React.Component {
-  constructor(props) {
+type Props = {
+  link: string,
+  image: string,
+  text: string,
+  defaultWidth: number,
+};
+
+type State = {
+  isImageLoaded: boolean,
+};
+
+class Badge extends React.Component<Props, State> {
+  container: ?HTMLDivElement;
+
+  constructor(props: Props) {
     super(props);
 
     this.state = {
