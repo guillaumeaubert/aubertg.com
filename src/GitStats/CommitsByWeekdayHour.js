@@ -76,7 +76,7 @@ class CommitsByWeekdayHour extends React.Component<Props> {
       'day': '?',
       'hour': '?',
       'value': 0,
-    }
+    };
     for (let day = 0; day < 7; day++) {
       for (let hour = 0; hour < 24; hour++) {
         let value = +data[days[day]][hour];

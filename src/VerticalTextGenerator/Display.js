@@ -98,7 +98,7 @@ class Display extends React.Component<Props> {
             let padding = ' '.repeat(chars.length - 2);
             output = text + '\n';
             for (let i = 1; i < chars.length - 1; i++) {
-              output += chars[i] + padding
+              output += chars[i] + padding;
               output += chars.slice(-1 * i - 1, -1 * i).join('') + '\n';
             }
             output += chars.reverse().join('');
