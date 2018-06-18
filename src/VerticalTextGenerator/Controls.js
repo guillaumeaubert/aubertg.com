@@ -3,7 +3,7 @@
 import React from 'react';
 import './Controls.css';
 
-const transformations: Map<string, string> = new Map()
+export const TRANSFORMATIONS: Map<string, string> = new Map()
   .set('vertical', 'Vertical')
   .set('vtop', 'V, top')
   .set('vbottom', 'V, bottom')
@@ -57,7 +57,7 @@ class Controls extends React.Component<Props> {
           <h4>Transformations:</h4>
           <ul>
             {
-              [...transformations].map((t) => {
+              [...TRANSFORMATIONS].map((t) => {
                 let key = t[0];
                 let value = t[1];
                 return (

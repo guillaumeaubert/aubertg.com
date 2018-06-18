@@ -1,6 +1,273 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The component renders correctly 1`] = `
+exports[`The component renders "Nested Vs" correctly 1`] = `
+<div
+  id="canvas"
+>
+  <div>
+    DEVASTATING
+  </div>
+  <div>
+    E
+  </div>
+  <div>
+    V  DEVASTATING
+  </div>
+  <div>
+    A  E
+  </div>
+  <div>
+    S  V  DEVASTATING
+  </div>
+  <div>
+    T  A  E
+  </div>
+  <div>
+    A  S  V  DEVASTATING
+  </div>
+  <div>
+    T  T  A  E
+  </div>
+  <div>
+    I  A  S  V  DEVASTATING
+  </div>
+  <div>
+    N  T  T  A  E
+  </div>
+  <div>
+    G  I  A  S  V
+  </div>
+  <div>
+       N  T  T  A
+  </div>
+  <div>
+       G  I  A  S
+  </div>
+  <div>
+          N  T  T
+  </div>
+  <div>
+          G  I  A
+  </div>
+  <div>
+             N  T
+  </div>
+  <div>
+             G  I
+  </div>
+  <div>
+                N
+  </div>
+  <div>
+                G
+  </div>
+</div>
+`;
+
+exports[`The component renders "Plus" correctly 1`] = `
+<div
+  id="canvas"
+>
+  <div>
+         D
+  </div>
+  <div>
+         E
+  </div>
+  <div>
+         V
+  </div>
+  <div>
+         A
+  </div>
+  <div>
+         S
+  </div>
+  <div>
+    DEVASTATING
+  </div>
+  <div>
+         A
+  </div>
+  <div>
+         T
+  </div>
+  <div>
+         I
+  </div>
+  <div>
+         N
+  </div>
+  <div>
+         G
+  </div>
+</div>
+`;
+
+exports[`The component renders "Slinky" correctly 1`] = `
+<div
+  id="canvas"
+>
+  <div>
+    D
+  </div>
+  <div>
+    E
+  </div>
+  <div>
+    V
+  </div>
+  <div>
+    A
+  </div>
+  <div>
+    S
+  </div>
+  <div>
+    T
+  </div>
+  <div>
+    A
+  </div>
+  <div>
+    T
+  </div>
+  <div>
+    I
+  </div>
+  <div>
+    N
+  </div>
+  <div>
+    GNITATSAVED
+  </div>
+  <div>
+              E
+  </div>
+  <div>
+              V
+  </div>
+  <div>
+              A
+  </div>
+  <div>
+              S
+  </div>
+  <div>
+              T
+  </div>
+  <div>
+              A
+  </div>
+  <div>
+              T
+  </div>
+  <div>
+              I
+  </div>
+  <div>
+              N
+  </div>
+  <div>
+              GNITATSAVED
+  </div>
+  <div>
+                        E
+  </div>
+  <div>
+                        V
+  </div>
+  <div>
+                        A
+  </div>
+  <div>
+                        S
+  </div>
+  <div>
+                        T
+  </div>
+  <div>
+                        A
+  </div>
+  <div>
+                        T
+  </div>
+  <div>
+                        I
+  </div>
+  <div>
+                        N
+  </div>
+  <div>
+                        GNITATSAVED
+  </div>
+  <div>
+                                  E
+  </div>
+  <div>
+                                  V
+  </div>
+  <div>
+                                  A
+  </div>
+  <div>
+                                  S
+  </div>
+  <div>
+                                  T
+  </div>
+  <div>
+                                  A
+  </div>
+  <div>
+                                  T
+  </div>
+  <div>
+                                  I
+  </div>
+  <div>
+                                  N
+  </div>
+  <div>
+                                  GNITATSAVED
+  </div>
+  <div>
+                                            E
+  </div>
+  <div>
+                                            V
+  </div>
+  <div>
+                                            A
+  </div>
+  <div>
+                                            S
+  </div>
+  <div>
+                                            T
+  </div>
+  <div>
+                                            A
+  </div>
+  <div>
+                                            T
+  </div>
+  <div>
+                                            I
+  </div>
+  <div>
+                                            N
+  </div>
+  <div>
+                                            GNITATSAVED
+  </div>
+  <div>
+     
+  </div>
+</div>
+`;
+
+exports[`The component renders "Square" correctly 1`] = `
 <div
   id="canvas"
 >
@@ -36,6 +303,209 @@ exports[`The component renders correctly 1`] = `
   </div>
   <div>
     GNITATSAVED
+  </div>
+</div>
+`;
+
+exports[`The component renders "Stairs" correctly 1`] = `
+<div
+  id="canvas"
+>
+  <div>
+    DEVASTATING
+  </div>
+  <div>
+     
+  </div>
+  <div>
+       DEVASTATING
+  </div>
+  <div>
+     
+  </div>
+  <div>
+          DEVASTATING
+  </div>
+  <div>
+     
+  </div>
+  <div>
+             DEVASTATING
+  </div>
+  <div>
+     
+  </div>
+  <div>
+                DEVASTATING
+  </div>
+  <div>
+     
+  </div>
+  <div>
+     
+  </div>
+</div>
+`;
+
+exports[`The component renders "Tree" correctly 1`] = `
+<div
+  id="canvas"
+>
+  <div>
+    G G G G G G G G G G G
+  </div>
+  <div>
+     N N N N N N N N N N
+  </div>
+  <div>
+      I I I I I I I I I
+  </div>
+  <div>
+       T T T T T T T T
+  </div>
+  <div>
+        A A A A A A A
+  </div>
+  <div>
+         T T T T T T
+  </div>
+  <div>
+          S S S S S
+  </div>
+  <div>
+           A A A A
+  </div>
+  <div>
+            V V V
+  </div>
+  <div>
+             E E
+  </div>
+  <div>
+              D
+  </div>
+  <div>
+     
+  </div>
+</div>
+`;
+
+exports[`The component renders "V, bottom" correctly 1`] = `
+<div
+  id="canvas"
+>
+  <div>
+              D
+  </div>
+  <div>
+              E
+  </div>
+  <div>
+              V
+  </div>
+  <div>
+              A
+  </div>
+  <div>
+              S
+  </div>
+  <div>
+              T
+  </div>
+  <div>
+              A
+  </div>
+  <div>
+              T
+  </div>
+  <div>
+              I
+  </div>
+  <div>
+              N
+  </div>
+  <div>
+    DEVASTATING
+  </div>
+</div>
+`;
+
+exports[`The component renders "V, top" correctly 1`] = `
+<div
+  id="canvas"
+>
+  <div>
+    DEVASTATING
+  </div>
+  <div>
+    E
+  </div>
+  <div>
+    V
+  </div>
+  <div>
+    A
+  </div>
+  <div>
+    S
+  </div>
+  <div>
+    T
+  </div>
+  <div>
+    A
+  </div>
+  <div>
+    T
+  </div>
+  <div>
+    I
+  </div>
+  <div>
+    N
+  </div>
+  <div>
+    G
+  </div>
+</div>
+`;
+
+exports[`The component renders "Vertical" correctly 1`] = `
+<div
+  id="canvas"
+>
+  <div>
+    D
+  </div>
+  <div>
+    E
+  </div>
+  <div>
+    V
+  </div>
+  <div>
+    A
+  </div>
+  <div>
+    S
+  </div>
+  <div>
+    T
+  </div>
+  <div>
+    A
+  </div>
+  <div>
+    T
+  </div>
+  <div>
+    I
+  </div>
+  <div>
+    N
+  </div>
+  <div>
+    G
   </div>
 </div>
 `;
