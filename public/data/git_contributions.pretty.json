@@ -1,5 +1,5 @@
 {
-  "commits_total": 4334,
+  "commits_total": 4335,
   "commits_by_month": [
     {
       "month": "Dec-2011",
@@ -316,10 +316,30 @@
     {
       "month": "Jun-2018",
       "commits": 47
+    },
+    {
+      "month": "Jul-2018",
+      "commits": 0
+    },
+    {
+      "month": "Aug-2018",
+      "commits": 0
+    },
+    {
+      "month": "Sep-2018",
+      "commits": 0
+    },
+    {
+      "month": "Oct-2018",
+      "commits": 0
+    },
+    {
+      "month": "Nov-2018",
+      "commits": 1
     }
   ],
   "commits_by_hour": {
-    "0": 189,
+    "0": 190,
     "1": 45,
     "2": 48,
     "3": 6,
@@ -830,6 +850,7 @@
     "2018-04-01": 1,
     "2016-10-04": 6,
     "2016-03-27": 1,
+    "2018-11-14": 1,
     "2013-01-12": 5
   },
   "commit_by_weekday_hour": {
@@ -886,7 +907,7 @@
       "23": 34
     },
     "Wed": {
-      "0": 27,
+      "0": 28,
       "1": 6,
       "2": 0,
       "3": 0,
@@ -1038,9 +1059,9 @@
       "commits": 2344
     },
     "Markdown": {
-      "added": 4294,
-      "deleted": 939,
-      "commits": 489
+      "added": 4295,
+      "deleted": 940,
+      "commits": 490
     },
     "INI": {
       "added": 1422,
@@ -1493,11 +1514,36 @@
       "month": "Jun-2018",
       "added": 49,
       "deleted": 1
+    },
+    {
+      "month": "Jul-2018",
+      "added": 0,
+      "deleted": 0
+    },
+    {
+      "month": "Aug-2018",
+      "added": 0,
+      "deleted": 0
+    },
+    {
+      "month": "Sep-2018",
+      "added": 0,
+      "deleted": 0
+    },
+    {
+      "month": "Oct-2018",
+      "added": 0,
+      "deleted": 0
+    },
+    {
+      "month": "Nov-2018",
+      "added": 1,
+      "deleted": 1
     }
   ],
   "analysis_metadata": {
-    "started_at": 1539079511,
-    "repositories_analyzed": 69,
-    "ms_spent": 99374
+    "started_at": 1542971108,
+    "repositories_analyzed": 70,
+    "ms_spent": 84044
   }
 }
