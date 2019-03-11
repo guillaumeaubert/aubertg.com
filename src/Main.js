@@ -45,7 +45,7 @@ class Main extends React.Component<Props> {
               <div className="content">
                 <Route
                   exact path="/"
-                  render={(props) => <MyProjects {...props} githubUser='guillaumeaubert' dockerhubUser='aubertg'/>}
+                  render={() => <MyProjects githubUser='guillaumeaubert' dockerhubUser='aubertg'/>}
                 />
                 <Route
                   path="/git-contributions-statistics"
@@ -53,7 +53,7 @@ class Main extends React.Component<Props> {
                 />
                 <Route
                   path="/vertical-text-generator"
-                  render={(props) => <VerticalTextGenerator {...props} text="DEVASTATING" transformation="square"/>}
+                  render={() => <VerticalTextGenerator text="DEVASTATING" transformation="square"/>}
                 />
               </div>
             </section>
