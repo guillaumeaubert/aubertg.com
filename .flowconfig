@@ -1,6 +1,7 @@
 [ignore]
-.*/node_modules/.*
-.*/build/.*
+<PROJECT_ROOT>/node_modules/.*
+<PROJECT_ROOT>/build/.*
+<PROJECT_ROOT>/__mocks__/fileMock.js
 
 [include]
 
