@@ -9,10 +9,10 @@ type Props = {|
   +transformation: string,
 |};
 
-type State = {
+type State = {|
   text: string,
   transformation: string,
-};
+|};
 
 class VerticalTextGenerator extends React.Component<Props, State> {
   constructor(props: Props) {

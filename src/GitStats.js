@@ -25,10 +25,10 @@ type JSONStats = {
   lines_by_month: any,
 };
 
-type State = {
+type State = {|
   data: ?JSONStats,
   loading: boolean,
-};
+|};
 
 class GitStats extends React.Component<Props, State> {
   constructor(props: Props) {

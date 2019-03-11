@@ -11,9 +11,9 @@ type Props = {|
   +defaultWidth: number,
 |};
 
-type State = {
+type State = {|
   isImageLoaded: boolean,
-};
+|};
 
 class Badge extends React.Component<Props, State> {
   container: ?HTMLDivElement;

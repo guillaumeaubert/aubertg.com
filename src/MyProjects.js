@@ -46,10 +46,10 @@ type Props = {|
   +dockerhubUser: string,
 |};
 
-type State = {
+type State = {|
   projects: ?Array<Object>,
   loading: boolean,
-};
+|};
 
 class MyProjects extends React.Component<Props, State> {
   constructor(props: Props) {
