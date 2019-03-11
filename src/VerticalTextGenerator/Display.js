@@ -27,10 +27,10 @@ function nest(text, i) {
   return rows;
 }
 
-type Props = {
-  text: string,
-  transformation: string,
-};
+type Props = {|
+  +text: string,
+  +transformation: string,
+|};
 
 class Display extends React.Component<Props> {
   render() {

@@ -116,11 +116,11 @@ function getProjectWebsite(url: string) {
   );
 }
 
-type Props = {
-  data: Object,
-  githubUser: string,
-  dockerhubUser: string,
-};
+type Props = {|
+  +data: Object,
+  +githubUser: string,
+  +dockerhubUser: string,
+|};
 
 class Project extends React.Component<Props> {
   render() {

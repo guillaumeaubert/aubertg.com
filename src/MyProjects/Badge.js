@@ -4,12 +4,12 @@ import React from 'react';
 import './Badge.css';
 import loader from '../images/loading-spin.gif';
 
-type Props = {
-  link: string,
-  image: string,
-  text: string,
-  defaultWidth: number,
-};
+type Props = {|
+  +link: string,
+  +image: string,
+  +text: string,
+  +defaultWidth: number,
+|};
 
 type State = {
   isImageLoaded: boolean,

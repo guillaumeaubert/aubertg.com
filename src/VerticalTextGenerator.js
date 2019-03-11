@@ -4,10 +4,10 @@ import React from 'react';
 import Controls from './VerticalTextGenerator/Controls';
 import Display from './VerticalTextGenerator/Display';
 
-type Props = {
-  text: string,
-  transformation: string,
-};
+type Props = {|
+  +text: string,
+  +transformation: string,
+|};
 
 type State = {
   text: string,

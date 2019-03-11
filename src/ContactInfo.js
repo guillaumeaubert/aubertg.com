@@ -6,7 +6,7 @@ import linkedinIcon from './images/brandico_2014-04-07_linkedin-rect_32_0_ffffff
 import envelopeIcon from './images/font-awesome_4-6-3_envelope-square_32_0_ffffff_none.png';
 import './ContactInfo.css';
 
-type Props = {};
+type Props = {||};
 
 class ContactInfo extends React.Component<Props> {
   render() {

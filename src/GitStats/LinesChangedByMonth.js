@@ -12,11 +12,11 @@ const margin = {
 };
 const center_space = 40;
 
-type Props = {
-  data: any,
-  width: number,
-  height: number,
-};
+type Props = {|
+  +data: any,
+  +width: number,
+  +height: number,
+|};
 
 class LinesChangedByMonth extends React.Component<Props> {
   svg: ?Object;

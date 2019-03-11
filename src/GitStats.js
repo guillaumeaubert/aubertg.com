@@ -10,7 +10,7 @@ import * as d3 from 'd3';
 import './GitStats.css';
 import loader from './images/loading-bar.gif';
 
-type Props = {};
+type Props = {||};
 
 type JSONStats = {
   analysis_metadata: {

@@ -12,7 +12,7 @@ import ContactInfo from './ContactInfo';
 import VerticalTextGenerator from './VerticalTextGenerator';
 import './Main.css';
 
-type Props = {};
+type Props = {||};
 
 class Main extends React.Component<Props> {
   render() {

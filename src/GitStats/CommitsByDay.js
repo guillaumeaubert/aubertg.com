@@ -9,12 +9,12 @@ function timeWeekOfYear(date) {
   return +d3.timeFormat('%-U')(date);
 }
 
-type Props = {
-  data: any,
-  width: number,
-  yearHeight: number,
-  cellSize: number,
-};
+type Props = {|
+  +data: any,
+  +width: number,
+  +yearHeight: number,
+  +cellSize: number,
+|};
 
 class CommitsByDay extends React.Component<Props> {
   container: ?HTMLDivElement;

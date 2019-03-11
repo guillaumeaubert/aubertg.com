@@ -12,11 +12,11 @@ const margin =
   bottom: 35,
 };
 
-type Props = {
-  data: any,
-  width: number,
-  height: number,
-};
+type Props = {|
+  +data: any,
+  +width: number,
+  +height: number,
+|};
 
 class CommitsByLanguage extends React.Component<Props> {
   svg: any;

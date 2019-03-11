@@ -14,12 +14,12 @@ export const TRANSFORMATIONS: Map<string, string> = new Map()
   .set('nestedv', 'Nested Vs')
   .set('tree', 'Tree');
 
-type Props = {
-  text: string,
-  transformation: string,
-  onTextChange: any,
-  onTransformationChange: any,
-};
+type Props = {|
+  +text: string,
+  +transformation: string,
+  +onTextChange: any,
+  +onTransformationChange: any,
+|};
 
 class Controls extends React.Component<Props> {
   handleTextChange: any;

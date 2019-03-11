@@ -41,10 +41,10 @@ function getProjectStatus(project) {
   }
 }
 
-type Props = {
-  githubUser: string,
-  dockerhubUser: string,
-};
+type Props = {|
+  +githubUser: string,
+  +dockerhubUser: string,
+|};
 
 type State = {
   projects: ?Array<Object>,

@@ -11,11 +11,11 @@ const margin = {
   left: 40,
 };
 
-type Props = {
-  data: any,
-  width: number,
-  height: number,
-};
+type Props = {|
+  +data: any,
+  +width: number,
+  +height: number,
+|};
 
 class CommitsByMonth extends React.Component<Props> {
   svg: any;

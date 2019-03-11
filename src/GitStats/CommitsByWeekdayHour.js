@@ -56,11 +56,11 @@ const times = [
   '11pm',
 ];
 
-type Props = {
-  data: any,
-  width: number,
-  height: number,
-};
+type Props = {|
+  +data: any,
+  +width: number,
+  +height: number,
+|};
 
 class CommitsByWeekdayHour extends React.Component<Props> {
   svg: any;
