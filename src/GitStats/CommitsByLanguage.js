@@ -1,6 +1,8 @@
 // @flow strict
 
-import React from 'react';
+import type { Node } from 'react';
+
+import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import './CommitsByLanguage.css';
 
@@ -18,50 +20,39 @@ type Props = {|
   +height: number,
 |};
 
-class CommitsByLanguage extends React.Component<Props> {
-  svg: any;
-  data: ?any;
-  languageCounter: number;
+const CommitsByLanguage = (
+  {
+    data,
+    width,
+    height,
+  }: Props
+): Node => {
+  const refContainer = useRef(null);
 
-  constructor(props: Props) {
-    super(props);
+  const languageData: Array<Object> = d3
+    .entries(data)
+    .filter(
+      function(d) {
+        return !d.key.match(/^Text$/);
+      }
+    )
+    .map(
+      function(d, i) {
+        d.lines_added = d.value.added;
+        d.lines_deleted = d.value.deleted;
+        d.commits = d.value.commits;
+        d.language = d.key;
+        d.counter = i;
+        delete d.value;
+        delete d.key;
+        return d;
+      }
+    );
 
-    this.data = d3
-      .entries(this.props.data)
-      .filter(
-        function(d) {
-          return !d.key.match(/^Text$/);
-        }
-      )
-      .map(
-        function(d, i) {
-          d.lines_added = d.value.added;
-          d.lines_deleted = d.value.deleted;
-          d.commits = d.value.commits;
-          d.language = d.key;
-          d.counter = i;
-          delete d.value;
-          delete d.key;
-          return d;
-        }
-      );
+  const languageCounter: number = languageData.length;
 
-    this.languageCounter = this.data.length;
-  }
-
-  componentDidMount() {
-    this.drawChart();
-  }
-
-  shouldComponentUpdate() {
-    return false;
-  }
-
-  drawChart() {
-    let data = this.data;
-    let width = this.props.width;
-    let height = this.props.height;
-    let svg = d3.select(this.svg).append('g')
+  useEffect(() => {
+    let svg = d3.select(refContainer.current).append('g')
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
     // Color scale.
@@ -69,19 +60,19 @@ class CommitsByLanguage extends React.Component<Props> {
 
     // X-axis scale.
     let x = d3.scaleLog()
-      .domain([1, d3.max(data, function (d) { return d.lines_added; })])
+      .domain([1, d3.max(languageData, function (d) { return d.lines_added; })])
       .clamp(true)
       .range([0, width - margin.left - margin.right]);
 
     // Y-axis scale.
     let y = d3.scaleLog()
-      .domain([1, d3.max(data, function (d) { return d.lines_deleted; })])
+      .domain([1, d3.max(languageData, function (d) { return d.lines_deleted; })])
       .clamp(true)
       .range([height - margin.top - margin.bottom, 0]);
 
     // Circle radius scale.
     let r = d3.scaleLog()
-      .domain(d3.extent(data, function(d) { return d.commits; }))
+      .domain(d3.extent(languageData, function(d) { return d.commits; }))
       .range([5,25]);
 
     // X-axis label.
@@ -132,7 +123,7 @@ class CommitsByLanguage extends React.Component<Props> {
     // Add points.
     let points = svg.selectAll('g.node')
       .data(
-        data,
+        languageData,
         function (d) { return d.language; }
       );
     let pointsGroup = points.enter()
@@ -158,32 +149,30 @@ class CommitsByLanguage extends React.Component<Props> {
             + format_thousands(d.commits) + ' commit(s)';
         }
       );
-  }
+  }, []);
 
-  render() {
-    return (
-      <div>
-        <h3>
-          Commits by Language / Type
-          <span className="count">
-            ({this.languageCounter} found)
-          </span>
-        </h3>
-        <ul>
-          <li>X-axis: lines added.</li>
-          <li>Y-axis: lines deleted.</li>
-          <li>Circle radius: logarithmic scale based on the number of commits in that language.</li>
-        </ul>
-        <div id="commits-by-language">
-          <svg
-            width={this.props.width}
-            height={this.props.height}
-            ref={(elem) => { this.svg = elem; }}
-          ></svg>
-        </div>
+  return (
+    <div>
+      <h3>
+        Commits by Language / Type
+        <span className="count">
+          ({languageCounter} found)
+        </span>
+      </h3>
+      <ul>
+        <li>X-axis: lines added.</li>
+        <li>Y-axis: lines deleted.</li>
+        <li>Circle radius: logarithmic scale based on the number of commits in that language.</li>
+      </ul>
+      <div id="commits-by-language">
+        <svg
+          width={width}
+          height={height}
+          ref={refContainer}
+        ></svg>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-export default CommitsByLanguage;
+export default React.memo<Props>(CommitsByLanguage);

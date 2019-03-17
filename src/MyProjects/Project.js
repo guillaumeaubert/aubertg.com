@@ -1,5 +1,7 @@
 // @flow strict
 
+import type { Node } from 'react';
+
 import React from 'react';
 import Badge from './Badge';
 import inArray from 'in-array';
@@ -36,7 +38,14 @@ const WEBSITE_NAMES = {
   'godoc.org': 'GoDoc',
 };
 
-function getProjectBadges(project: Object, ghUser: string, dhUser: string) {
+type TBadge = {|
+  link: string,
+  image: string,
+  text: string,
+  defaultWidth: number,
+|};
+
+const getProjectBadges = (project: Object, ghUser: string, dhUser: string): Array<TBadge> => {
   let badges = [];
 
   if (intersect(TRAVIS_TAGS, project.topics).length > 0) {
@@ -95,16 +104,16 @@ function getProjectBadges(project: Object, ghUser: string, dhUser: string) {
   }
 
   return badges;
-}
+};
 
-function getIconClass(project: Object) {
-  let relevant_topics = intersect(ICON_TAGS, project.topics);
+const getIconClass = (project: Object): string => {
+  const relevant_topics = intersect(ICON_TAGS, project.topics);
   return relevant_topics.length > 0
     ? relevant_topics[0] + '-icon'
     : '';
-}
+};
 
-function getProjectWebsite(url: string) {
+const getProjectWebsite = (url: string): ?Node => {
   if (!url) return null;
 
   let matches = url.match(/^https?:\/\/([^/?#]+)/i);
@@ -114,58 +123,60 @@ function getProjectWebsite(url: string) {
   return (
     <a href={url}>{title}</a>
   );
-}
+};
 
-type Props = {|
-  +data: Object,
-  +githubUser: string,
-  +dockerhubUser: string,
-|};
+const Project = (
+  {
+    data,
+    githubUser,
+    dockerhubUser,
+  }: {|
+    +data: Object,
+    +githubUser: string,
+    +dockerhubUser: string,
+  |}
+) => {
+  const project = data;
+  const website = getProjectWebsite(project.homepage);
+  const badges = project.isDeprecated
+    ? []
+    : getProjectBadges(project, githubUser, dockerhubUser);
 
-class Project extends React.Component<Props> {
-  render() {
-    let project = this.props.data;
-    let website = getProjectWebsite(project.homepage);
-    let badges = project.isDeprecated
-      ? []
-      : getProjectBadges(project, this.props.githubUser, this.props.dockerhubUser);
-
-    return (
-      <tr>
-        {/* Project name and description */}
-        <td
-          className={`name ${getIconClass(project)}`}
-          title={project.description}
-        >
-          { project.name }
-        </td>
-        {/* Links */}
-        <td className="links">
-          <a href={project.html_url}>
-            GitHub
-          </a>
-          {website ? ', ' : ''}
-          {website}
-        </td>
-        {/* Status */}
-        <td className="status" title={`Last commit: ${(new Date(project.pushed_at)).toString()}`}>
-          {project.projectStatus}
-        </td>
-        {/* Badges */}
-        <td className="badges">
-          {badges.map((badge) =>
-            <Badge
-              key={`badge_${badge.link}`}
-              link={badge.link}
-              image={badge.image}
-              text={badge.text}
-              defaultWidth={badge.defaultWidth}
-            />
-          )}
-        </td>
-      </tr>
-    );
-  }
-}
+  return (
+    <tr>
+      {/* Project name and description */}
+      <td
+        className={`name ${getIconClass(project)}`}
+        title={project.description}
+      >
+        { project.name }
+      </td>
+      {/* Links */}
+      <td className="links">
+        <a href={project.html_url}>
+          GitHub
+        </a>
+        {website != null ? ', ' : ''}
+        {website}
+      </td>
+      {/* Status */}
+      <td className="status" title={`Last commit: ${(new Date(project.pushed_at)).toString()}`}>
+        {project.projectStatus}
+      </td>
+      {/* Badges */}
+      <td className="badges">
+        {badges.map((badge) =>
+          <Badge
+            key={`badge_${badge.link}`}
+            link={badge.link}
+            image={badge.image}
+            text={badge.text}
+            defaultWidth={badge.defaultWidth}
+          />
+        )}
+      </td>
+    </tr>
+  );
+};
 
 export default Project;

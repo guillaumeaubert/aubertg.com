@@ -1,6 +1,8 @@
 // @flow strict
 
-import React from 'react';
+import type { Node } from 'react';
+
+import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import './CommitsByWeekdayHour.css';
 
@@ -62,56 +64,51 @@ type Props = {|
   +height: number,
 |};
 
-class CommitsByWeekdayHour extends React.Component<Props> {
-  svg: any;
-  formattedData: Array<Object>;
-  mostActiveWeekdayHour: Object;
+type TMostActiveWeekdayHour = {|
+  +day: ?number,
+  +hour: ?number,
+  +value: number,
+|};
 
-  constructor(props: Props) {
-    super(props);
+const CommitsByWeekdayHour = (
+  {
+    data,
+    width,
+    height,
+  }: Props
+): Node => {
+  const refContainer = useRef(null);
 
-    let data = this.props.data;
-    let formatted_data = [];
-    this.mostActiveWeekdayHour = {
-      'day': '?',
-      'hour': '?',
-      'value': 0,
-    };
-    for (let day = 0; day < 7; day++) {
-      for (let hour = 0; hour < 24; hour++) {
-        let value = +data[days[day]][hour];
-        let node =
-          {
-            'day': day,
-            'hour': hour,
-            'value': value,
-          };
-        if (value > this.mostActiveWeekdayHour.value) {
-          this.mostActiveWeekdayHour = node;
-        }
-        formatted_data.push(node);
+  let formatted_data: Array<Object> = [];
+  let mostActiveWeekdayHour: TMostActiveWeekdayHour = {
+    'day': null,
+    'hour': null,
+    'value': 0,
+  };
+  for (let day = 0; day < 7; day++) {
+    for (let hour = 0; hour < 24; hour++) {
+      let value = +data[days[day]][hour];
+      let node =
+        {
+          'day': day,
+          'hour': hour,
+          'value': value,
+        };
+      if (value > mostActiveWeekdayHour.value) {
+        mostActiveWeekdayHour = node;
       }
+      formatted_data.push(node);
     }
-    this.formattedData = formatted_data;
   }
 
-  componentDidMount() {
-    this.drawChart();
-  }
-
-  shouldComponentUpdate() {
-    return false;
-  }
-
-  drawChart() {
-    let width = this.props.width - margin.left - margin.right;
-    let height = this.props.height - margin.top - margin.bottom;
-    let formatted_data = this.formattedData;
-    let grid_size = Math.floor(width / 24);
+  useEffect(() => {
+    const actualWidth = width - margin.left - margin.right;
+    const actualHeight = height - margin.top - margin.bottom;
+    let grid_size = Math.floor(actualWidth / 24);
     let legend_element_width = grid_size * 2;
 
     // Prepare the graph space and its axes.
-    let svg = d3.select(this.svg).append('g')
+    let svg = d3.select(refContainer.current).append('g')
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
     // Labels for days.
@@ -169,7 +166,7 @@ class CommitsByWeekdayHour extends React.Component<Props> {
 
     legend.append('rect')
       .attr('x', function(d, i) { return legend_element_width * i; })
-      .attr('y', height)
+      .attr('y', actualHeight)
       .attr('width', legend_element_width)
       .attr('height', grid_size / 2)
       .style('fill', function(d, i) { return colors[i]; });
@@ -178,28 +175,32 @@ class CommitsByWeekdayHour extends React.Component<Props> {
       .attr('class', 'mono')
       .text(function(d) { return '≥ ' + Math.round(d); })
       .attr('x', function(d, i) { return legend_element_width * i; })
-      .attr('y', height + grid_size);
+      .attr('y', actualHeight + grid_size);
 
     legend.exit().remove();
-  }
+  }, []);
 
-  render() {
-    return (
-      <div id="commits-by-weekday-hour">
-        <h3>
-          Commits by Weekday Hour
-          <span className="count">
-            (most active: {days[this.mostActiveWeekdayHour.day]} {times[this.mostActiveWeekdayHour.hour]})
-          </span>
-        </h3>
-        <svg
-          width={this.props.width}
-          height={this.props.height}
-          ref={(elem) => { this.svg = elem; }}
-        ></svg>
-      </div>
+  const countDisplay = mostActiveWeekdayHour.day == null || mostActiveWeekdayHour.hour == null
+    ? null
+    : (
+      <span className="count">
+        (most active: {days[mostActiveWeekdayHour.day]} {times[mostActiveWeekdayHour.hour]})
+      </span>
     );
-  }
-}
 
-export default CommitsByWeekdayHour;
+  return (
+    <div id="commits-by-weekday-hour">
+      <h3>
+        Commits by Weekday Hour
+        {countDisplay}
+      </h3>
+      <svg
+        width={width}
+        height={height}
+        ref={refContainer}
+      ></svg>
+    </div>
+  );
+};
+
+export default React.memo<Props>(CommitsByWeekdayHour);

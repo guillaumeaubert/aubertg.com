@@ -1,65 +1,42 @@
 // @flow strict
 
-import React from 'react';
+import type { Node } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import Controls from './VerticalTextGenerator/Controls';
 import Display from './VerticalTextGenerator/Display';
 
-type Props = {|
-  +text: string,
-  +transformation: string,
-|};
+const VerticalTextGenerator = (
+  {
+    text,
+    transformation,
+  }: {|
+    +text: string,
+    +transformation: string,
+  |}
+): Node => {
+  const [currentText, setCurrentText] = useState(text);
+  const [currentTransformation, setCurrentTransformation] = useState(transformation);
 
-type State = {|
-  text: string,
-  transformation: string,
-|};
-
-class VerticalTextGenerator extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      text: this.props.text,
-      transformation: this.props.transformation,
-    };
-
-    (this: any).handleTextChange = this.handleTextChange.bind(this);
-    (this: any).handleTransformationChange = this.handleTransformationChange.bind(this);
-  }
-
-  componentDidMount() {
+  useEffect(() => {
     document.title = 'Vertical Text Generator';
-  }
+  });
 
-  handleTextChange(text: string) {
-    this.setState({
-      text: text,
-    });
-  }
-
-  handleTransformationChange(transformation: string) {
-    this.setState({
-      transformation: transformation,
-    });
-  }
-
-  render() {
-    return (
-      <section>
-        <h1>A vertical text generator...</h1>
-        <Controls
-          text={this.state.text}
-          transformation={this.state.transformation}
-          onTextChange={this.handleTextChange}
-          onTransformationChange={this.handleTransformationChange}
-        />
-        <Display
-          text={this.state.text}
-          transformation={this.state.transformation}
-        />
-      </section>
-    );
-  }
-}
+  return (
+    <section>
+      <h1>A vertical text generator...</h1>
+      <Controls
+        text={currentText}
+        transformation={currentTransformation}
+        onTextChange={setCurrentText}
+        onTransformationChange={setCurrentTransformation}
+      />
+      <Display
+        text={currentText}
+        transformation={currentTransformation}
+      />
+    </section>
+  );
+};
 
 export default VerticalTextGenerator;

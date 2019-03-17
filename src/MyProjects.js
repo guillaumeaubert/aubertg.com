@@ -1,6 +1,8 @@
 // @flow strict
 
-import React from 'react';
+import type { Node } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import Project from './MyProjects/Project';
 import TimeAgo from 'react-timeago';
 import inArray from 'in-array';
@@ -9,7 +11,13 @@ import loader from './images/loading-bar.gif';
 
 const GITHUB_API = 'https://api.github.com/users/';
 
-function getProjectStatus(project) {
+type TProjectStatus = {|
+  +sortOrder: number,
+  +isDeprecated: boolean,
+  +display: string | Array<string | Node>,
+|};
+
+const getProjectStatus = (project): TProjectStatus => {
   if (inArray(project.topics, 'deprecated')) {
     return {
       sortOrder: -1,
@@ -39,33 +47,26 @@ function getProjectStatus(project) {
       ]
     };
   }
-}
+};
 
-type Props = {|
-  +githubUser: string,
-  +dockerhubUser: string,
-|};
+const MyProjects = (
+  {
+    githubUser,
+    dockerhubUser
+  }: {|
+    +githubUser: string,
+    +dockerhubUser: string,
+  |}
+): Node => {
+  const [projects, setProjects] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-type State = {|
-  projects: ?Array<Object>,
-  loading: boolean,
-|};
-
-class MyProjects extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      projects: null,
-      loading: true,
-    };
-  }
-
-  componentDidMount() {
+  useEffect(() => {
     document.title = 'My Projects';
 
     // Retrieve the list of projects from GitHub.
     fetch(
-      GITHUB_API + this.props.githubUser + '/repos?page=1&per_page=1000&sort=pushed',
+      GITHUB_API + githubUser + '/repos?page=1&per_page=1000&sort=pushed',
       {
         method: 'GET',
         credentials: 'same-origin',
@@ -76,8 +77,8 @@ class MyProjects extends React.Component<Props, State> {
         },
       }
     ).then((response) => response.json()
-    ).then((projects) => {
-      let sortedProjects = projects
+    ).then((responseProjects) => {
+      let sortedProjects = responseProjects
         .filter((project) => {
           if (project === null) return false;
           if (project.fork) return false;
@@ -99,57 +100,53 @@ class MyProjects extends React.Component<Props, State> {
           return ((x < y) ? 1 : ((x > y) ? -1 : 0));
         });
 
-      this.setState({
-        projects: sortedProjects,
-        loading: false,
-      });
+      setProjects(sortedProjects);
+      setLoading(false);
     });
-  }
+  });
 
-  render() {
-    let content = '';
-    if (this.state.loading) {
-      content = (
-        <img
-          src={loader}
-          alt='Loading...'
-          style={{display: 'block', margin: '10px auto'}}
+  let content = '';
+  if (loading) {
+    content = (
+      <img
+        src={loader}
+        alt='Loading...'
+        style={{display: 'block', margin: '10px auto'}}
+      />
+    );
+  } else {
+    let projectNodes = (projects || [])
+      .map((project) =>
+        <Project
+          key={`project_${project.id}`}
+          data={project}
+          githubUser={githubUser}
+          dockerhubUser={dockerhubUser}
         />
       );
-    } else {
-      let projects = (this.state.projects || [])
-        .map((project) =>
-          <Project
-            key={`project_${project.id}`}
-            data={project}
-            githubUser={this.props.githubUser}
-            dockerhubUser={this.props.dockerhubUser}
-          />
-        );
-      content = (
-        <table className="list" id="github-projects">
-          <thead>
-            <tr>
-              <th className="name">Name</th>
-              <th className="links">Links</th>
-              <th className="status">Status</th>
-              <th className="badges">Badges</th>
-            </tr>
-          </thead>
-          <tbody>
-            {projects}
-          </tbody>
-        </table>
-      );
-    }
-
-    return (
-      <section>
-        <h1>A visual dashboard for my open source projects</h1>
-        {content}
-      </section>
+    content = (
+      <table className="list" id="github-projects">
+        <thead>
+          <tr>
+            <th className="name">Name</th>
+            <th className="links">Links</th>
+            <th className="status">Status</th>
+            <th className="badges">Badges</th>
+          </tr>
+        </thead>
+        <tbody>
+          {projectNodes}
+        </tbody>
+      </table>
     );
   }
-}
+
+  return (
+    <section>
+      <h1>A visual dashboard for my open source projects</h1>
+      {content}
+    </section>
+  );
+};
 
 export default MyProjects;

@@ -1,6 +1,8 @@
 // @flow strict
 
-import React from 'react';
+import type { Node } from 'react';
+
+import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import './CommitsByMonth.css';
 
@@ -17,28 +19,24 @@ type Props = {|
   +height: number,
 |};
 
-class CommitsByMonth extends React.Component<Props> {
-  svg: any;
-  data: ?any;
+const CommitsByMonth = (
+  {
+    data,
+    width,
+    height,
+  }: Props
+): Node => {
+  const refContainer = useRef(null);
 
-  componentDidMount() {
-    this.drawChart();
-  }
+  useEffect(() => {
+    const actualWidth = width - margin.left - margin.right;
+    const actualHeight = height - margin.top - margin.bottom;
 
-  shouldComponentUpdate() {
-    return false;
-  }
-
-  drawChart() {
-    let data = this.props.data;
-    let width = this.props.width - margin.left - margin.right;
-    let height = this.props.height - margin.top - margin.bottom;
-
-    let svg = d3.select(this.svg).append('g')
+    let svg = d3.select(refContainer.current).append('g')
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
     let x = d3.scaleBand()
-      .rangeRound([0, width])
+      .rangeRound([0, actualWidth])
       .padding(0.1)
       .domain(data.map(function(d) { return d.month; }));
 
@@ -52,7 +50,7 @@ class CommitsByMonth extends React.Component<Props> {
 
     svg.append('g')
       .attr('class', 'x axis')
-      .attr('transform', 'translate(0,' + height + ')')
+      .attr('transform', 'translate(0,' + actualHeight + ')')
       .call(x_axis)
       .selectAll('text')
       .attr('y', 12)
@@ -62,7 +60,7 @@ class CommitsByMonth extends React.Component<Props> {
       .style('text-anchor', 'start');
 
     let y = d3.scaleLinear()
-      .range([height, 0])
+      .range([actualHeight, 0])
       .domain([0, Math.round((d3.max(data, function(d) { return +d.commits; })+1)/50)*50]);
 
     let y_axis = d3.axisLeft()
@@ -80,33 +78,30 @@ class CommitsByMonth extends React.Component<Props> {
       .attr('x', function(d) { return x(d.month); })
       .attr('width', x.bandwidth())
       .attr('y', function(d) { return y(d.commits); })
-      .attr('height', function(d) { return height - y(d.commits); })
+      .attr('height', function(d) { return actualHeight - y(d.commits); })
       .append('title')
       .text(function(d) { return d.month.replace('-', ' ') + ': ' + d.commits + ' commit' + (d.commits === 1 ? '' : 's'); });
-  }
+  }, []);
 
-  render() {
-    let data = this.props.data;
-    let total_commits = d3.sum(data, function(d) { return +d.commits; });
+  let total_commits = d3.sum(data, function(d) { return +d.commits; });
 
-    return (
-      <div>
-        <h3>
-          Commits by Month
-          <span className="count">
-            ({d3.format(',d')(total_commits)} commits)
-          </span>
-        </h3>
-        <div id="commits-by-month">
-          <svg
-            width={this.props.width}
-            height={this.props.height}
-            ref={(elem) => { this.svg = elem; }}
-          ></svg>
-        </div>
+  return (
+    <div>
+      <h3>
+        Commits by Month
+        <span className="count">
+          ({d3.format(',d')(total_commits)} commits)
+        </span>
+      </h3>
+      <div id="commits-by-month">
+        <svg
+          width={width}
+          height={height}
+          ref={refContainer}
+        ></svg>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-export default CommitsByMonth;
+export default React.memo<Props>(CommitsByMonth);

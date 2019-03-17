@@ -1,6 +1,8 @@
 // @flow strict
 
-import React from 'react';
+import type { Node } from 'react';
+
+import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import './CommitsByDay.css';
 
@@ -10,28 +12,25 @@ function timeWeekOfYear(date) {
 }
 
 type Props = {|
-  +data: any,
-  +width: number,
-  +yearHeight: number,
-  +cellSize: number,
+    +data: any,
+    +width: number,
+    +yearHeight: number,
+    +cellSize: number,
 |};
 
-class CommitsByDay extends React.Component<Props> {
-  container: ?HTMLDivElement;
+const CommitsByDay = (
+  {
+    data,
+    width,
+    yearHeight,
+    cellSize,
+  }: Props
+): Node => {
+  const refContainer = useRef(null);
 
-  componentDidMount() {
-    this.drawChart();
-  }
-
-  shouldComponentUpdate() {
-    return false;
-  }
-
-  drawChart() {
-    let data = this.props.data;
-    let width = this.props.width;
-    let height = this.props.yearHeight;
-    let calendar_cell_size = this.props.cellSize;
+  useEffect(() => {
+    let height = yearHeight;
+    let calendar_cell_size = cellSize;
 
     // Function to draw month outlines.
     let calendar_month_path = function(t0)
@@ -62,7 +61,7 @@ class CommitsByDay extends React.Component<Props> {
     });
 
     // Set up graph.
-    let svg = d3.select(this.container)
+    let svg = d3.select(refContainer.current)
       .selectAll('svg')
       .data(d3.range(d3.min(years), d3.max(years)+1))
       .enter()
@@ -105,23 +104,20 @@ class CommitsByDay extends React.Component<Props> {
       .attr('class', function(d) { return 'day ' + color(Math.log(data[d]+1)); })
       .select('title')
       .text(function(d) { let commits = data[d]; return d + ': ' + commits + ' commit' + (commits === 1 ? '' : 's'); });
-  }
+  }, []);
 
-  render() {
-    let data = this.props.data;
-    let total_days = Object.keys(data).length;
+  let total_days = Object.keys(data).length;
 
-    return (
-      <div id="commits-by-day" ref={(elem) => { this.container = elem; }}>
-        <h3>
-          Commits by Day
-          <span className="count">
-            ({total_days} active days)
-          </span>
-        </h3>
-      </div>
-    );
-  }
-}
+  return (
+    <div id="commits-by-day" ref={refContainer}>
+      <h3>
+        Commits by Day
+        <span className="count">
+          ({total_days} active days)
+        </span>
+      </h3>
+    </div>
+  );
+};
 
-export default CommitsByDay;
+export default React.memo<Props>(CommitsByDay);
