@@ -1580,8 +1580,8 @@
     }
   ],
   "analysis_metadata": {
-    "started_at": 1558865109,
+    "started_at": 1558951508,
     "repositories_analyzed": 70,
-    "ms_spent": 95397
+    "ms_spent": 89235
   }
 }
