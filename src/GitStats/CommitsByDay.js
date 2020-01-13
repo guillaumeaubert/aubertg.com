@@ -104,7 +104,7 @@ const CommitsByDay = (
       .attr('class', function(d) { return 'day ' + color(Math.log(data[d]+1)); })
       .select('title')
       .text(function(d) { let commits = data[d]; return d + ': ' + commits + ' commit' + (commits === 1 ? '' : 's'); });
-  }, []);
+  }, []); // eslint-disable-line
 
   let total_days = Object.keys(data).length;
 

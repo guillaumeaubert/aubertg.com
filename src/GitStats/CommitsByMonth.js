@@ -81,7 +81,7 @@ const CommitsByMonth = (
       .attr('height', function(d) { return actualHeight - y(d.commits); })
       .append('title')
       .text(function(d) { return d.month.replace('-', ' ') + ': ' + d.commits + ' commit' + (d.commits === 1 ? '' : 's'); });
-  }, []);
+  }, []); // eslint-disable-line
 
   let total_commits = d3.sum(data, function(d) { return +d.commits; });
 

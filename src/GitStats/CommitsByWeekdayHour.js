@@ -178,7 +178,7 @@ const CommitsByWeekdayHour = (
       .attr('y', actualHeight + grid_size);
 
     legend.exit().remove();
-  }, []);
+  }, []); // eslint-disable-line
 
   const countDisplay = mostActiveWeekdayHour.day == null || mostActiveWeekdayHour.hour == null
     ? null

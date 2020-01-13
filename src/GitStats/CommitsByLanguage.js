@@ -149,7 +149,7 @@ const CommitsByLanguage = (
             + format_thousands(d.commits) + ' commit(s)';
         }
       );
-  }, []);
+  }, []); // eslint-disable-line
 
   return (
     <div>

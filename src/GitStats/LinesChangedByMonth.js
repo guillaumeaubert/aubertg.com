@@ -151,7 +151,7 @@ const LinesChangedByMonth = (
       .attr('y', function() { return (actualHeight+center_space)/2+1; })
       .append('title')
       .text(function(d) { return d.month.replace('-', ' ') + ': ' + format_lines_count(d.deleted) + ' line' + (d.deleted === 1 ? '' : 's'); });
-  }, []);
+  }, []); // eslint-disable-line
 
   const format_lines_count = d3.format(',d');
   const total_lines_added = d3.sum(data, function(d) { return +d.added; });
